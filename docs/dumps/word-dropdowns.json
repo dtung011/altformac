@@ -1,0 +1,411 @@
+{
+ "Design > Paragraph Spacing": {
+  "items": []
+ },
+ "Design > Page Color": {
+  "items": [
+   "More Colors..."
+  ]
+ },
+ "Home > Paste": {
+  "items": [
+   "Paste Options:",
+   "Keep Source Formatting",
+   "Match Formatting",
+   "Keep Text Only",
+   "Paste Special..."
+  ]
+ },
+ "Home > Change Case": {
+  "items": [
+   "Sentence case.",
+   "lowercase",
+   "UPPERCASE",
+   "Capitalize Each Word",
+   "tOGGLE cASE"
+  ]
+ },
+ "Home > Underline": {
+  "items": []
+ },
+ "Home > Text Effects": {
+  "items": [
+   "Outline",
+   "Shadow",
+   "Reflection",
+   "Glow",
+   "Number Styles",
+   "Ligatures",
+   "Stylistic Sets"
+  ]
+ },
+ "Home > Text Highlight Color": {
+  "items": []
+ },
+ "Home > Font Color": {
+  "items": [
+   "More Colors...",
+   "Gradient"
+  ]
+ },
+ "Home > Bullets": {
+  "items": [
+   "Define New Bullet..."
+  ]
+ },
+ "Home > Numbering": {
+  "items": [
+   "Define New Number Format..."
+  ]
+ },
+ "Home > Multilevel List": {
+  "items": [
+   "Define New Multilevel List...",
+   "Define New List Style..."
+  ]
+ },
+ "Home > Line and Paragraph Spacing": {
+  "items": [
+   "1.0",
+   "1.15",
+   "1.5",
+   "2.0",
+   "2.5",
+   "3.0",
+   "Line Spacing Options\u2026",
+   "Add Space Before Paragraph",
+   "Remove Space After Paragraph"
+  ]
+ },
+ "Home > Shading": {
+  "items": [
+   "More Colors..."
+  ]
+ },
+ "Home > Borders": {
+  "items": [
+   "Bottom Border",
+   "Top Border",
+   "Left Border",
+   "Right Border",
+   "No Border",
+   "All Borders",
+   "Outside Borders",
+   "Inside Borders",
+   "Inside Horizontal Border",
+   "Inside Vertical Border",
+   "Diagonal Down Border",
+   "Diagonal Up Border",
+   "Horizontal Line",
+   "Draw Table",
+   "View Gridlines",
+   "Borders and Shading..."
+  ]
+ },
+ "Insert > Table": {
+  "items": [
+   "Insert Table...",
+   "Draw Table",
+   "Convert Text to Table..."
+  ]
+ },
+ "Insert > Chart": {
+  "items": [
+   "Column",
+   "Line",
+   "Pie",
+   "Hierarchy",
+   "Statistical",
+   "X Y (Scatter)",
+   "Waterfall",
+   "Combo",
+   "Maps",
+   "Save as Template...",
+   "Manage Templates..."
+  ]
+ },
+ "Insert > Media": {
+  "items": [
+   "Movie Browser...",
+   "Movie from File...",
+   "Audio Browser...",
+   "Audio from File..."
+  ]
+ },
+ "Insert > Header": {
+  "items": [
+   "Edit Header",
+   "Remove Header"
+  ]
+ },
+ "Insert > Footer": {
+  "items": [
+   "Edit Footer",
+   "Remove Footer"
+  ]
+ },
+ "Insert > Page Number": {
+  "items": [
+   "Page Number",
+   "Format Page Numbers...",
+   "Remove Page Numbers"
+  ]
+ },
+ "Insert > Text Box": {
+  "items": [
+   "Draw Text Box",
+   "Draw Vertical Text Box"
+  ]
+ },
+ "Insert > Drop Cap": {
+  "items": []
+ },
+ "Insert > Object": {
+  "items": [
+   "Object...",
+   "Text from File..."
+  ]
+ },
+ "Layout > Margins": {
+  "items": [
+   "Custom Margins..."
+  ]
+ },
+ "Layout > Orientation": {
+  "items": []
+ },
+ "Layout > Size": {
+  "items": []
+ },
+ "Layout > Columns": {
+  "items": [
+   "More Columns..."
+  ]
+ },
+ "Layout > Breaks": {
+  "items": []
+ },
+ "Layout > Line Numbers": {
+  "items": [
+   "None",
+   "Continuous",
+   "Restart Each Page",
+   "Restart Each Section",
+   "Suppress for Current Paragraph",
+   "Line Numbering Options..."
+  ]
+ },
+ "Layout > Hyphenation": {
+  "items": [
+   "None",
+   "Automatic",
+   "Manual",
+   "Hyphenation Options..."
+  ]
+ },
+ "Layout > Position": {
+  "items": [
+   "More Layout Options..."
+  ]
+ },
+ "Layout > Wrap Text": {
+  "items": [
+   "In Line with Text",
+   "Square",
+   "Tight",
+   "Through",
+   "Top and Bottom",
+   "Behind Text",
+   "In Front of Text",
+   "Edit Wrap Boundary",
+   "Move with Text",
+   "Fix Position on Page",
+   "More Layout Options..."
+  ]
+ },
+ "Layout > Bring Forward": {
+  "items": [
+   "Bring Forward",
+   "Bring to Front",
+   "Bring in Front of Text"
+  ]
+ },
+ "Layout > Send Backward": {
+  "items": [
+   "Send Backward",
+   "Send to Back",
+   "Send Behind Text"
+  ]
+ },
+ "Layout > Align": {
+  "items": [
+   "Align Left",
+   "Align Center",
+   "Align Right",
+   "Align Top",
+   "Align Middle",
+   "Align Bottom",
+   "Distribute Horizontally",
+   "Distribute Vertically",
+   "Align to Page",
+   "Align to Margin",
+   "Align Selected Objects",
+   "View Gridlines",
+   "Grid Settings..."
+  ]
+ },
+ "Layout > Group": {
+  "items": [
+   "Group",
+   "Ungroup"
+  ]
+ },
+ "Layout > Rotate": {
+  "items": [
+   "Rotate Right 90\u00b0",
+   "Rotate Left 90\u00b0",
+   "Flip Vertical",
+   "Flip Horizontal",
+   "More Rotation Options..."
+  ]
+ },
+ "Mailings > Start Mail Merge": {
+  "items": [
+   "Letters",
+   "Email Messages",
+   "Envelopes...",
+   "Labels...",
+   "Directory",
+   "Normal Word Document"
+  ]
+ },
+ "Mailings > Select Recipients": {
+  "items": [
+   "Create a New List...",
+   "Use an Existing List...",
+   "Choose from Outlook Contacts...",
+   "Apple Contacts...",
+   "FileMaker Pro..."
+  ]
+ },
+ "Mailings > Insert Merge Field": {
+  "items": []
+ },
+ "Mailings > Rules": {
+  "items": []
+ },
+ "Mailings > Finish & Merge": {
+  "items": [
+   "Edit Individual Documents...",
+   "Print Documents...",
+   "Merge to E-Mail"
+  ]
+ },
+ "References > Table of Contents": {
+  "items": [
+   "Custom Table of Contents...",
+   "Remove Table of Contents"
+  ]
+ },
+ "References > Add Text": {
+  "items": [
+   "Do Not Show in Table of Contents",
+   "Level 1",
+   "Level 2",
+   "Level 3"
+  ]
+ },
+ "References > Next Footnote": {
+  "items": [
+   "Next Footnote",
+   "Previous Footnote",
+   "Next Endnote",
+   "Previous Endnote"
+  ]
+ },
+ "References > Bibliography": {
+  "items": []
+ },
+ "Review > Spelling and Grammar": {
+  "items": [
+   "Spelling",
+   "Spelling and Grammar"
+  ]
+ },
+ "Review > Translate": {
+  "items": [
+   "Translate Selection",
+   "Translate Document",
+   "Set Document Translation Language..."
+  ]
+ },
+ "Review > Delete": {
+  "items": [
+   "Delete",
+   "Delete All Comments Shown",
+   "Delete All Comments in Document",
+   "Delete All Resolved Comments"
+  ]
+ },
+ "Review > Show Comments": {
+  "items": [
+   "Contextual",
+   "List"
+  ]
+ },
+ "Review > Track Changes": {
+  "items": [
+   "For Everyone",
+   "Just Mine"
+  ]
+ },
+ "Review > Markup Options": {
+  "items": [
+   "Ink",
+   "Insertions and Deletions",
+   "Formatting",
+   "Balloons",
+   "Reviewers",
+   "Highlight Updates",
+   "Other Authors",
+   "Preferences..."
+  ]
+ },
+ "Review > Accept": {
+  "items": [
+   "Accept and Move to Next",
+   "Accept This Change",
+   "Accept All Changes Shown",
+   "Accept All Changes",
+   "Accept All Changes and Stop Tracking"
+  ]
+ },
+ "Review > Reject": {
+  "items": [
+   "Reject and Move to Next",
+   "Reject Change",
+   "Reject All Changes Shown",
+   "Reject All Changes",
+   "Reject All Changes and Stop Tracking"
+  ]
+ },
+ "Review > Compare": {
+  "items": [
+   "Compare Documents...",
+   "Combine Documents..."
+  ]
+ },
+ "Review > Block Authors": {
+  "items": [
+   "Block Authors",
+   "Unblock All My Blocked Areas"
+  ]
+ },
+ "View > Macros": {
+  "items": [
+   "View Macros",
+   "Record Macro...",
+   "Pause Recording"
+  ]
+ }
+}

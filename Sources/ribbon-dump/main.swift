@@ -107,21 +107,40 @@ if listWindows {
 // --open-dropdown TAB CONTROL [ROLE]: opens one ribbon dropdown with AXShowMenu (never AXPress: on split
 // buttons such as Borders, AXPress APPLIES the default action to the user's selection), dumps whatever
 // popup appears (titles only), then asks it to close with AXCancel. It never presses anything else.
-if openDropdown.count >= 2, let window = office.focusedWindow(of: app), let ribbon = RibbonExecutor.ribbonGroup(in: window) {
+// A leftover dropdown popup can be Excel's focused window, so use the first window that has the ribbon.
+let ribbonWindow = ([office.focusedWindow(of: app)].compactMap { $0 } + app.nodes(kAXWindowsAttribute))
+    .first { RibbonExecutor.ribbonGroup(in: $0) != nil }
+if openDropdown.count >= 2, let window = ribbonWindow, let ribbon = RibbonExecutor.ribbonGroup(in: window) {
+    func popupWindows() -> [AXNode] { app.nodes(kAXWindowsAttribute).filter { !CFEqual($0.ref, window.ref) } }
     let tab = openDropdown[0], control = openDropdown[1]
     let role = openDropdown.count > 2 ? RibbonExecutor.roles[openDropdown[2]] : nil
-    if let b = ribbon.children.first(where: { $0.role == kAXRadioButtonRole as String && $0.title == tab }) { b.press(); Thread.sleep(forTimeInterval: 0.8) }
+    // Pressing the tab that is already selected collapses the ribbon, so only switch when needed.
+    let shownTab = ribbon.children.first(where: { $0.role == kAXScrollAreaRole as String })?
+        .descriptionText?.replacingOccurrences(of: " Tab Commands", with: "")
+    if shownTab != tab,
+       let b = ribbon.children.first(where: { $0.role == kAXRadioButtonRole as String && $0.title == tab }) {
+        b.press(); Thread.sleep(forTimeInterval: 0.8)
+    }
     guard let area = ribbon.children.first(where: { $0.role == kAXScrollAreaRole as String }) else { fail("no commands area") }
     guard let node = RibbonExecutor.find(in: area, title: control, role: role) else {
         fail("control not found (tab now: \(area.descriptionText ?? "?"))")
     }
     guard node.actions.contains("AXShowMenu") else { fail("\(control) has no AXShowMenu action, not opening it") }
+    let popupsBefore = popupWindows().compactMap { $0.frame() }
     AXUIElementPerformAction(node.ref, "AXShowMenu" as CFString)
     Thread.sleep(forTimeInterval: 0.6)
     var popup: [String: Any] = ["control": dumper.dump(node, depth: 6)]
     popup["appLevelMenus"] = app.children.filter { $0.role == "AXMenu" }.map { dumper.dump($0) }
     popup["windows"] = app.nodes(kAXWindowsAttribute).map { ["role": $0.role ?? "?", "children": $0.children.count] as [String: Any] }
-    if let focused = app.node(kAXFocusedUIElementAttribute) { popup["focusedElement"] = dumper.dump(focused, depth: 6) }
+    // Excel opens ribbon dropdowns as a separate small window next to the ribbon window: dump those too.
+    // Popup windows left over from earlier runs stay in the AX tree after they are gone from the screen,
+    // so each entry carries its frame and `isNew` says whether it was absent before this run's ShowMenu.
+    popup["popupWindows"] = popupWindows().map { w -> [String: Any] in
+        let f = w.frame()
+        let isNew = f.map { fr in !popupsBefore.contains(fr) } ?? true
+        return ["isNew": isNew, "frame": f.map { "\($0)" } ?? "?", "tree": dumper.dump(w, depth: 8)]
+    }
+    // The focused element is deliberately not dumped: in a sheet it is a cell, and cell content is off limits.
     FileHandle.standardOutput.write(try JSONSerialization.data(withJSONObject: popup, options: [.prettyPrinted, .sortedKeys]))
     func cancelMenu(_ n: AXNode, _ depth: Int = 0) -> Bool {
         for c in n.children {
@@ -130,9 +149,8 @@ if openDropdown.count >= 2, let window = office.focusedWindow(of: app), let ribb
         }
         return false
     }
-    if !(cancelMenu(node) || cancelMenu(app)) {
-        FileHandle.standardError.write(Data("popup not exposed in AX: if a menu is open on screen, press Escape\n".utf8))
-    }
+    // Excel's dropdown is a separate window with no AXCancel, and nothing here sends keys or clicks.
+    _ = cancelMenu(node) || cancelMenu(app)
     exit(0)
 }
 

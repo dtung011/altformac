@@ -80,6 +80,21 @@ public struct Mapping: Codable, Equatable {
         case maxExcel = "max_excel"
     }
 
+    /// True for a ribbon tab letter (Excel "N" = Insert tab): the tab switches at once, but the sequence
+    /// stays open for the letters that follow, like Windows KeyTips. Never auto-committed.
+    public var isTabSwitch: Bool {
+        guard run.count == 1, case .ribbon(let target) = run[0] else { return false }
+        return target.control.isEmpty && target.item == nil
+    }
+
+    /// True for an entry that only opens a ribbon dropdown (`menu: true`, no `item`), e.g. "H M" opening the
+    /// Merge & Center menu. When longer sequences exist (H M C ...) the HUD already lists the letters, so
+    /// such an entry is never auto-committed: opening the menu mid-sequence would swallow the next letter.
+    public var isMenuOpener: Bool {
+        guard run.count == 1, case .ribbon(let target) = run[0] else { return false }
+        return target.menu == true && target.item == nil
+    }
+
     public init(keys: String, label: String, ribbon: String? = nil, run: [ExecutorStep],
                 minExcel: String? = nil, maxExcel: String? = nil) {
         self.keys = keys

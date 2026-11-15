@@ -1,0 +1,282 @@
+{
+ "Animations > Preview": {
+  "items": [
+   "Preview",
+   "AutoPreview"
+  ]
+ },
+ "Animations > Exit Effects": {
+  "error": "ribbon-dump: control not found (tab now: Animations Tab Commands)"
+ },
+ "Animations > Path Animation": {
+  "items": []
+ },
+ "Animations > Effect Options": {
+  "items": []
+ },
+ "Animations > Trigger": {
+  "items": [
+   "On Click of",
+   "On Bookmark"
+  ]
+ },
+ "Design > Slide Size": {
+  "items": [
+   "Page Setup..."
+  ]
+ },
+ "Home > Paste": {
+  "items": [
+   "Use Destination Theme",
+   "Keep Source Formatting",
+   "Keep Text Only",
+   "Paste Special..."
+  ]
+ },
+ "Home > New Slide": {
+  "items": [
+   "Duplicate Slide",
+   "Outline...",
+   "Reuse Slides..."
+  ]
+ },
+ "Home > Layout": {
+  "items": []
+ },
+ "Home > Section": {
+  "items": [
+   "Add Section",
+   "Rename Section",
+   "Remove Section",
+   "Remove All Sections",
+   "Collapse All",
+   "Expand All"
+  ]
+ },
+ "Home > Character Spacing": {
+  "items": [
+   "Very Tight",
+   "Tight",
+   "Normal",
+   "Loose",
+   "Very Loose",
+   "More Spacing..."
+  ]
+ },
+ "Home > Change Case": {
+  "items": [
+   "Sentence case.",
+   "lowercase",
+   "UPPERCASE",
+   "Capitalize Each Word",
+   "tOGGLE cASE"
+  ]
+ },
+ "Home > Text Highlight Color": {
+  "items": [
+   "Stop Highlighting"
+  ]
+ },
+ "Home > Font Color": {
+  "items": [
+   "More Colors..."
+  ]
+ },
+ "Home > Bullets": {
+  "items": [
+   "Bullets and Numbering..."
+  ]
+ },
+ "Home > Numbering": {
+  "items": [
+   "Bullets and Numbering..."
+  ]
+ },
+ "Home > Line Spacing": {
+  "items": [
+   "1.0",
+   "1.5",
+   "2.0",
+   "2.5",
+   "3.0",
+   "Line Spacing Options..."
+  ]
+ },
+ "Home > Columns": {
+  "items": [
+   "One Column",
+   "Two Columns",
+   "Three Columns",
+   "More Columns..."
+  ]
+ },
+ "Home > Text Direction": {
+  "items": [
+   "Horizontal",
+   "Rotate all text 90\u00b0",
+   "Rotate all text 270\u00b0",
+   "Stacked",
+   "More Options..."
+  ]
+ },
+ "Home > Align Text": {
+  "items": [
+   "Top",
+   "Middle",
+   "Bottom",
+   "Align Text Options..."
+  ]
+ },
+ "Home > Convert to SmartArt": {
+  "items": []
+ },
+ "Home > Picture": {
+  "items": [
+   "Brand Images...",
+   "Photo Browser\u2026",
+   "Picture from File...",
+   "Stock Images...",
+   "Online Pictures..."
+  ]
+ },
+ "Home > Arrange": {
+  "items": [
+   "Reorder Objects",
+   "Reorder Overlapping Objects",
+   "Reorder Objects",
+   "Bring to Front",
+   "Send to Back",
+   "Bring Forward",
+   "Send Backward",
+   "Group Objects",
+   "Group",
+   "Ungroup",
+   "Regroup",
+   "Position Objects",
+   "Align",
+   "Rotate",
+   "Selection Pane..."
+  ]
+ },
+ "Home > Quick Styles": {
+  "items": []
+ },
+ "Home > Shape Fill": {
+  "items": [
+   "More Fill Colors...",
+   "Picture...",
+   "Gradient",
+   "Texture"
+  ]
+ },
+ "Home > Shape Outline": {
+  "items": [
+   "More Outline Colors...",
+   "Weight",
+   "Sketched",
+   "Dashes",
+   "Arrows"
+  ]
+ },
+ "Insert > New Slide": {
+  "items": [
+   "Duplicate Slide",
+   "Outline...",
+   "Reuse Slides..."
+  ]
+ },
+ "Insert > Table": {
+  "items": [
+   "Insert Table..."
+  ]
+ },
+ "Insert > Chart": {
+  "items": [
+   "Column",
+   "Line",
+   "Pie",
+   "Hierarchy",
+   "Statistical",
+   "X Y (Scatter)",
+   "Waterfall",
+   "Combo",
+   "Maps",
+   "Save as Template...",
+   "Manage Templates..."
+  ]
+ },
+ "Insert > Zoom": {
+  "items": [
+   "Summary Zoom",
+   "Section Zoom",
+   "Slide Zoom"
+  ]
+ },
+ "Insert > Video": {
+  "items": [
+   "Movie Browser...",
+   "Movie from File...",
+   "Stock Videos...",
+   "Online Movie..."
+  ]
+ },
+ "Insert > Audio": {
+  "items": [
+   "Audio Browser...",
+   "Audio from File...",
+   "Record Audio..."
+  ]
+ },
+ "Review > Check Accessibility": {
+  "items": [
+   "Check Accessibility",
+   "Alt Text",
+   "Reading Order Pane",
+   "Accessibility Help"
+  ]
+ },
+ "Review > Delete": {
+  "items": [
+   "Delete",
+   "Delete All Comments on Slide",
+   "Delete All Comments in Presentation"
+  ]
+ },
+ "Review > Show Comments": {
+  "items": [
+   "Comments Pane",
+   "Show Markup",
+   "Show Advanced Markup"
+  ]
+ },
+ "Review > Restrict Permission": {
+  "items": []
+ },
+ "Slide Show > Custom Show": {
+  "items": [
+   "Custom Slide Show"
+  ]
+ },
+ "Slide Show > Record": {
+  "items": [
+   "From Beginning",
+   "From Current Slide",
+   "Clear"
+  ]
+ },
+ "Slide Show > Subtitle Settings": {
+  "items": [
+   "Spoken Language: English (United States)",
+   "Subtitle Language: English",
+   "Microphone",
+   "Bottom (Overlaid)",
+   "Top (Overlaid)",
+   "Below Slide",
+   "Above Slide",
+   "System Caption Preferences..."
+  ]
+ },
+ "Transitions > Effect Options": {
+  "items": []
+ }
+}

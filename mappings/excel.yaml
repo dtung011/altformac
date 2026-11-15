@@ -407,11 +407,55 @@
   ribbon: "Home > Underline"
   run:
     - ribbon: { tab: "Home", control: "Underline" }
-- keys: "H B"
-  label: "Borders (opens menu)"
-  ribbon: "Home > Borders"
+# Borders dropdown. Excel for Mac opens it as a separate popup window whose choices are AXMenuButtons
+# (titles read with `ribbon-dump --open-dropdown Home Borders menubutton`, Excel 16.104).
+# `H B` alone is only a prefix: the HUD lists these letters. Left out: double/thick bottom, top-and-bottom
+# variants, draw/erase border, line color and style (letters unverified or they open sub-menus).
+- keys: "H B B"
+  label: "Bottom border"
+  ribbon: "Home > Borders > Bottom Border"
   run:
-    - ribbon: { tab: "Home", control: "Borders", menu: true }
+    - ribbon: { tab: "Home", control: "Borders", item: "Bottom Border" }
+- keys: "H B P"
+  label: "Top border"
+  ribbon: "Home > Borders > Top Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", item: "Top Border" }
+- keys: "H B L"
+  label: "Left border"
+  ribbon: "Home > Borders > Left Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", item: "Left Border" }
+- keys: "H B R"
+  label: "Right border"
+  ribbon: "Home > Borders > Right Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", item: "Right Border" }
+- keys: "H B N"
+  label: "No border"
+  ribbon: "Home > Borders > No Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", item: "No Border" }
+- keys: "H B A"
+  label: "All borders"
+  ribbon: "Home > Borders > All Borders"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", item: "All Borders" }
+- keys: "H B S"
+  label: "Outside borders"
+  ribbon: "Home > Borders > Outside Borders"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", item: "Outside Borders" }
+- keys: "H B T"
+  label: "Thick box border"
+  ribbon: "Home > Borders > Thick Box Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", item: "Thick Box Border" }
+- keys: "H B M"
+  label: "More borders (dialog)"
+  ribbon: "Home > Borders > More Borders..."
+  run:
+    - ribbon: { tab: "Home", control: "Borders", item: "More Borders..." }
 - keys: "H F C"
   label: "Font color (opens palette)"
   ribbon: "Home > Font > Font Color"
@@ -932,3 +976,193 @@
   ribbon: "File > Close"
   run:
     - menu: ["File", "Close"]
+
+# Dropdown items. Excel for Mac opens these dropdowns as a separate popup window; the executor opens
+# the dropdown with AXShowMenu and presses the item by its exact title. Titles read from the live
+# popups with `ribbon-dump --open-dropdown TAB CONTROL menubutton` (Excel 16.104). Letters are the
+# Windows Excel access keys.
+- keys: "H M C"
+  label: "Merge & center"
+  ribbon: "Home > Merge & Center > Merge & Center"
+  run:
+    - ribbon: { tab: "Home", control: "Merge & Center", role: menubutton, item: "Merge & Center" }
+- keys: "H M A"
+  label: "Merge across"
+  ribbon: "Home > Merge & Center > Merge Across"
+  run:
+    - ribbon: { tab: "Home", control: "Merge & Center", role: menubutton, item: "Merge Across" }
+- keys: "H M M"
+  label: "Merge cells"
+  ribbon: "Home > Merge & Center > Merge Cells"
+  run:
+    - ribbon: { tab: "Home", control: "Merge & Center", role: menubutton, item: "Merge Cells" }
+- keys: "H M U"
+  label: "Unmerge cells"
+  ribbon: "Home > Merge & Center > Unmerge Cells"
+  run:
+    - ribbon: { tab: "Home", control: "Merge & Center", role: menubutton, item: "Unmerge Cells" }
+- keys: "H F I D"
+  label: "Fill down"
+  ribbon: "Home > Fill > Down"
+  run:
+    - ribbon: { tab: "Home", control: "Fill", role: menubutton, item: "Down" }
+- keys: "H F I R"
+  label: "Fill right"
+  ribbon: "Home > Fill > Right"
+  run:
+    - ribbon: { tab: "Home", control: "Fill", role: menubutton, item: "Right" }
+- keys: "H F I U"
+  label: "Fill up"
+  ribbon: "Home > Fill > Up"
+  run:
+    - ribbon: { tab: "Home", control: "Fill", role: menubutton, item: "Up" }
+- keys: "H F I L"
+  label: "Fill left"
+  ribbon: "Home > Fill > Left"
+  run:
+    - ribbon: { tab: "Home", control: "Fill", role: menubutton, item: "Left" }
+- keys: "H F I S"
+  label: "Fill series"
+  ribbon: "Home > Fill > Series..."
+  run:
+    - ribbon: { tab: "Home", control: "Fill", role: menubutton, item: "Series..." }
+- keys: "H F I J"
+  label: "Justify"
+  ribbon: "Home > Fill > Justify"
+  run:
+    - ribbon: { tab: "Home", control: "Fill", role: menubutton, item: "Justify" }
+- keys: "H F I F"
+  label: "Flash fill"
+  ribbon: "Home > Fill > Flash Fill"
+  run:
+    - ribbon: { tab: "Home", control: "Fill", role: menubutton, item: "Flash Fill" }
+- keys: "H S S"
+  label: "Custom sort"
+  ribbon: "Home > Sort & Filter > Custom Sort..."
+  run:
+    - ribbon: { tab: "Home", control: "Sort & Filter", role: menubutton, item: "Custom Sort..." }
+- keys: "H S O"
+  label: "Sort Z to A"
+  ribbon: "Home > Sort & Filter > Sort Z to A"
+  run:
+    - ribbon: { tab: "Home", control: "Sort & Filter", role: menubutton, item: "Sort Z to A" }
+- keys: "H S Y"
+  label: "Reapply filter"
+  ribbon: "Home > Sort & Filter > Reapply"
+  run:
+    - ribbon: { tab: "Home", control: "Sort & Filter", role: menubutton, item: "Reapply" }
+- keys: "H F D S"
+  label: "Go to special"
+  ribbon: "Home > Find & Select > Go To Special..."
+  run:
+    - ribbon: { tab: "Home", control: "Find & Select", role: menubutton, item: "Go To Special..." }
+- keys: "H L N"
+  label: "New formatting rule"
+  ribbon: "Home > Conditional Formatting > New Rule..."
+  run:
+    - ribbon: { tab: "Home", control: "Conditional Formatting", role: menubutton, item: "New Rule..." }
+- keys: "H L R"
+  label: "Manage rules"
+  ribbon: "Home > Conditional Formatting > Manage Rules..."
+  run:
+    - ribbon: { tab: "Home", control: "Conditional Formatting", role: menubutton, item: "Manage Rules..." }
+- keys: "H D R"
+  label: "Delete sheet rows"
+  ribbon: "Home > Delete > Delete Sheet Rows"
+  run:
+    - ribbon: { tab: "Home", control: "Delete", role: menubutton, item: "Delete Sheet Rows" }
+- keys: "H D C"
+  label: "Delete sheet columns"
+  ribbon: "Home > Delete > Delete Sheet Columns"
+  run:
+    - ribbon: { tab: "Home", control: "Delete", role: menubutton, item: "Delete Sheet Columns" }
+- keys: "H U S"
+  label: "Sum"
+  ribbon: "Home > AutoSum > Sum"
+  run:
+    - ribbon: { tab: "Home", control: "AutoSum", role: menubutton, item: "Sum" }
+- keys: "H U A"
+  label: "Average"
+  ribbon: "Home > AutoSum > Average"
+  run:
+    - ribbon: { tab: "Home", control: "AutoSum", role: menubutton, item: "Average" }
+- keys: "H U C"
+  label: "Count numbers"
+  ribbon: "Home > AutoSum > Count Numbers"
+  run:
+    - ribbon: { tab: "Home", control: "AutoSum", role: menubutton, item: "Count Numbers" }
+- keys: "H U M"
+  label: "Max"
+  ribbon: "Home > AutoSum > Max"
+  run:
+    - ribbon: { tab: "Home", control: "AutoSum", role: menubutton, item: "Max" }
+- keys: "H U I"
+  label: "Min"
+  ribbon: "Home > AutoSum > Min"
+  run:
+    - ribbon: { tab: "Home", control: "AutoSum", role: menubutton, item: "Min" }
+- keys: "M U S"
+  label: "Sum"
+  ribbon: "Formulas > AutoSum > Sum"
+  run:
+    - ribbon: { tab: "Formulas", control: "AutoSum", role: menubutton, item: "Sum" }
+- keys: "M U A"
+  label: "Average"
+  ribbon: "Formulas > AutoSum > Average"
+  run:
+    - ribbon: { tab: "Formulas", control: "AutoSum", role: menubutton, item: "Average" }
+- keys: "M U C"
+  label: "Count numbers"
+  ribbon: "Formulas > AutoSum > Count Numbers"
+  run:
+    - ribbon: { tab: "Formulas", control: "AutoSum", role: menubutton, item: "Count Numbers" }
+- keys: "M U M"
+  label: "Max"
+  ribbon: "Formulas > AutoSum > Max"
+  run:
+    - ribbon: { tab: "Formulas", control: "AutoSum", role: menubutton, item: "Max" }
+- keys: "M U I"
+  label: "Min"
+  ribbon: "Formulas > AutoSum > Min"
+  run:
+    - ribbon: { tab: "Formulas", control: "AutoSum", role: menubutton, item: "Min" }
+- keys: "P B I"
+  label: "Insert page break"
+  ribbon: "Page Layout > Breaks > Insert Page Break"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Breaks", role: menubutton, item: "Insert Page Break" }
+- keys: "P B R"
+  label: "Remove page break"
+  ribbon: "Page Layout > Breaks > Remove Page Break"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Breaks", role: menubutton, item: "Remove Page Break" }
+- keys: "P B A"
+  label: "Reset all page breaks"
+  ribbon: "Page Layout > Breaks > Reset All Page Breaks"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Breaks", role: menubutton, item: "Reset All Page Breaks" }
+- keys: "A V I"
+  label: "Circle invalid data"
+  ribbon: "Data > Data Validation > Circle Invalid Data"
+  run:
+    - ribbon: { tab: "Data", control: "Data Validation", role: menubutton, item: "Circle Invalid Data" }
+- keys: "A V R"
+  label: "Clear validation circles"
+  ribbon: "Data > Data Validation > Clear Validation Circles"
+  run:
+    - ribbon: { tab: "Data", control: "Data Validation", role: menubutton, item: "Clear Validation Circles" }
+- keys: "A W T"
+  label: "Data table"
+  ribbon: "Data > What-If Analysis > Data Table..."
+  run:
+    - ribbon: { tab: "Data", control: "What-If Analysis", role: menubutton, item: "Data Table..." }
+- keys: "W F R"
+  label: "Freeze top row"
+  ribbon: "View > Freeze Panes > Freeze Top Row"
+  run:
+    - ribbon: { tab: "View", control: "Freeze Panes", role: menubutton, item: "Freeze Top Row" }
+- keys: "W F C"
+  label: "Freeze first column"
+  ribbon: "View > Freeze Panes > Freeze First Column"
+  run:
+    - ribbon: { tab: "View", control: "Freeze Panes", role: menubutton, item: "Freeze First Column" }

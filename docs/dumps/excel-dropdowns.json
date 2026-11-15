@@ -1,0 +1,640 @@
+{
+ "Data > Get Data (Power Query)": {
+  "items": [
+   "Get Data (Power Query)...",
+   "Launch Power Query Editor...",
+   "Data Source Settings...",
+   "From Database (Microsoft Query)",
+   "From HTML",
+   "From Text (Legacy)",
+   "From SQL Server ODBC"
+  ]
+ },
+ "Data > Refresh All": {
+  "items": [
+   "Refresh All",
+   "Refresh",
+   "Refresh Status",
+   "Cancel Refresh",
+   "Properties"
+  ]
+ },
+ "Data > Data Validation": {
+  "items": [
+   "Data Validation...",
+   "Circle Invalid Data",
+   "Clear Validation Circles"
+  ]
+ },
+ "Data > What-If Analysis": {
+  "items": [
+   "Scenario Manager...",
+   "Goal Seek...",
+   "Data Table..."
+  ]
+ },
+ "Data > Group": {
+  "items": [
+   "Group...",
+   "Auto Outline"
+  ]
+ },
+ "Data > Ungroup": {
+  "items": [
+   "Ungroup...",
+   "Clear Outline"
+  ]
+ },
+ "Formulas > AutoSum": {
+  "items": [
+   "Sum",
+   "Average",
+   "Count Numbers",
+   "Max",
+   "Min",
+   "More Functions..."
+  ]
+ },
+ "Formulas > Financial": {
+  "items": [
+   "ACCRINT",
+   "ACCRINTM",
+   "AMORLINC",
+   "COUPDAYBS",
+   "COUPDAYS",
+   "COUPDAYSNC",
+   "COUPNCD",
+   "COUPNUM",
+   "COUPPCD",
+   "CUMIPMT",
+   "CUMPRINC",
+   "DB",
+   "DDB",
+   "DISC",
+   "DOLLARDE",
+   "DOLLARFR",
+   "DURATION",
+   "EFFECT",
+   "FV",
+   "FVSCHEDULE",
+   "INTRATE",
+   "IPMT",
+   "IRR",
+   "ISPMT",
+   "MDURATION",
+   "MIRR",
+   "NOMINAL",
+   "NPER",
+   "NPV",
+   "ODDFPRICE",
+   "ODDFYIELD",
+   "ODDLPRICE",
+   "ODDLYIELD",
+   "PDURATION",
+   "PMT",
+   "PPMT",
+   "PRICE",
+   "PRICEDISC",
+   "PRICEMAT",
+   "PV",
+   "RATE",
+   "RECEIVED",
+   "RRI",
+   "SLN",
+   "STOCKHISTORY",
+   "SYD",
+   "TBILLEQ",
+   "TBILLPRICE",
+   "TBILLYIELD",
+   "VDB",
+   "XIRR",
+   "XNPV",
+   "YIELD",
+   "YIELDDISC",
+   "YIELDMAT",
+   "Insert Function..."
+  ]
+ },
+ "Formulas > Logical": {
+  "items": [
+   "AND",
+   "BYCOL",
+   "BYROW",
+   "FALSE",
+   "IF",
+   "IFERROR",
+   "IFNA",
+   "IFS",
+   "LAMBDA",
+   "LET",
+   "MAKEARRAY",
+   "MAP",
+   "NOT",
+   "OR",
+   "REDUCE",
+   "SCAN",
+   "SWITCH",
+   "TRUE",
+   "XOR",
+   "Insert Function..."
+  ]
+ },
+ "Formulas > Text": {
+  "items": [
+   "ARRAYTOTEXT",
+   "BAHTTEXT",
+   "CHAR",
+   "CLEAN",
+   "CODE",
+   "CONCAT",
+   "DETECTLANGUAGE",
+   "DOLLAR",
+   "EXACT",
+   "FIND",
+   "FIXED",
+   "LEFT",
+   "LEN",
+   "LOWER",
+   "MID",
+   "NUMBERVALUE",
+   "PROPER",
+   "REGEXEXTRACT",
+   "REGEXREPLACE",
+   "REGEXTEST",
+   "REPLACE",
+   "REPT",
+   "RIGHT",
+   "SEARCH",
+   "SUBSTITUTE",
+   "T",
+   "TEXT",
+   "TEXTAFTER",
+   "TEXTBEFORE",
+   "TEXTJOIN",
+   "TEXTSPLIT",
+   "TRANSLATE",
+   "TRIM",
+   "UNICHAR",
+   "UNICODE",
+   "UPPER",
+   "VALUE",
+   "VALUETOTEXT",
+   "Insert Function..."
+  ]
+ },
+ "Formulas > Date & Time": {
+  "items": [
+   "DATE",
+   "DATEVALUE",
+   "DAY",
+   "DAYS",
+   "DAYS360",
+   "EDATE",
+   "EOMONTH",
+   "HOUR",
+   "ISOWEEKNUM",
+   "MINUTE",
+   "MONTH",
+   "NETWORKDAYS",
+   "NETWORKDAYS.INTL",
+   "NOW",
+   "SECOND",
+   "TIME",
+   "TIMEVALUE",
+   "TODAY",
+   "WEEKDAY",
+   "WEEKNUM",
+   "WORKDAY",
+   "WORKDAY.INTL",
+   "YEAR",
+   "YEARFRAC",
+   "Insert Function..."
+  ]
+ },
+ "Formulas > Lookup & Reference": {
+  "items": [
+   "ADDRESS",
+   "AREAS",
+   "CHOOSE",
+   "CHOOSECOLS",
+   "CHOOSEROWS",
+   "COLUMN",
+   "COLUMNS",
+   "DROP",
+   "EXPAND",
+   "FIELDVALUE",
+   "FILTER",
+   "FORMULATEXT",
+   "GETPIVOTDATA",
+   "GROUPBY",
+   "HLOOKUP",
+   "HSTACK",
+   "HYPERLINK",
+   "IMAGE",
+   "INDEX",
+   "INDIRECT",
+   "LOOKUP",
+   "MATCH",
+   "OFFSET",
+   "PIVOTBY",
+   "ROW",
+   "ROWS",
+   "RTD",
+   "SORT",
+   "SORTBY",
+   "TAKE",
+   "TOCOL",
+   "TOROW",
+   "TRANSPOSE",
+   "TRIMRANGE",
+   "UNIQUE",
+   "VLOOKUP",
+   "VSTACK",
+   "WRAPCOLS",
+   "WRAPROWS",
+   "XLOOKUP",
+   "XMATCH",
+   "Insert Function..."
+  ]
+ },
+ "Formulas > Math & Trig": {
+  "items": [
+   "ABS",
+   "ACOS",
+   "ACOSH",
+   "ACOT",
+   "ACOTH",
+   "AGGREGATE",
+   "ARABIC",
+   "ASIN",
+   "ASINH",
+   "ATAN",
+   "ATAN2",
+   "ATANH",
+   "BASE",
+   "CEILING.MATH",
+   "COMBIN",
+   "COMBINA",
+   "COS",
+   "COSH",
+   "COT",
+   "COTH",
+   "CSC",
+   "CSCH",
+   "DECIMAL",
+   "DEGREES",
+   "EVEN",
+   "EXP",
+   "FACT",
+   "FACTDOUBLE",
+   "FLOOR.MATH",
+   "GCD",
+   "INT",
+   "LCM",
+   "LN",
+   "LOG",
+   "LOG10",
+   "MDETERM",
+   "MINVERSE",
+   "MMULT",
+   "MOD",
+   "MROUND",
+   "MULTINOMIAL",
+   "MUNIT",
+   "ODD",
+   "PERCENTOF",
+   "PI",
+   "POWER",
+   "PRODUCT",
+   "QUOTIENT",
+   "RADIANS",
+   "RAND",
+   "RANDARRAY",
+   "RANDBETWEEN",
+   "ROMAN",
+   "ROUND",
+   "ROUNDDOWN",
+   "ROUNDUP",
+   "SEC",
+   "SECH",
+   "SEQUENCE",
+   "SERIESSUM",
+   "SIGN",
+   "SIN",
+   "SINH",
+   "SQRT",
+   "SQRTPI",
+   "SUBTOTAL",
+   "SUM",
+   "SUMIF",
+   "SUMIFS",
+   "SUMPRODUCT",
+   "SUMSQ",
+   "SUMX2MY2",
+   "SUMX2PY2",
+   "SUMXMY2",
+   "TAN",
+   "TANH",
+   "TRUNC",
+   "Insert Function..."
+  ]
+ },
+ "Formulas > More Functions": {
+  "items": [
+   "Statistical",
+   "Engineering",
+   "Cube",
+   "Information",
+   "Compatibility",
+   "Web"
+  ]
+ },
+ "Formulas > Reset": {
+  "items": [
+   "Reset",
+   "Reset Runtime"
+  ]
+ },
+ "Formulas > Define Name": {
+  "items": [
+   "Define Name...",
+   "Apply Names..."
+  ]
+ },
+ "Formulas > Remove Arrows": {
+  "items": [
+   "Remove Arrows",
+   "Remove Precedent Arrows",
+   "Remove Dependent Arrows"
+  ]
+ },
+ "Formulas > Error Checking": {
+  "items": [
+   "Error Checking...",
+   "Trace Error",
+   "Circular References"
+  ]
+ },
+ "Formulas > Calculation Options": {
+  "items": [
+   "Automatic",
+   "Partial",
+   "Manual",
+   "Format Stale Values",
+   "Compatibility Version"
+  ]
+ },
+ "Home > Paste": {
+  "items": [
+   "Paste Options:",
+   "Keep Source Formatting",
+   "Match Destination Formatting",
+   "Paste Special..."
+  ]
+ },
+ "Home > Underline": {
+  "items": [
+   "Underline",
+   "Double Underline"
+  ]
+ },
+ "Home > Borders": {
+  "items": [
+   "Borders",
+   "Bottom Border",
+   "Top Border",
+   "Left Border",
+   "Right Border",
+   "No Border",
+   "All Borders",
+   "Outside Borders",
+   "Thick Box Border",
+   "Bottom Double Border",
+   "Thick Bottom Border",
+   "Top and Bottom Border",
+   "Top and Thick Bottom Border",
+   "Top and Double Bottom Border",
+   "Draw Borders",
+   "Draw Border",
+   "Draw Border Grid",
+   "Erase Border",
+   "Line Color",
+   "Line Style",
+   "More Borders..."
+  ]
+ },
+ "Home > Shading": {
+  "items": [
+   "More Colors..."
+  ]
+ },
+ "Home > Font Color": {
+  "items": [
+   "More Colors..."
+  ]
+ },
+ "Home > Orientation": {
+  "items": [
+   "Angle Counterclockwise",
+   "Angle Clockwise",
+   "Vertical Text",
+   "Rotate Text Up",
+   "Rotate Text Down",
+   "Format Cell Alignment"
+  ]
+ },
+ "Home > Wrap Text": {
+  "items": [
+   "Wrap Text",
+   "Shrink Text to Fit"
+  ]
+ },
+ "Home > Merge & Center": {
+  "items": [
+   "Merge & Center",
+   "Merge Across",
+   "Merge Cells",
+   "Unmerge Cells"
+  ]
+ },
+ "Home > Accounting Number Format": {
+  "items": [
+   "\u200e$\u200e English (en-US)\u200e",
+   "\u200e\u00a3\u200e English (en-GB)\u200e",
+   "\u200e\u20ac\u200e Euro (\u20ac 123)\u200e",
+   "\u200e\u00a5\u200e Chinese (zh-CN)\u200e",
+   "\u200eCHF\u200e French (fr-CH)\u200e",
+   "More Accounting Formats..."
+  ]
+ },
+ "Home > Conditional Formatting": {
+  "items": [
+   "Highlight Cells Rules",
+   "Top/Bottom Rules",
+   "Data Bars",
+   "Color Scales",
+   "Icon Sets",
+   "New Rule...",
+   "Clear Rules",
+   "Manage Rules..."
+  ]
+ },
+ "Home > Format as Table": {
+  "items": [
+   "New Table Style...",
+   "New PivotTable Style..."
+  ]
+ },
+ "Home > Insert": {
+  "items": [
+   "Insert Cells...",
+   "Insert Sheet Rows",
+   "Insert Sheet Columns",
+   "Insert Sheet"
+  ]
+ },
+ "Home > Delete": {
+  "items": [
+   "Delete Cells...",
+   "Delete Sheet Rows",
+   "Delete Sheet Columns",
+   "Delete Table Rows",
+   "Delete Table Columns",
+   "Delete Sheet"
+  ]
+ },
+ "Home > Format": {
+  "items": [
+   "Cell Size",
+   "Row Height...",
+   "AutoFit Row Height",
+   "Column Width...",
+   "AutoFit Column Width",
+   "Default Width...",
+   "Visibility",
+   "Hide & Unhide",
+   "Organize Sheets",
+   "Rename Sheet",
+   "Move or Copy Sheet...",
+   "Tab Color",
+   "Protection",
+   "Protect Sheet...",
+   "Lock Cell",
+   "Format Cells..."
+  ]
+ },
+ "Home > AutoSum": {
+  "items": [
+   "Sum",
+   "Average",
+   "Count Numbers",
+   "Max",
+   "Min",
+   "More Functions..."
+  ]
+ },
+ "Home > Fill": {
+  "items": [
+   "Down",
+   "Right",
+   "Up",
+   "Left",
+   "Across Worksheets...",
+   "Series...",
+   "Justify",
+   "Flash Fill"
+  ]
+ },
+ "Home > Clear": {
+  "items": [
+   "Clear All",
+   "Clear Formats",
+   "Clear Contents",
+   "Clear Comments and Notes",
+   "Clear Hyperlinks",
+   "Remove Hyperlinks"
+  ]
+ },
+ "Home > Sort & Filter": {
+  "items": [
+   "Sort A to Z",
+   "Sort Z to A",
+   "Custom Sort...",
+   "Filter",
+   "Clear",
+   "Reapply"
+  ]
+ },
+ "Home > Find & Select": {
+  "items": [
+   "Find...",
+   "Replace...",
+   "Go To...",
+   "Go To Special...",
+   "Formulas",
+   "Notes",
+   "Conditional Formatting",
+   "Constants",
+   "Data Validation",
+   "Select Objects",
+   "Selection Pane..."
+  ]
+ },
+ "Insert > Sparklines": {
+  "items": [
+   "Line",
+   "Column",
+   "Win/Loss"
+  ]
+ },
+ "Page Layout > Margins": {
+  "items": [
+   "Custom Margins..."
+  ]
+ },
+ "Page Layout > Orientation": {
+  "items": []
+ },
+ "Page Layout > Size": {
+  "items": []
+ },
+ "Page Layout > Print Area": {
+  "items": [
+   "Set Print Area",
+   "Clear Print Area"
+  ]
+ },
+ "Page Layout > Breaks": {
+  "items": [
+   "Insert Page Break",
+   "Remove Page Break",
+   "Reset All Page Breaks"
+  ]
+ },
+ "Review > Check Accessibility": {
+  "items": [
+   "Check Accessibility",
+   "Alt Text",
+   "Format as Table",
+   "Unmerge Cells",
+   "Accessibility Help"
+  ]
+ },
+ "Review > Notes": {
+  "items": [
+   "New Note",
+   "Previous Note",
+   "Next Note",
+   "Show/Hide Note",
+   "Show All Notes",
+   "Convert to Comments"
+  ]
+ },
+ "View > Freeze Panes": {
+  "items": [
+   "Freeze Panes",
+   "Freeze Top Row",
+   "Freeze First Column"
+  ]
+ }
+}

@@ -3,7 +3,7 @@
 # (scripts/package.sh prints the sha256 of the DMG it just built).
 cask "altformac" do
   version "0.1.0"
-  sha256 "e5e8f16488cb2e23830faeb7aea9f8799f82b5cedb99a9d54d65e78c27a5ddd5"
+  sha256 "e438a67882aa23ac082e61fb9a0a3363b32f435941829234145c8d86e2cd95da"
 
   url "https://github.com/dtung011/altformac/releases/download/v#{version}/AltForMac-#{version}.dmg"
   name "AltForMac"

@@ -16,6 +16,26 @@ import Foundation
         - menu: [Format, Column, AutoFit Selection]
     """
 
+    @Test func tabLettersAreTabSwitchesButCommandsAreNot() throws {
+        let tab = Mapping(keys: "N", label: "Insert tab", run: [.ribbon(RibbonTarget(tab: "Insert", control: ""))])
+        let control = Mapping(keys: "W V G", label: "Gridlines",
+                              run: [.ribbon(RibbonTarget(tab: "View", control: "Gridlines"))])
+        let menu = Mapping(keys: "H O I", label: "AutoFit", run: [.menu(["Format", "Column", "AutoFit Selection"])])
+        #expect(tab.isTabSwitch)
+        #expect(!control.isTabSwitch)
+        #expect(!menu.isTabSwitch)
+    }
+
+    @Test func menuOpenersAreNotItemsOrTabs() throws {
+        let opener = Mapping(keys: "H M", label: "Merge", run: [.ribbon(RibbonTarget(tab: "Home", control: "Merge & Center", menu: true))])
+        let item = Mapping(keys: "H M C", label: "Merge & center",
+                           run: [.ribbon(RibbonTarget(tab: "Home", control: "Merge & Center", item: "Merge & Center"))])
+        let tab = Mapping(keys: "H", label: "Home tab", run: [.ribbon(RibbonTarget(tab: "Home", control: ""))])
+        #expect(opener.isMenuOpener && !opener.isTabSwitch)
+        #expect(!item.isMenuOpener && !item.isTabSwitch)
+        #expect(!tab.isMenuOpener && tab.isTabSwitch)
+    }
+
     @Test func loadsMappingsAndExecutorOrder() throws {
         let mappings = try MappingLoader.load(yaml: sample)
         #expect(mappings.count == 2)

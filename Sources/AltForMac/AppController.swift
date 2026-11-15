@@ -95,15 +95,19 @@ final class AppController {
         throw CocoaError(.fileNoSuchFile)
     }
 
-    private func installTapWhenPermitted() {
-        if capture.install() {
+    /// Creating an event tap can succeed without Accessibility permission (macOS then keeps disabling it),
+    /// so trust is checked explicitly first. The system prompt is shown once; after that we poll silently.
+    private func installTapWhenPermitted(prompt: Bool = true) {
+        if AXPermission.isTrusted, capture.install() {
             onStatus?(.ready)
             frontAppChanged(OfficeApp.frontmost)
             return
         }
         onStatus?(.needsPermission)
-        AXPermission.requestPrompt()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in self?.installTapWhenPermitted() }
+        if prompt { AXPermission.requestPrompt() }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.installTapWhenPermitted(prompt: false)
+        }
     }
 
     /// Main thread. `office` is nil when any other app is in front: the tap is then off completely.
@@ -211,10 +215,11 @@ final class AppController {
                 }
             }
             armTimers(buffer: buffer)
+            switchTabIfTabKey(buffer)
         case .execute(let mapping, _):
             execute(mapping, lastKeyAt: .now())
         case .invalid:
-            DispatchQueue.main.async { [weak self] in self?.overlay.flash("No command for that key", isError: true) }
+            DispatchQueue.main.async { [weak self] in self?.overlay.flash("No command for that key", isError: true, duration: 2) }
         case .hide:
             DispatchQueue.main.async { [weak self] in self?.overlay.hide() }
         }
@@ -226,11 +231,26 @@ final class AppController {
             self.route(self.machine.handle(.cancel))
         }
         // Ambiguous sequence (for example H F with H F C also defined): run the short one after a pause.
-        if case .exact(_, let hasLonger) = trie.lookup(buffer), hasLonger {
+        // Tab letters (N = Insert) are not ambiguous: they switch the tab and wait for the next key.
+        if case .exact(let mapping, let hasLonger) = trie.lookup(buffer), hasLonger,
+           !mapping.isTabSwitch, !mapping.isMenuOpener {
             commitTimer = makeTimer(after: 0.7) { [weak self] in
                 guard let self else { return }
                 self.route(self.machine.commitPending())
             }
+        }
+    }
+
+    /// Input thread. A tab letter switches the ribbon tab immediately but keeps the sequence (and HUD) open.
+    /// Runs on the serial `runQueue`, so a command typed right after it still runs after the tab switch.
+    private func switchTabIfTabKey(_ buffer: String) {
+        guard case .exact(let mapping, _) = trie.lookup(buffer), mapping.isTabSwitch,
+              let pid = app?.running?.processIdentifier else { return }
+        runQueue.async { [weak self] in
+            guard let self else { return }
+            let report = self.runner.run(mapping, pid: pid)
+            self.log(String(format: "tab \"%@\" via %@ | %.1f ms", mapping.label,
+                            report.winner ?? "none", report.attempts.reduce(0) { $0 + $1.milliseconds }))
         }
     }
 
@@ -251,7 +271,7 @@ final class AppController {
         executing = true
         runToken += 1
         let token = runToken
-        DispatchQueue.main.async { [weak self] in self?.overlay.flash(mapping.label, isError: false, duration: 0.6) }
+        DispatchQueue.main.async { [weak self] in self?.overlay.flash(mapping.label, isError: false, duration: 1.2) }
 
         runQueue.async { [weak self] in
             guard let self else { return }
@@ -282,9 +302,8 @@ final class AppController {
         log(String(format: "ran \"%@\" via %@ | last key -> done %.1f ms | %@",
                    mapping.label, report.winner ?? "none", total, tries))
         DispatchQueue.main.async { [weak self] in
-            if report.succeeded {
-                self?.overlay.hide()
-            } else {
+            // On success the confirmation flash started in execute() fades out on its own timer.
+            if !report.succeeded {
                 self?.overlay.flash("Couldn't run: \(mapping.label)", isError: true, duration: 2)
             }
         }

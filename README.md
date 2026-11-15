@@ -66,7 +66,25 @@ With Excel, Word or PowerPoint in front:
 Holding Option with another key (Option+arrows, Option+Enter) works as normal. Destructive commands keep
 Office's own confirmation dialogs.
 
-Sequences live in [mappings/](mappings/): `excel.yaml` (161), `word.yaml` (95), `powerpoint.yaml` (74).
+Sequences live in [mappings/](mappings/): `excel.yaml` (206), `word.yaml` (107), `powerpoint.yaml` (74).
+
+## Uninstall
+
+1. **Quit AltForMac** from its menu-bar icon.
+2. **Remove the app.**
+   - Installed with Homebrew: `brew uninstall --cask altformac` (add `--zap` to also remove its support files).
+     Remove the tap with `brew untap dtung011/altformac` if you no longer want it.
+   - Installed from the DMG or built from source: drag **AltForMac** from Applications to the Trash.
+3. **Remove its permissions** (optional, they are inert once the app is gone). In System Settings >
+   Privacy & Security, open Accessibility and Automation, select AltForMac and click the minus button.
+   Or reset them from Terminal: `tccutil reset Accessibility dev.altformac.app` and
+   `tccutil reset AppleEvents dev.altformac.app`.
+4. **Turn Office's own KeyTips back on** if you want them: Preferences > Accessibility in Excel, Word and
+   PowerPoint.
+
+AltForMac installs no background services and writes nothing outside its own app bundle, so there is
+nothing else to clean up. If you added it to Login Items, remove it there too (System Settings > General >
+Login Items).
 
 ## Privacy
 
@@ -113,4 +131,4 @@ Dumps used for validation must contain no workbook content; read the privacy rul
 
 ## License
 
-MIT, as declared in the app's Info.plist. A `LICENSE` file is still to be added.
+MIT, see [LICENSE](LICENSE).

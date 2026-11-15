@@ -11,12 +11,12 @@ Each release also has user-facing notes in [docs/release-notes/](docs/release-no
 
 Nothing yet.
 
-## [0.1.0] - first public release
+## [0.1.0] - 2026-11-15
 
 ### Added
 - Menu-bar app (no Dock icon). Tap Option in Excel, Word or PowerPoint, then type a Windows Alt sequence
   such as `W V G`, `H O I` or `N V`. Escape goes up one level, Backspace removes a letter.
-- Mappings for Excel (161 sequences), Word (95) and PowerPoint (74) in `mappings/*.yaml`, checked
+- Mappings for Excel (206 sequences), Word (107) and PowerPoint (74) in `mappings/*.yaml`, checked
   against dumps of each app's menus and ribbon (Excel for Mac 16.104).
 - Executors that try the fastest, most stable step first and fall through on failure:
   shortcut, menu bar, AppleScript, ribbon.
@@ -24,6 +24,9 @@ Nothing yet.
 - Error badge instead of a wrong click when a menu or ribbon item cannot be found.
 - Pass-through of all keys, with a warning in the menu-bar icon, when an Office app stops responding for 2 s.
 - `AltForMac --self-test` to verify a packaged build loads its mappings.
+- Dropdown items (Borders, Merge & Center, Change Case and more) are reachable by their last letter, opened
+  with the Accessibility menu action so nothing is applied by accident.
+- Uninstall instructions in the README.
 - Developer tools: `ribbon-dump` (writes menu and ribbon titles to JSON, never workbook content) and
   `mapping-check` (validates a mappings file against those dumps).
 - `scripts/package.sh` builds a signed `.app` and a `.dmg`; Homebrew cask in `packaging/homebrew/`.

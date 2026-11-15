@@ -596,3 +596,66 @@
   ribbon: "File > Close"
   run:
     - menu: ["File", "Close"]
+
+# Dropdown items, opened with AXShowMenu and pressed by exact title (Word for Mac 16.104, titles in
+# docs/dumps/word-dropdowns.json). Only letters that follow Word's own menu mnemonics are listed.
+- keys: "H 7 S"
+  label: "Sentence case"
+  ribbon: "Home > Change Case > Sentence case."
+  run:
+    - ribbon: { tab: "Home", control: "Change Case", role: menubutton, item: "Sentence case." }
+- keys: "H 7 L"
+  label: "lowercase"
+  ribbon: "Home > Change Case > lowercase"
+  run:
+    - ribbon: { tab: "Home", control: "Change Case", role: menubutton, item: "lowercase" }
+- keys: "H 7 U"
+  label: "UPPERCASE"
+  ribbon: "Home > Change Case > UPPERCASE"
+  run:
+    - ribbon: { tab: "Home", control: "Change Case", role: menubutton, item: "UPPERCASE" }
+- keys: "H 7 C"
+  label: "Capitalize each word"
+  ribbon: "Home > Change Case > Capitalize Each Word"
+  run:
+    - ribbon: { tab: "Home", control: "Change Case", role: menubutton, item: "Capitalize Each Word" }
+- keys: "H 7 T"
+  label: "tOGGLE cASE"
+  ribbon: "Home > Change Case > tOGGLE cASE"
+  run:
+    - ribbon: { tab: "Home", control: "Change Case", role: menubutton, item: "tOGGLE cASE" }
+- keys: "H B B"
+  label: "Bottom border"
+  ribbon: "Home > Borders > Bottom Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", role: menubutton, item: "Bottom Border" }
+- keys: "H B P"
+  label: "Top border"
+  ribbon: "Home > Borders > Top Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", role: menubutton, item: "Top Border" }
+- keys: "H B L"
+  label: "Left border"
+  ribbon: "Home > Borders > Left Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", role: menubutton, item: "Left Border" }
+- keys: "H B R"
+  label: "Right border"
+  ribbon: "Home > Borders > Right Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", role: menubutton, item: "Right Border" }
+- keys: "H B N"
+  label: "No border"
+  ribbon: "Home > Borders > No Border"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", role: menubutton, item: "No Border" }
+- keys: "H B A"
+  label: "All borders"
+  ribbon: "Home > Borders > All Borders"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", role: menubutton, item: "All Borders" }
+- keys: "H B S"
+  label: "Outside borders"
+  ribbon: "Home > Borders > Outside Borders"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", role: menubutton, item: "Outside Borders" }

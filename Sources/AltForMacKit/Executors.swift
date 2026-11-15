@@ -187,7 +187,10 @@ public struct RibbonExecutor: StepExecutor {
     public func run(_ step: ExecutorStep, pid: pid_t) throws {
         guard case .ribbon(let target) = step else { throw ExecutorError.message("not a ribbon step") }
         let app = AXNode.application(pid: pid, timeout: 1.0)
-        guard let window = app.node(kAXFocusedWindowAttribute) ?? app.node(kAXMainWindowAttribute) ?? app.nodes(kAXWindowsAttribute).first
+        // The focused window, unless it is a leftover dropdown popup (no ribbon): then the main document window.
+        let candidates = [app.node(kAXFocusedWindowAttribute), app.node(kAXMainWindowAttribute)].compactMap { $0 }
+            + app.nodes(kAXWindowsAttribute)
+        guard let window = candidates.first(where: { Self.ribbonGroup(in: $0) != nil }) ?? candidates.first
         else { throw ExecutorError.message("no window") }
         guard let ribbon = Self.ribbonGroup(in: window) else {
             throw ExecutorError.message("ribbon not found (is it hidden?)")
@@ -215,11 +218,13 @@ public struct RibbonExecutor: StepExecutor {
         }) else { throw ExecutorError.message("ribbon control not found: \(target.tab) > \(target.control)") }
         guard control.isEnabled else { throw ExecutorError.message("ribbon control disabled: \(target.control)") }
 
+        var popupsBefore: [(ref: AXUIElement, frame: CGRect?)] = []
         if target.item != nil || target.menu == true {
             // Never AXPress to open a dropdown: on split buttons that runs the default action.
             guard control.actions.contains("AXShowMenu") else {
                 throw ExecutorError.message("\(target.control) has no dropdown (AXShowMenu)")
             }
+            popupsBefore = Self.popupSnapshot(of: app, besides: window)
             guard AXUIElementPerformAction(control.ref, "AXShowMenu" as CFString) == .success else {
                 throw ExecutorError.message("could not open dropdown: \(target.control)")
             }
@@ -229,12 +234,44 @@ public struct RibbonExecutor: StepExecutor {
 
         if let itemTitle = target.item {
             // Dropdown: the popup menu hangs off the control once it is open.
-            guard let item = Self.waitFor(timeout: 0.5, { Self.findMenuItem(under: control, title: itemTitle) }) else {
+            guard let item = Self.waitFor(timeout: 0.8, {
+                Self.findMenuItem(under: control, title: itemTitle)
+                    ?? Self.findPopupItem(in: app, besides: window, ignoring: popupsBefore, title: itemTitle)
+            }) else {
                 throw ExecutorError.message("dropdown item not found: \(target.control) > \(itemTitle)")
             }
             guard item.isEnabled else { throw ExecutorError.message("dropdown item disabled: \(itemTitle)") }
             guard item.pressAllowingModal() else { throw ExecutorError.message("press failed: \(itemTitle)") }
         }
+    }
+
+    /// Excel for Mac opens ribbon dropdowns (Borders, Shading ...) as a separate small window next to the
+    /// document window, with each choice an AXMenuButton, so the items are not under the control.
+    /// Searches every window except the document window `main`; matches the exact title only.
+    /// Popup windows already present (ref and frame), so a run only looks at the popup its own ShowMenu opened.
+    /// Excel keeps closed popups in the AX tree, hidden, and they hold the same titles ("Unmerge Cells" ...).
+    static func popupSnapshot(of app: AXNode, besides main: AXNode) -> [(ref: AXUIElement, frame: CGRect?)] {
+        app.nodes(kAXWindowsAttribute).filter { !CFEqual($0.ref, main.ref) }.map { ($0.ref, $0.frame()) }
+    }
+
+    static func findPopupItem(in app: AXNode, besides main: AXNode,
+                              ignoring before: [(ref: AXUIElement, frame: CGRect?)], title: String) -> AXNode? {
+        let wanted = norm(title)
+        func search(_ node: AXNode, _ depth: Int) -> AXNode? {
+            for child in node.children {
+                let r = child.role ?? ""
+                if ["AXMenuItem", "AXMenuButton", "AXButton"].contains(r),
+                   let label = child.title ?? child.descriptionText, norm(label) == wanted { return child }
+                if depth < 5, let hit = search(child, depth + 1) { return hit }
+            }
+            return nil
+        }
+        for window in app.nodes(kAXWindowsAttribute) where !CFEqual(window.ref, main.ref) {
+            let frame = window.frame()
+            if before.contains(where: { CFEqual($0.ref, window.ref) && $0.frame == frame }) { continue }
+            if let hit = search(window, 0) { return hit }
+        }
+        return nil
     }
 
     static func findMenuItem(under node: AXNode, title: String, depth: Int = 0) -> AXNode? {
