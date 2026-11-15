@@ -1,0 +1,598 @@
+# Windows Alt sequences -> how to run them in Word for Mac. See excel.yaml for the conventions.
+# ALWAYS quote `keys`. Sequences are the Windows KeyTips for Word; only commands that exist in
+# Word for Mac 16.104 are listed. Every step was verified with `swift run mapping-check mappings/word.yaml`.
+# Executor order = fastest and most stable first: shortcut -> menu -> applescript -> ribbon.
+# `menu: true` opens a dropdown (AXShowMenu): it never presses the control.
+
+- keys: "H"
+  label: "Home tab"
+  ribbon: "Home"
+  run:
+    - ribbon: { tab: "Home", control: "" }
+
+- keys: "N"
+  label: "Insert tab"
+  ribbon: "Insert"
+  run:
+    - ribbon: { tab: "Insert", control: "" }
+
+- keys: "G"
+  label: "Design tab"
+  ribbon: "Design"
+  run:
+    - ribbon: { tab: "Design", control: "" }
+
+- keys: "P"
+  label: "Layout tab"
+  ribbon: "Layout"
+  run:
+    - ribbon: { tab: "Layout", control: "" }
+
+- keys: "S"
+  label: "References tab"
+  ribbon: "References"
+  run:
+    - ribbon: { tab: "References", control: "" }
+
+- keys: "M"
+  label: "Mailings tab"
+  ribbon: "Mailings"
+  run:
+    - ribbon: { tab: "Mailings", control: "" }
+
+- keys: "R"
+  label: "Review tab"
+  ribbon: "Review"
+  run:
+    - ribbon: { tab: "Review", control: "" }
+
+- keys: "W"
+  label: "View tab"
+  ribbon: "View"
+  run:
+    - ribbon: { tab: "View", control: "" }
+
+- keys: "H V S"
+  label: "Paste Special"
+  ribbon: "Home > Paste > Paste Special"
+  run:
+    - menu: ["Edit", "Paste Special..."]
+
+- keys: "H X"
+  label: "Cut"
+  ribbon: "Home > Cut"
+  run:
+    - menu: ["Edit", "Cut"]
+    - ribbon: { tab: "Home", control: "Cut" }
+
+- keys: "H C"
+  label: "Copy"
+  ribbon: "Home > Copy"
+  run:
+    - menu: ["Edit", "Copy"]
+    - ribbon: { tab: "Home", control: "Copy" }
+
+- keys: "H F P"
+  label: "Format Painter"
+  ribbon: "Home > Clipboard > Format Painter"
+  run:
+    - ribbon: { tab: "Home", control: "Format" }
+
+- keys: "H 1"
+  label: "Bold"
+  ribbon: "Home > Bold"
+  run:
+    - ribbon: { tab: "Home", control: "Bold" }
+
+- keys: "H 2"
+  label: "Italic"
+  ribbon: "Home > Italic"
+  run:
+    - ribbon: { tab: "Home", control: "Italic" }
+
+- keys: "H 3"
+  label: "Underline"
+  ribbon: "Home > Underline"
+  run:
+    - ribbon: { tab: "Home", control: "Underline" }
+
+- keys: "H 4"
+  label: "Strikethrough"
+  ribbon: "Home > Strikethrough"
+  run:
+    - ribbon: { tab: "Home", control: "Strikethrough" }
+
+- keys: "H 5"
+  label: "Subscript"
+  ribbon: "Home > Subscript"
+  run:
+    - ribbon: { tab: "Home", control: "Subscript" }
+
+- keys: "H 6"
+  label: "Superscript"
+  ribbon: "Home > Superscript"
+  run:
+    - ribbon: { tab: "Home", control: "Superscript" }
+
+- keys: "H F G"
+  label: "Grow font"
+  ribbon: "Home > Font > Grow Font"
+  run:
+    - ribbon: { tab: "Home", control: "Grow Font" }
+
+- keys: "H F K"
+  label: "Shrink font"
+  ribbon: "Home > Font > Shrink Font"
+  run:
+    - ribbon: { tab: "Home", control: "Shrink Font" }
+
+- keys: "H 7"
+  label: "Change case (opens menu)"
+  ribbon: "Home > Change Case"
+  run:
+    - ribbon: { tab: "Home", control: "Change Case", menu: true }
+
+- keys: "H E"
+  label: "Clear formatting"
+  ribbon: "Home > Clear Formatting"
+  run:
+    - menu: ["Edit", "Clear", "Clear Formatting"]
+    - ribbon: { tab: "Home", control: "Clear Formatting" }
+
+- keys: "H I"
+  label: "Text highlight color (opens menu)"
+  ribbon: "Home > Text Highlight Color"
+  run:
+    - ribbon: { tab: "Home", control: "Text Highlight Color", menu: true }
+
+- keys: "H F C"
+  label: "Font color (opens palette)"
+  ribbon: "Home > Font > Font Color"
+  run:
+    - ribbon: { tab: "Home", control: "Font Color", menu: true }
+
+- keys: "H L"
+  label: "Bullets (opens menu)"
+  ribbon: "Home > Bullets"
+  run:
+    - ribbon: { tab: "Home", control: "Bullets", menu: true }
+
+- keys: "H N"
+  label: "Numbering (opens menu)"
+  ribbon: "Home > Numbering"
+  run:
+    - ribbon: { tab: "Home", control: "Numbering", menu: true }
+
+- keys: "H M"
+  label: "Multilevel list (opens menu)"
+  ribbon: "Home > Multilevel List"
+  run:
+    - ribbon: { tab: "Home", control: "Multilevel List", menu: true }
+
+- keys: "H A L"
+  label: "Align left"
+  ribbon: "Home > Paragraph > Align Left"
+  run:
+    - ribbon: { tab: "Home", control: "Align Left" }
+
+- keys: "H A C"
+  label: "Center"
+  ribbon: "Home > Paragraph > Center"
+  run:
+    - ribbon: { tab: "Home", control: "Center" }
+
+- keys: "H A R"
+  label: "Align right"
+  ribbon: "Home > Paragraph > Align Right"
+  run:
+    - ribbon: { tab: "Home", control: "Align Right" }
+
+- keys: "H J"
+  label: "Justify"
+  ribbon: "Home > Justify"
+  run:
+    - ribbon: { tab: "Home", control: "Justify" }
+
+- keys: "H A O"
+  label: "Decrease indent"
+  ribbon: "Home > Paragraph > Decrease Indent"
+  run:
+    - ribbon: { tab: "Home", control: "Decrease Indent" }
+
+- keys: "H A I"
+  label: "Increase indent"
+  ribbon: "Home > Paragraph > Increase Indent"
+  run:
+    - ribbon: { tab: "Home", control: "Increase Indent" }
+
+- keys: "H K"
+  label: "Line spacing (opens menu)"
+  ribbon: "Home > Line and Paragraph Spacing"
+  run:
+    - ribbon: { tab: "Home", control: "Line and Paragraph Spacing", menu: true }
+
+- keys: "H H"
+  label: "Shading (opens menu)"
+  ribbon: "Home > Shading"
+  run:
+    - ribbon: { tab: "Home", control: "Shading", menu: true }
+
+- keys: "H B"
+  label: "Borders (opens menu)"
+  ribbon: "Home > Borders"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", menu: true }
+
+- keys: "H 8"
+  label: "Show formatting marks"
+  ribbon: "Home > Show formatting marks"
+  run:
+    - ribbon: { tab: "Home", control: "Show formatting marks" }
+
+- keys: "H S"
+  label: "Sort"
+  ribbon: "Home > Sort"
+  run:
+    - ribbon: { tab: "Home", control: "Sort" }
+
+- keys: "H F D"
+  label: "Find"
+  ribbon: "Home > Find"
+  run:
+    - menu: ["Edit", "Find", "Find..."]
+
+- keys: "H R"
+  label: "Replace"
+  ribbon: "Home > Replace"
+  run:
+    - menu: ["Edit", "Find", "Replace..."]
+
+- keys: "N T"
+  label: "Insert table"
+  ribbon: "Insert > Table"
+  run:
+    - menu: ["Table", "Insert", "Table..."]
+    - ribbon: { tab: "Insert", control: "Table", menu: true }
+
+- keys: "N P"
+  label: "Pictures (opens menu)"
+  ribbon: "Insert > Pictures"
+  run:
+    - ribbon: { tab: "Insert", control: "Pictures", menu: true }
+
+- keys: "N S H"
+  label: "Shapes (opens menu)"
+  ribbon: "Insert > Illustrations > Shapes"
+  run:
+    - ribbon: { tab: "Insert", control: "Shapes", menu: true }
+
+- keys: "N M"
+  label: "SmartArt (opens menu)"
+  ribbon: "Insert > SmartArt"
+  run:
+    - ribbon: { tab: "Insert", control: "SmartArt", menu: true }
+
+- keys: "N I"
+  label: "Insert hyperlink"
+  ribbon: "Insert > Link"
+  run:
+    - menu: ["Insert", "Hyperlink..."]
+    - ribbon: { tab: "Insert", control: "Link" }
+
+- keys: "N K"
+  label: "Bookmark"
+  ribbon: "Insert > Bookmark"
+  run:
+    - menu: ["Insert", "Bookmark..."]
+    - ribbon: { tab: "Insert", control: "Bookmark" }
+
+- keys: "N R"
+  label: "Cross-reference"
+  ribbon: "Insert > Cross-reference"
+  run:
+    - menu: ["Insert", "Cross-reference..."]
+    - ribbon: { tab: "Insert", control: "Cross-reference" }
+
+- keys: "N H"
+  label: "Header (opens menu)"
+  ribbon: "Insert > Header"
+  run:
+    - ribbon: { tab: "Insert", control: "Header", menu: true }
+
+- keys: "N O"
+  label: "Footer (opens menu)"
+  ribbon: "Insert > Footer"
+  run:
+    - ribbon: { tab: "Insert", control: "Footer", menu: true }
+
+- keys: "N U"
+  label: "Page number (opens menu)"
+  ribbon: "Insert > Page Number"
+  run:
+    - ribbon: { tab: "Insert", control: "Page Number", menu: true }
+
+- keys: "N X"
+  label: "Text box (opens menu)"
+  ribbon: "Insert > Text Box"
+  run:
+    - ribbon: { tab: "Insert", control: "Text Box", menu: true }
+
+- keys: "N W"
+  label: "WordArt (opens menu)"
+  ribbon: "Insert > WordArt"
+  run:
+    - ribbon: { tab: "Insert", control: "WordArt", menu: true }
+
+- keys: "N J"
+  label: "Insert object"
+  ribbon: "Insert > Object"
+  run:
+    - menu: ["Insert", "Object..."]
+    - ribbon: { tab: "Insert", control: "Object", menu: true }
+
+- keys: "P M"
+  label: "Margins (opens menu)"
+  ribbon: "Layout > Margins"
+  run:
+    - ribbon: { tab: "Layout", control: "Margins", menu: true }
+
+- keys: "P O"
+  label: "Orientation (opens menu)"
+  ribbon: "Layout > Orientation"
+  run:
+    - ribbon: { tab: "Layout", control: "Orientation", menu: true }
+
+- keys: "P S Z"
+  label: "Paper size (opens menu)"
+  ribbon: "Layout > Size"
+  run:
+    - ribbon: { tab: "Layout", control: "Size", menu: true }
+
+- keys: "P J"
+  label: "Columns (opens menu)"
+  ribbon: "Layout > Columns"
+  run:
+    - ribbon: { tab: "Layout", control: "Columns", menu: true }
+
+- keys: "P B"
+  label: "Breaks (opens menu)"
+  ribbon: "Layout > Breaks"
+  run:
+    - ribbon: { tab: "Layout", control: "Breaks", menu: true }
+
+- keys: "P H"
+  label: "Hyphenation (opens menu)"
+  ribbon: "Layout > Hyphenation"
+  run:
+    - ribbon: { tab: "Layout", control: "Hyphenation", menu: true }
+
+- keys: "S T"
+  label: "Table of contents (opens menu)"
+  ribbon: "References > Table of Contents"
+  run:
+    - ribbon: { tab: "References", control: "Table of Contents", menu: true }
+
+- keys: "S F"
+  label: "Insert footnote"
+  ribbon: "References > Insert Footnote"
+  run:
+    - menu: ["Insert", "Footnote..."]
+    - ribbon: { tab: "References", control: "Insert Footnote" }
+
+- keys: "S E"
+  label: "Insert endnote"
+  ribbon: "References > Insert Endnote"
+  run:
+    - ribbon: { tab: "References", control: "Insert Endnote" }
+
+- keys: "S P"
+  label: "Insert caption"
+  ribbon: "References > Insert Caption"
+  run:
+    - menu: ["Insert", "Caption..."]
+    - ribbon: { tab: "References", control: "Insert Caption" }
+
+- keys: "S B"
+  label: "Bibliography (opens menu)"
+  ribbon: "References > Bibliography"
+  run:
+    - ribbon: { tab: "References", control: "Bibliography", menu: true }
+
+- keys: "M E"
+  label: "Envelopes"
+  ribbon: "Mailings > Envelopes"
+  run:
+    - menu: ["Tools", "Envelopes..."]
+    - ribbon: { tab: "Mailings", control: "Envelopes" }
+
+- keys: "M L"
+  label: "Labels"
+  ribbon: "Mailings > Labels"
+  run:
+    - menu: ["Tools", "Labels..."]
+    - ribbon: { tab: "Mailings", control: "Labels" }
+
+- keys: "R S"
+  label: "Spelling and grammar"
+  ribbon: "Review > Spelling and Grammar"
+  run:
+    - ribbon: { tab: "Review", control: "Spelling and Grammar" }
+
+- keys: "R E"
+  label: "Thesaurus"
+  ribbon: "Review > Thesaurus"
+  run:
+    - menu: ["Tools", "Thesaurus..."]
+
+- keys: "R W"
+  label: "Word count"
+  ribbon: "Review > Word Count"
+  run:
+    - menu: ["Tools", "Word Count..."]
+    - ribbon: { tab: "Review", control: "Word Count" }
+
+- keys: "R C"
+  label: "New comment"
+  ribbon: "Review > New Comment"
+  run:
+    - ribbon: { tab: "Review", control: "New Comment" }
+
+- keys: "R G"
+  label: "Track changes (opens menu)"
+  ribbon: "Review > Track Changes"
+  run:
+    - ribbon: { tab: "Review", control: "Track Changes", menu: true }
+
+- keys: "R A"
+  label: "Accept changes (opens menu)"
+  ribbon: "Review > Accept"
+  run:
+    - ribbon: { tab: "Review", control: "Accept", menu: true }
+
+- keys: "R J"
+  label: "Reject changes (opens menu)"
+  ribbon: "Review > Reject"
+  run:
+    - ribbon: { tab: "Review", control: "Reject", menu: true }
+
+- keys: "R P"
+  label: "Protect document"
+  ribbon: "Review > Protect Document"
+  run:
+    - menu: ["Tools", "Protect Document..."]
+    - ribbon: { tab: "Review", control: "Protect Document" }
+
+- keys: "W P"
+  label: "Print layout"
+  ribbon: "View > Print Layout"
+  run:
+    - menu: ["View", "Print Layout"]
+    - ribbon: { tab: "View", control: "Print Layout" }
+
+- keys: "W B"
+  label: "Web layout"
+  ribbon: "View > Web Layout"
+  run:
+    - menu: ["View", "Web Layout"]
+    - ribbon: { tab: "View", control: "Web Layout" }
+
+- keys: "W U"
+  label: "Outline view"
+  ribbon: "View > Outline"
+  run:
+    - menu: ["View", "Outline"]
+    - ribbon: { tab: "View", control: "Outline" }
+
+- keys: "W E"
+  label: "Draft view"
+  ribbon: "View > Draft"
+  run:
+    - menu: ["View", "Draft"]
+    - ribbon: { tab: "View", control: "Draft" }
+
+- keys: "W R"
+  label: "Toggle ruler"
+  ribbon: "View > Ruler"
+  run:
+    - menu: ["View", "Ruler"]
+    - ribbon: { tab: "View", control: "Ruler" }
+
+- keys: "W G"
+  label: "Toggle gridlines"
+  ribbon: "View > Gridlines"
+  run:
+    - menu: ["View", "Gridlines"]
+    - ribbon: { tab: "View", control: "Gridlines" }
+
+- keys: "W K"
+  label: "Navigation pane"
+  ribbon: "View > Navigation Pane"
+  run:
+    - menu: ["View", "Sidebar", "Navigation"]
+    - ribbon: { tab: "View", control: "Navigation Pane" }
+
+- keys: "W Q"
+  label: "Zoom"
+  ribbon: "View > Zoom"
+  run:
+    - ribbon: { tab: "View", control: "Zoom" }
+
+- keys: "W J"
+  label: "Zoom to 100%"
+  ribbon: "View > Zoom to 100%"
+  run:
+    - menu: ["View", "Zoom", "100%"]
+    - ribbon: { tab: "View", control: "Zoom to 100%" }
+
+- keys: "W I"
+  label: "Page width"
+  ribbon: "View > Page Width"
+  run:
+    - menu: ["View", "Zoom", "Page Width"]
+    - ribbon: { tab: "View", control: "Page Width" }
+
+- keys: "W N"
+  label: "New window"
+  ribbon: "View > New Window"
+  run:
+    - ribbon: { tab: "View", control: "New Window" }
+
+- keys: "W A"
+  label: "Arrange all"
+  ribbon: "View > Arrange All"
+  run:
+    - ribbon: { tab: "View", control: "Arrange All" }
+
+- keys: "W S"
+  label: "Split window"
+  ribbon: "View > Split"
+  run:
+    - ribbon: { tab: "View", control: "Split" }
+
+- keys: "W W"
+  label: "Switch windows (opens menu)"
+  ribbon: "View > Switch Windows"
+  run:
+    - ribbon: { tab: "View", control: "Switch Windows", menu: true }
+
+- keys: "W M"
+  label: "Macros"
+  ribbon: "View > Macros"
+  run:
+    - menu: ["Tools", "Macro", "Macros..."]
+
+- keys: "F S"
+  label: "Save"
+  ribbon: "File > Save"
+  run:
+    - menu: ["File", "Save"]
+
+- keys: "F A"
+  label: "Save as"
+  ribbon: "File > Save As"
+  run:
+    - menu: ["File", "Save As..."]
+
+- keys: "F O"
+  label: "Open"
+  ribbon: "File > Open"
+  run:
+    - menu: ["File", "Open..."]
+
+- keys: "F N"
+  label: "New"
+  ribbon: "File > New"
+  run:
+    - menu: ["File", "New Document"]
+
+- keys: "F P"
+  label: "Print"
+  ribbon: "File > Print"
+  run:
+    - menu: ["File", "Print..."]
+
+- keys: "F C"
+  label: "Close"
+  ribbon: "File > Close"
+  run:
+    - menu: ["File", "Close"]

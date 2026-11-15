@@ -1,0 +1,4277 @@
+{
+  "app" : "Word",
+  "appVersion" : "16.104",
+  "generated" : "2026-11-15T09:55:30Z",
+  "menuBar" : {
+    "actions" : [
+      "AXCancel"
+    ],
+    "children" : [
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "childrenSkipped" : "lists document names",
+        "role" : "AXMenuBarItem",
+        "title" : "Apple"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "children" : [
+          {
+            "actions" : [
+              "AXCancel"
+            ],
+            "children" : [
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "About Microsoft Word"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : ",",
+                "cmdModifiers" : 0,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Preferences..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Sign Out..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "_NS:94",
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "_noServicesApplyAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "No Services Apply"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "_configureServicesMenu:",
+                        "role" : "AXMenuItem",
+                        "title" : "Services Settings…"
+                      }
+                    ],
+                    "identifier" : "_NS:78",
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "Services_MenuItem",
+                "role" : "AXMenuItem",
+                "title" : "Services"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "_NS:95",
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "H",
+                "cmdModifiers" : 0,
+                "identifier" : "HideApplication_MenuItem",
+                "role" : "AXMenuItem",
+                "title" : "Hide Word"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "H",
+                "cmdModifiers" : 2,
+                "identifier" : "HideOthers_MenuItem",
+                "role" : "AXMenuItem",
+                "title" : "Hide Others"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "ShowAll_MenuItem",
+                "role" : "AXMenuItem",
+                "title" : "Show All"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "_NS:101",
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "Q",
+                "cmdModifiers" : 0,
+                "identifier" : "QuitApplication_MenuItem",
+                "role" : "AXMenuItem",
+                "title" : "Quit Word"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "Q",
+                "cmdModifiers" : 2,
+                "identifier" : "NSAlternateQuitMenuItem",
+                "role" : "AXMenuItem",
+                "title" : "Quit and Keep Windows"
+              }
+            ],
+            "identifier" : "_NS:90",
+            "role" : "AXMenu"
+          }
+        ],
+        "identifier" : "AppMenu_MenuItem",
+        "role" : "AXMenuBarItem",
+        "title" : "Word"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "children" : [
+          {
+            "actions" : [
+              "AXCancel"
+            ],
+            "children" : [
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "N",
+                "cmdModifiers" : 0,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "New Document"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "P",
+                "cmdModifiers" : 1,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "New from Template..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "O",
+                "cmdModifiers" : 0,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Open..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "childrenSkipped" : "lists document names",
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Open Recent"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "W",
+                "cmdModifiers" : 0,
+                "identifier" : "performClose:",
+                "role" : "AXMenuItem",
+                "title" : "Close"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "S",
+                "cmdModifiers" : 0,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Save"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "S",
+                "cmdModifiers" : 1,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Save As..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Save as Template..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Move..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Rename..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Browse Version History"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Share..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Send Document"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Send PDF"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Share"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Always Open Read-Only"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Reduce File Size..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Page Setup..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "P",
+                "cmdModifiers" : 0,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Print..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Properties..."
+              }
+            ],
+            "role" : "AXMenu"
+          }
+        ],
+        "role" : "AXMenuBarItem",
+        "title" : "File"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "children" : [
+          {
+            "actions" : [
+              "AXCancel"
+            ],
+            "children" : [
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "Z",
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "identifier" : "undo:",
+                "role" : "AXMenuItem",
+                "title" : "Can't Undo"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "Y",
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "identifier" : "redo:",
+                "role" : "AXMenuItem",
+                "title" : "Can't Repeat"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "X",
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "identifier" : "cut:",
+                "role" : "AXMenuItem",
+                "title" : "Cut"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "C",
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "identifier" : "copy:",
+                "role" : "AXMenuItem",
+                "title" : "Copy"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "V",
+                "cmdModifiers" : 0,
+                "identifier" : "paste:",
+                "role" : "AXMenuItem",
+                "title" : "Paste"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "V",
+                "cmdModifiers" : 4,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Paste Special..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "V",
+                "cmdModifiers" : 3,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Paste and Match Formatting"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Clear Formatting"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Contents"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Clear"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "A",
+                "cmdModifiers" : 0,
+                "identifier" : "selectAll:",
+                "role" : "AXMenuItem",
+                "title" : "Select All"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdChar" : "F",
+                        "cmdModifiers" : 0,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Find..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdChar" : "G",
+                        "cmdModifiers" : 0,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Find Next"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdChar" : "G",
+                        "cmdModifiers" : 1,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Find Previous"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Replace..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdChar" : "G",
+                        "cmdModifiers" : 2,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Go To..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Advanced Find and Replace..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Find"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Links..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Start Word Dictation"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Select Data..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "Z",
+                "cmdModifiers" : 4,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Toggle Drawing"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Show Writing Tools"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Proofread"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Rewrite"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Make Friendly"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Make Professional"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Make Concise"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Summarize"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Create Key Points"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Make List"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Make Table"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "showWritingTools:",
+                        "role" : "AXMenuItem",
+                        "title" : "Compose…"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 0,
+                "identifier" : "__NSTextViewContextSubmenuIdentifierWritingTools",
+                "role" : "AXMenuItem",
+                "title" : "Writing Tools"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "_handleInsertFromContactsCommand:",
+                        "role" : "AXMenuItem",
+                        "title" : "Contact…"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "_handleInsertFromPasswordsCommand:",
+                        "role" : "AXMenuItem",
+                        "title" : "Passwords…"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "identifier" : "_handleInsertFromCreditCardsCommand:",
+                        "role" : "AXMenuItem",
+                        "title" : "Credit Card…"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 0,
+                "identifier" : "_NSMenuItemAutoFillIdentifier",
+                "role" : "AXMenuItem",
+                "title" : "AutoFill"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "🎤",
+                "cmdModifiers" : 8,
+                "cmdVirtualKey" : 128,
+                "identifier" : "startDictation:",
+                "role" : "AXMenuItem",
+                "title" : "Start Dictation…"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "🌐",
+                "cmdModifiers" : 8,
+                "cmdVirtualKey" : 128,
+                "identifier" : "orderFrontCharacterPalette:",
+                "role" : "AXMenuItem",
+                "title" : "Emoji & Symbols"
+              }
+            ],
+            "identifier" : "_NS:109",
+            "role" : "AXMenu"
+          }
+        ],
+        "identifier" : "EditMenu_MenuItem",
+        "role" : "AXMenuBarItem",
+        "title" : "Edit"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "children" : [
+          {
+            "actions" : [
+              "AXCancel"
+            ],
+            "children" : [
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Print Layout"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Web Layout"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Outline"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Draft"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "F",
+                "cmdModifiers" : 5,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Focus"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "R",
+                "cmdModifiers" : 2,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Ribbon"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Thumbnail"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Navigation"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Reviewing"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Search"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Sidebar"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Message Bar"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Ruler"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Header and Footer"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Footnotes"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Master Document"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Markup"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Reveal Formatting"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "500%"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "200%"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "150%"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "125%"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "100%"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "75%"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "50%"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "25%"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "10%"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Page Width"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Whole Page"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Two Pages"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Zoom"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Gridlines"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "F",
+                "cmdModifiers" : 24,
+                "enabled" : false,
+                "identifier" : "FullScreen_MenuItem",
+                "role" : "AXMenuItem",
+                "title" : "Enter Full Screen"
+              }
+            ],
+            "identifier" : "_NS:138",
+            "role" : "AXMenu"
+          }
+        ],
+        "identifier" : "ViewMenu_MenuItem",
+        "role" : "AXMenuBarItem",
+        "title" : "View"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "children" : [
+          {
+            "actions" : [
+              "AXCancel"
+            ],
+            "children" : [
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Photo Browser…"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Picture from File..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Stock Images..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Online Pictures..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Pictures"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Rectangle"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Rounded Rectangle"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Triangle"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Oval"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Line"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Shape"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "List"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Process"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Cycle"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Hierarchy"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Relationship"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Matrix"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Pyramid"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Picture"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "SmartArt"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Column"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Bar"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Line"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Area"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Pie"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Treemap"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Sunburst"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Histogram"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Pareto"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Box and Whisker"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "X Y (Scatter)"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Waterfall"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Funnel"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Stock"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Surface"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Radar"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Filled Map"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Chart"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Table..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Audio Browser..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Audio from File..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Audio"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Movie Browser..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Movie from File..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Movie"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Icons..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem",
+                        "title" : "Insert 3D Model From"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Stock 3D Models..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "This Device..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "3D Models"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "K",
+                "cmdModifiers" : 0,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Hyperlink..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Bookmark..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Cross-reference..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Comment"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdChar" : "\r",
+                        "cmdModifiers" : 0,
+                        "cmdVirtualKey" : 36,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Page Break"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdChar" : "\r",
+                        "cmdModifiers" : 1,
+                        "cmdVirtualKey" : 36,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Column Break"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Section Break (Next Page)"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Section Break (Continuous)"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Section Break (Odd Page)"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Section Break (Even Page)"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Break"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Footnote..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Caption..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Index and Tables..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Watermark..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Page Numbers..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Text Box"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Draw Vertical Text Box"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Text Box"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "AutoText..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "New..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "- PAGE -"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Author, Page #, Date"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Confidential, Page #, Date"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Created by"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Created on"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Filename"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Filename and path"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Last printed"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Last saved by"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "identifier" : "galleryItemSelected:",
+                        "role" : "AXMenuItem",
+                        "title" : "Page X of Y"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "AutoText"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Date and Time..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Object..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "File..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Field..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "=",
+                "cmdModifiers" : 12,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Equation"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Advanced Symbol..."
+              }
+            ],
+            "role" : "AXMenu"
+          }
+        ],
+        "role" : "AXMenuBarItem",
+        "title" : "Insert"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "children" : [
+          {
+            "actions" : [
+              "AXCancel"
+            ],
+            "children" : [
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "D",
+                "cmdModifiers" : 0,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Font..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Text Effects..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "M",
+                "cmdModifiers" : 2,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Paragraph..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Document..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Bullets and Numbering..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Borders and Shading..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Columns..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Tabs..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Drop Cap..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Change Case..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Style..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Font Substitution..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Equation Options..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "U",
+                "cmdModifiers" : 2,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Selection Pane..."
+              }
+            ],
+            "role" : "AXMenu"
+          }
+        ],
+        "role" : "AXMenuBarItem",
+        "title" : "Format"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "children" : [
+          {
+            "actions" : [
+              "AXCancel"
+            ],
+            "children" : [
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Editor"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Hide Spelling Errors"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Hide Grammar Errors"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Reset Ignored Words and Grammar"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Spelling and Grammar"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "R",
+                "cmdModifiers" : 6,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Thesaurus..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Hyphenation..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Translate Selection"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Translate Document"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Set Document Translation Language..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Translate"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Language..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Word Count..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "AutoCorrect Options..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Check Accessibility"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Highlight Changes..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Compare Documents..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Track Changes"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Combine Documents..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Block Authors"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Unblock All My Blocked Areas"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Protect Document..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Envelopes..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Labels..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Macros..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Record Macro..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Visual Basic Editor"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Macro"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Slow and Disabled Add-ins..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Templates and Add-ins..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Customize Keyboard..."
+              }
+            ],
+            "role" : "AXMenu"
+          }
+        ],
+        "role" : "AXMenuBarItem",
+        "title" : "Tools"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "children" : [
+          {
+            "actions" : [
+              "AXCancel"
+            ],
+            "children" : [
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Draw Table"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Table..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Columns to the Left"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Columns to the Right"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Rows Above"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Rows Below"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Cells..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Insert"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Table"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Columns"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdChar" : "X",
+                        "cmdModifiers" : 4,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Rows"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Cells..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Delete"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Table"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Column"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Row"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Cell"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Select"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Merge Cells"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Split Cells..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Split Table"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "AutoFit to Contents"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "AutoFit to Window"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Fixed Column Width"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 0,
+                        "enabled" : false,
+                        "role" : "AXMenuItem"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Distribute Rows Evenly"
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Distribute Columns Evenly"
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "AutoFit and Distribute"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Repeat"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "children" : [
+                  {
+                    "actions" : [
+                      "AXCancel"
+                    ],
+                    "children" : [
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Convert Text to Table..."
+                      },
+                      {
+                        "actions" : [
+                          "AXCancel",
+                          "AXPress",
+                          "AXPick"
+                        ],
+                        "cmdModifiers" : 8,
+                        "enabled" : false,
+                        "identifier" : "oui_performOfficeSpaceMenuAction:",
+                        "role" : "AXMenuItem",
+                        "title" : "Convert Table to Text..."
+                      }
+                    ],
+                    "role" : "AXMenu"
+                  }
+                ],
+                "cmdModifiers" : 8,
+                "role" : "AXMenuItem",
+                "title" : "Convert"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Sort..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Formula..."
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "View Gridlines"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Table Properties..."
+              }
+            ],
+            "role" : "AXMenu"
+          }
+        ],
+        "role" : "AXMenuBarItem",
+        "title" : "Table"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "childrenSkipped" : "lists document names",
+        "identifier" : "WindowMenu_MenuItem",
+        "role" : "AXMenuBarItem",
+        "title" : "Window"
+      },
+      {
+        "actions" : [
+          "AXCancel",
+          "AXPress",
+          "AXPick"
+        ],
+        "children" : [
+          {
+            "actions" : [
+              "AXCancel"
+            ],
+            "children" : [
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdChar" : "?",
+                "cmdModifiers" : 0,
+                "identifier" : "ApplicationHelp_MenuItem",
+                "role" : "AXMenuItem",
+                "title" : "Word Help"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "_NS:124",
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Feedback"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Get Word Mobile App"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 0,
+                "enabled" : false,
+                "role" : "AXMenuItem"
+              },
+              {
+                "actions" : [
+                  "AXCancel",
+                  "AXPress",
+                  "AXPick"
+                ],
+                "cmdModifiers" : 8,
+                "enabled" : false,
+                "identifier" : "oui_performOfficeSpaceMenuAction:",
+                "role" : "AXMenuItem",
+                "title" : "Clear Application Data"
+              }
+            ],
+            "identifier" : "_NS:120",
+            "role" : "AXMenu"
+          }
+        ],
+        "identifier" : "HelpMenu_MenuItem",
+        "role" : "AXMenuBarItem",
+        "title" : "Help"
+      }
+    ],
+    "identifier" : "_NS:128",
+    "role" : "AXMenuBar"
+  },
+  "nodeCount" : 390,
+  "note" : "Titles\/descriptions only. AXValue, window titles and grid content are never read."
+}

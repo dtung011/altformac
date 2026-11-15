@@ -1,0 +1,934 @@
+# Windows Alt sequences -> how to run them in Excel for Mac.
+# ALWAYS quote `keys`: a bare `N` or `Y` parses as a YAML boolean.
+#
+# Source of the sequences: https://www.excelconsultant.co.uk/excel-spreadsheet-resources-shortcut-keys/
+# Only Alt sequences are listed (Ctrl/F-key shortcuts already work on Mac). Left out on purpose:
+# Format Cells dialog letters, VBA/Power BI entries, Quick Access Toolbar digits, contextual PivotTable
+# tab sequences (J T ...), Developer tab (L) and File page (F), which Excel for Mac does not have.
+#
+# Steps were verified against Excel for Mac 16.104 with `swift run mapping-check`
+# (menu paths and ribbon controls exist in docs/dumps, AppleScript compiles).
+# Executor order = fastest and most stable first: shortcut -> menu -> applescript -> ribbon.
+# `ribbon:` is the path shown in the HUD: one segment per key typed (ribbon groups are skipped).
+# Ribbon `role` separates controls that share a title; `menu: true` opens a dropdown (AXShowMenu).
+
+# ---- Ribbon tabs (Alt, then the tab letter). Runs after a short pause, like the Windows KeyTip. ----
+
+- keys: "H"
+  label: Home tab
+  ribbon: Home
+  run:
+    - ribbon: { tab: Home, control: "" }
+
+- keys: "N"
+  label: Insert tab
+  ribbon: Insert
+  run:
+    - ribbon: { tab: Insert, control: "" }
+
+- keys: "P"
+  label: Page Layout tab
+  ribbon: Page Layout
+  run:
+    - ribbon: { tab: Page Layout, control: "" }
+
+- keys: "M"
+  label: Formulas tab
+  ribbon: Formulas
+  run:
+    - ribbon: { tab: Formulas, control: "" }
+
+- keys: "A"
+  label: Data tab
+  ribbon: Data
+  run:
+    - ribbon: { tab: Data, control: "" }
+
+- keys: "R"
+  label: Review tab
+  ribbon: Review
+  run:
+    - ribbon: { tab: Review, control: "" }
+
+- keys: "W"
+  label: View tab
+  ribbon: View
+  run:
+    - ribbon: { tab: View, control: "" }
+
+# ---- Home ----
+
+- keys: "H W"
+  label: Wrap text
+  ribbon: Home > Wrap Text
+  run:
+    - ribbon: { tab: Home, control: Wrap Text, role: menubutton }
+
+- keys: "H A C"
+  label: Center align
+  ribbon: Home > Alignment > Center
+  run:
+    - ribbon: { tab: Home, control: Center, role: checkbox }
+
+- keys: "H A L"
+  label: Align left
+  ribbon: Home > Alignment > Align Left
+  run:
+    - ribbon: { tab: Home, control: Align Left, role: checkbox }
+
+- keys: "H A R"
+  label: Align right
+  ribbon: Home > Alignment > Align Right
+  run:
+    - ribbon: { tab: Home, control: Align Right, role: checkbox }
+
+- keys: "H H"
+  label: Fill color (opens palette)
+  ribbon: Home > Fill Color
+  run:
+    - ribbon: { tab: Home, control: Shading, role: menubutton, menu: true }
+
+- keys: "H O I"
+  label: AutoFit column width
+  ribbon: Home > Format > AutoFit Column Width
+  run:
+    - menu: [Format, Column, AutoFit Selection]
+
+- keys: "O D"
+  label: Conditional Formatting dialog
+  ribbon: Format > Conditional Formatting
+  run:
+    - menu: [Format, Conditional Formatting...]
+    - ribbon: { tab: Home, control: Conditional Formatting, role: menubutton, menu: true }
+
+# ---- Insert ----
+
+- keys: "N V"
+  label: Insert PivotTable
+  ribbon: Insert > PivotTable
+  run:
+    # Excel for Mac 16.104 has no Insert > PivotTable menu item; this opens the same Create PivotTable dialog.
+    - menu: [Data, Summarize with PivotTable]
+    - ribbon: { tab: Insert, control: PivotTable }
+
+- keys: "I W"
+  label: Insert worksheet
+  ribbon: Insert > Worksheet
+  run:
+    - menu: [Insert, Sheet, Insert Sheet]
+
+# ---- Data ----
+
+- keys: "A V V"
+  label: Data Validation
+  ribbon: Data > Validation > Data Validation
+  run:
+    - menu: [Data, Validation...]
+    - ribbon: { tab: Data, control: Data Validation }
+
+- keys: "D L"
+  label: Data Validation
+  ribbon: Data > Validation
+  run:
+    - menu: [Data, Validation...]
+    - ribbon: { tab: Data, control: Data Validation }
+
+- keys: "A S S"
+  label: Sort dialog
+  ribbon: Data > Sort > Sort
+  run:
+    - menu: [Data, Sort...]
+    - ribbon: { tab: Data, control: Sort }
+
+- keys: "D S"
+  label: Sort dialog
+  ribbon: Data > Sort
+  run:
+    - menu: [Data, Sort...]
+    - ribbon: { tab: Data, control: Sort }
+
+- keys: "A S A"
+  label: Sort A to Z
+  ribbon: Data > Sort > Sort A to Z
+  run:
+    - ribbon: { tab: Data, control: Sort A to Z }
+
+- keys: "A S D"
+  label: Sort Z to A
+  ribbon: Data > Sort > Sort Z to A
+  run:
+    - ribbon: { tab: Data, control: Sort Z to A }
+
+- keys: "A T"
+  label: Toggle filter
+  ribbon: Data > Filter
+  run:
+    - menu: [Data, AutoFilter]
+    - ribbon: { tab: Data, control: Filter }
+
+- keys: "A C"
+  label: Clear filters
+  ribbon: Data > Clear
+  run:
+    - menu: [Data, Clear Filters]
+    - ribbon: { tab: Data, control: Clear }
+
+- keys: "A Y 1"
+  label: Reapply filter
+  ribbon: Data > Reapply
+  run:
+    - ribbon: { tab: Data, control: Reapply }
+
+- keys: "A E"
+  label: Text to Columns
+  ribbon: Data > Text to Columns
+  run:
+    - menu: [Data, Text to Columns...]
+    - ribbon: { tab: Data, control: Text to Columns }
+
+- keys: "A M"
+  label: Remove duplicates
+  ribbon: Data > Remove Duplicates
+  run:
+    - menu: [Data, Table Tools, Remove Duplicates]
+    - ribbon: { tab: Data, control: Remove Duplicates }
+
+- keys: "A W G"
+  label: Goal Seek
+  ribbon: Data > What-If Analysis > Goal Seek
+  run:
+    - menu: [Tools, Goal Seek...]
+
+- keys: "A G G"
+  label: Group
+  ribbon: Data > Group > Group
+  run:
+    - menu: [Data, Group and Outline, Group...]
+    - ribbon: { tab: Data, control: Group }
+
+- keys: "A G U"
+  label: Ungroup
+  ribbon: Data > Group > Ungroup
+  run:
+    - menu: [Data, Group and Outline, Ungroup...]
+    - ribbon: { tab: Data, control: Ungroup }
+
+# ---- Review ----
+
+- keys: "R P S"
+  label: Protect sheet
+  ribbon: Review > Protect > Protect Sheet
+  run:
+    - menu: [Tools, Protection, Protect Sheet...]
+    - ribbon: { tab: Review, control: Protect Sheet }
+
+- keys: "T P P"
+  label: Protect sheet
+  ribbon: Tools > Protection > Protect Sheet
+  run:
+    - menu: [Tools, Protection, Protect Sheet...]
+    - ribbon: { tab: Review, control: Protect Sheet }
+
+- keys: "R P W"
+  label: Protect workbook
+  ribbon: Review > Protect > Protect Workbook
+  run:
+    - menu: [Tools, Protection, Protect Workbook...]
+    - ribbon: { tab: Review, control: Protect Workbook }
+
+# ---- Formulas ----
+
+- keys: "M H"
+  label: Show formulas
+  ribbon: Formulas > Show Formulas
+  run:
+    - ribbon: { tab: Formulas, control: Show Formulas }
+
+- keys: "M P"
+  label: Trace precedents
+  ribbon: Formulas > Trace Precedents
+  run:
+    - menu: [Tools, Auditing, Trace Precedents]
+    - ribbon: { tab: Formulas, control: Trace Precedents }
+
+- keys: "M D"
+  label: Trace dependents
+  ribbon: Formulas > Trace Dependents
+  run:
+    - menu: [Tools, Auditing, Trace Dependents]
+    - ribbon: { tab: Formulas, control: Trace Dependents }
+
+- keys: "M A"
+  label: Remove arrows
+  ribbon: Formulas > Remove Arrows
+  run:
+    - menu: [Tools, Auditing, Remove All Arrows]
+    - ribbon: { tab: Formulas, control: Remove Arrows }
+
+- keys: "M K K"
+  label: Error checking
+  ribbon: Formulas > Error Checking > Error Checking
+  run:
+    - menu: [Tools, Error Checking...]
+    - ribbon: { tab: Formulas, control: Error Checking }
+
+- keys: "M K E"
+  label: Trace error
+  ribbon: Formulas > Error Checking > Trace Error
+  run:
+    - menu: [Tools, Auditing, Trace Error]
+
+# ---- View ----
+
+- keys: "W L"
+  label: Normal view
+  ribbon: View > Normal
+  run:
+    - menu: [View, Normal]
+    - ribbon: { tab: View, control: Normal }
+
+- keys: "W P"
+  label: Page Layout view
+  ribbon: View > Page Layout
+  run:
+    - menu: [View, Page Layout]
+    - ribbon: { tab: View, control: Page Layout }
+
+- keys: "W I"
+  label: Page Break Preview
+  ribbon: View > Page Break Preview
+  run:
+    - ribbon: { tab: View, control: Page Break Preview }
+
+- keys: "W V G"
+  label: Toggle gridlines
+  ribbon: View > Show > Gridlines
+  run:
+    - applescript: 'tell application "Microsoft Excel" to set display gridlines of active window to not (display gridlines of active window)'
+    - ribbon: { tab: View, control: Gridlines }
+
+- keys: "W V H"
+  label: Toggle headings
+  ribbon: View > Show > Headings
+  run:
+    - applescript: 'tell application "Microsoft Excel" to set display headings of active window to not (display headings of active window)'
+    - ribbon: { tab: View, control: Headings }
+
+- keys: "W V F"
+  label: Toggle formula bar
+  ribbon: View > Show > Formula Bar
+  run:
+    - menu: [View, Formula Bar]
+    - ribbon: { tab: View, control: Formula Bar }
+
+- keys: "W F F"
+  label: Freeze panes (toggle)
+  ribbon: View > Freeze Panes > Freeze Panes
+  run:
+    - applescript: 'tell application "Microsoft Excel" to set freeze panes of active window to not (freeze panes of active window)'
+
+# ---- Other ----
+
+- keys: "P R S"
+  label: Set print area
+  ribbon: Page Layout > Print Area > Set Print Area
+  run:
+    - menu: [File, Print Area, Set Print Area]
+
+- keys: "F I Q L"
+  label: Edit links
+  ribbon: File > Info > Edit Links
+  run:
+    - menu: [Data, Edit Links...]
+
+- keys: "L R"
+  label: Record macro
+  ribbon: Developer > Record Macro
+  run:
+    - menu: [Tools, Macro, Record New Macro...]
+
+- keys: "T M R"
+  label: Record macro
+  ribbon: Tools > Macro > Record New Macro
+  run:
+    - menu: [Tools, Macro, Record New Macro...]
+
+- keys: "L U"
+  label: Use relative references
+  ribbon: Developer > Use Relative References
+  run:
+    - ribbon: { tab: View, control: Use Relative References }
+
+# ---- Generated from the Windows KeyTip list, one entry per ribbon command that exists in Excel for Mac ----
+- keys: "H V S"
+  label: "Paste Special"
+  ribbon: "Home > Paste > Paste Special"
+  run:
+    - menu: ["Edit", "Paste Special..."]
+- keys: "H X"
+  label: "Cut"
+  ribbon: "Home > Cut"
+  run:
+    - menu: ["Edit", "Cut"]
+    - ribbon: { tab: "Home", control: "Cut" }
+- keys: "H C"
+  label: "Copy"
+  ribbon: "Home > Copy"
+  run:
+    - menu: ["Edit", "Copy"]
+    - ribbon: { tab: "Home", control: "Copy" }
+- keys: "H F P"
+  label: "Format Painter"
+  ribbon: "Home > Clipboard > Format Painter"
+  run:
+    - ribbon: { tab: "Home", control: "Format", role: checkbox }
+- keys: "H F G"
+  label: "Increase font size"
+  ribbon: "Home > Font > Increase Font Size"
+  run:
+    - ribbon: { tab: "Home", control: "Increase Font Size" }
+- keys: "H F K"
+  label: "Decrease font size"
+  ribbon: "Home > Font > Decrease Font Size"
+  run:
+    - ribbon: { tab: "Home", control: "Decrease Font Size" }
+- keys: "H 1"
+  label: "Bold"
+  ribbon: "Home > Bold"
+  run:
+    - ribbon: { tab: "Home", control: "Bold" }
+- keys: "H 2"
+  label: "Italic"
+  ribbon: "Home > Italic"
+  run:
+    - ribbon: { tab: "Home", control: "Italic" }
+- keys: "H 3"
+  label: "Underline"
+  ribbon: "Home > Underline"
+  run:
+    - ribbon: { tab: "Home", control: "Underline" }
+- keys: "H B"
+  label: "Borders (opens menu)"
+  ribbon: "Home > Borders"
+  run:
+    - ribbon: { tab: "Home", control: "Borders", menu: true }
+- keys: "H F C"
+  label: "Font color (opens palette)"
+  ribbon: "Home > Font > Font Color"
+  run:
+    - ribbon: { tab: "Home", control: "Font Color", menu: true }
+- keys: "H A T"
+  label: "Top align"
+  ribbon: "Home > Alignment > Top Align"
+  run:
+    - ribbon: { tab: "Home", control: "Top Align" }
+- keys: "H A M"
+  label: "Middle align"
+  ribbon: "Home > Alignment > Middle Align"
+  run:
+    - ribbon: { tab: "Home", control: "Middle Align" }
+- keys: "H A B"
+  label: "Bottom align"
+  ribbon: "Home > Alignment > Bottom Align"
+  run:
+    - ribbon: { tab: "Home", control: "Bottom Align" }
+- keys: "H F Q"
+  label: "Orientation (opens menu)"
+  ribbon: "Home > Font > Orientation"
+  run:
+    - ribbon: { tab: "Home", control: "Orientation", menu: true }
+- keys: "H 5"
+  label: "Decrease indent"
+  ribbon: "Home > Decrease Indent"
+  run:
+    - ribbon: { tab: "Home", control: "Decrease Indent" }
+- keys: "H 6"
+  label: "Increase indent"
+  ribbon: "Home > Increase Indent"
+  run:
+    - ribbon: { tab: "Home", control: "Increase Indent" }
+- keys: "H M"
+  label: "Merge & Center (opens menu)"
+  ribbon: "Home > Merge & Center"
+  run:
+    - ribbon: { tab: "Home", control: "Merge & Center", menu: true }
+- keys: "H A K"
+  label: "Accounting format (opens menu)"
+  ribbon: "Home > Alignment > Accounting Number Format"
+  run:
+    - ribbon: { tab: "Home", control: "Accounting Number Format", menu: true }
+- keys: "H P"
+  label: "Percent style"
+  ribbon: "Home > Percent Style"
+  run:
+    - ribbon: { tab: "Home", control: "Percent Style" }
+- keys: "H K"
+  label: "Comma style"
+  ribbon: "Home > Comma Style"
+  run:
+    - ribbon: { tab: "Home", control: "Comma Style" }
+- keys: "H 0"
+  label: "Increase decimal"
+  ribbon: "Home > Increase Decimal"
+  run:
+    - ribbon: { tab: "Home", control: "Increase Decimal" }
+- keys: "H 9"
+  label: "Decrease decimal"
+  ribbon: "Home > Decrease Decimal"
+  run:
+    - ribbon: { tab: "Home", control: "Decrease Decimal" }
+- keys: "H L"
+  label: "Conditional Formatting (opens menu)"
+  ribbon: "Home > Conditional Formatting"
+  run:
+    - ribbon: { tab: "Home", control: "Conditional Formatting", menu: true }
+- keys: "H T"
+  label: "Format as Table (opens menu)"
+  ribbon: "Home > Format as Table"
+  run:
+    - ribbon: { tab: "Home", control: "Format as Table", menu: true }
+- keys: "H I S"
+  label: "Insert sheet"
+  ribbon: "Home > Insert > Insert Sheet"
+  run:
+    - menu: ["Insert", "Sheet", "Insert Sheet"]
+- keys: "H I R"
+  label: "Insert rows"
+  ribbon: "Home > Insert > Insert Sheet Rows"
+  run:
+    - menu: ["Insert", "Rows"]
+- keys: "H I C"
+  label: "Insert columns"
+  ribbon: "Home > Insert > Insert Sheet Columns"
+  run:
+    - menu: ["Insert", "Columns"]
+- keys: "H I I"
+  label: "Insert cells"
+  ribbon: "Home > Insert > Insert Cells"
+  run:
+    - menu: ["Insert", "Cells"]
+- keys: "H D S"
+  label: "Delete sheet"
+  ribbon: "Home > Delete > Delete Sheet"
+  run:
+    - menu: ["Edit", "Sheet", "Delete Sheet"]
+- keys: "H D D"
+  label: "Delete cells"
+  ribbon: "Home > Delete > Delete Cells"
+  run:
+    - menu: ["Edit", "Delete"]
+- keys: "H O A"
+  label: "AutoFit row height"
+  ribbon: "Home > Format > AutoFit Row Height"
+  run:
+    - menu: ["Format", "Row", "AutoFit"]
+- keys: "H O H"
+  label: "Row height"
+  ribbon: "Home > Format > Row Height"
+  run:
+    - menu: ["Format", "Row", "Height..."]
+- keys: "H O W"
+  label: "Column width"
+  ribbon: "Home > Format > Column Width"
+  run:
+    - menu: ["Format", "Column", "Width..."]
+- keys: "H O D"
+  label: "Default column width"
+  ribbon: "Home > Format > Default Width"
+  run:
+    - menu: ["Format", "Column", "Standard Width..."]
+- keys: "H O R"
+  label: "Rename sheet"
+  ribbon: "Home > Format > Rename Sheet"
+  run:
+    - menu: ["Format", "Sheet", "Rename"]
+- keys: "H O M"
+  label: "Move or copy sheet"
+  ribbon: "Home > Format > Move or Copy Sheet"
+  run:
+    - menu: ["Edit", "Sheet", "Move or Copy Sheet..."]
+- keys: "H O U R"
+  label: "Hide rows"
+  ribbon: "Home > Format > Hide & Unhide > Hide Rows"
+  run:
+    - menu: ["Format", "Row", "Hide"]
+- keys: "H O U C"
+  label: "Hide columns"
+  ribbon: "Home > Format > Hide & Unhide > Hide Columns"
+  run:
+    - menu: ["Format", "Column", "Hide"]
+- keys: "H O U S"
+  label: "Hide sheet"
+  ribbon: "Home > Format > Hide & Unhide > Hide Sheet"
+  run:
+    - menu: ["Format", "Sheet", "Hide"]
+- keys: "H U"
+  label: "AutoSum (opens menu)"
+  ribbon: "Home > AutoSum"
+  run:
+    - ribbon: { tab: "Home", control: "AutoSum", menu: true }
+- keys: "H F I"
+  label: "Fill (opens menu)"
+  ribbon: "Home > Fill"
+  run:
+    - ribbon: { tab: "Home", control: "Fill", menu: true }
+- keys: "H E A"
+  label: "Clear all"
+  ribbon: "Home > Clear > Clear All"
+  run:
+    - menu: ["Edit", "Clear", "All"]
+- keys: "H E F"
+  label: "Clear formats"
+  ribbon: "Home > Clear > Clear Formats"
+  run:
+    - menu: ["Edit", "Clear", "Formats"]
+- keys: "H E C"
+  label: "Clear contents"
+  ribbon: "Home > Clear > Clear Contents"
+  run:
+    - menu: ["Edit", "Clear", "Contents"]
+- keys: "H E M"
+  label: "Clear comments"
+  ribbon: "Home > Clear > Clear Comments"
+  run:
+    - menu: ["Edit", "Clear", "Clear Comments and Notes"]
+- keys: "H S F"
+  label: "Toggle filter"
+  ribbon: "Home > Sort & Filter > Filter"
+  run:
+    - menu: ["Data", "AutoFilter"]
+    - ribbon: { tab: "Data", control: "Filter" }
+- keys: "H S C"
+  label: "Clear filters"
+  ribbon: "Home > Sort & Filter > Clear"
+  run:
+    - menu: ["Data", "Clear Filters"]
+    - ribbon: { tab: "Data", control: "Clear" }
+- keys: "H S U"
+  label: "Custom sort"
+  ribbon: "Home > Sort & Filter > Custom Sort"
+  run:
+    - menu: ["Data", "Sort..."]
+    - ribbon: { tab: "Data", control: "Sort" }
+- keys: "H F D F"
+  label: "Find"
+  ribbon: "Home > Find & Select > Find"
+  run:
+    - menu: ["Edit", "Find", "Find..."]
+- keys: "H F D R"
+  label: "Replace"
+  ribbon: "Home > Find & Select > Replace"
+  run:
+    - menu: ["Edit", "Find", "Replace..."]
+- keys: "H F D G"
+  label: "Go To"
+  ribbon: "Home > Find & Select > Go To"
+  run:
+    - menu: ["Edit", "Find", "Go To..."]
+- keys: "N T"
+  label: "Insert table"
+  ribbon: "Insert > Table"
+  run:
+    - menu: ["Insert", "Table"]
+    - ribbon: { tab: "Insert", control: "Table" }
+- keys: "N R"
+  label: "Recommended charts"
+  ribbon: "Insert > Recommended Charts"
+  run:
+    - ribbon: { tab: "Insert", control: "Recommended Charts" }
+- keys: "N P"
+  label: "Pictures (opens menu)"
+  ribbon: "Insert > Pictures"
+  run:
+    - ribbon: { tab: "Insert", control: "Pictures", menu: true }
+- keys: "N S H"
+  label: "Shapes (opens menu)"
+  ribbon: "Insert > Illustrations > Shapes"
+  run:
+    - ribbon: { tab: "Insert", control: "Shapes", menu: true }
+- keys: "N I"
+  label: "Insert hyperlink"
+  ribbon: "Insert > Link"
+  run:
+    - menu: ["Insert", "Hyperlink..."]
+    - ribbon: { tab: "Insert", control: "Link" }
+- keys: "N X"
+  label: "Text box"
+  ribbon: "Insert > Text Box"
+  run:
+    - menu: ["Insert", "Text Box"]
+    - ribbon: { tab: "Insert", control: "Text Box" }
+- keys: "N H"
+  label: "Header & Footer"
+  ribbon: "Insert > Header & Footer"
+  run:
+    - menu: ["View", "Header and Footer..."]
+    - ribbon: { tab: "Insert", control: "Header & Footer" }
+- keys: "N J"
+  label: "Insert object"
+  ribbon: "Insert > Object"
+  run:
+    - menu: ["Insert", "Object..."]
+    - ribbon: { tab: "Insert", control: "Object" }
+- keys: "N W"
+  label: "WordArt"
+  ribbon: "Insert > WordArt"
+  run:
+    - menu: ["Insert", "WordArt"]
+    - ribbon: { tab: "Insert", control: "WordArt" }
+- keys: "P T"
+  label: "Themes (opens menu)"
+  ribbon: "Page Layout > Themes"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Themes", menu: true }
+- keys: "P C"
+  label: "Colors (opens menu)"
+  ribbon: "Page Layout > Colors"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Colors", menu: true }
+- keys: "P F"
+  label: "Fonts (opens menu)"
+  ribbon: "Page Layout > Fonts"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Fonts", menu: true }
+- keys: "P M"
+  label: "Margins (opens menu)"
+  ribbon: "Page Layout > Margins"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Margins", menu: true }
+- keys: "P O"
+  label: "Orientation (opens menu)"
+  ribbon: "Page Layout > Orientation"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Orientation", menu: true }
+- keys: "P S"
+  label: "Paper size (opens menu)"
+  ribbon: "Page Layout > Size"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Size", menu: true }
+- keys: "P R C"
+  label: "Clear print area"
+  ribbon: "Page Layout > Print Area > Clear Print Area"
+  run:
+    - menu: ["File", "Print Area", "Clear Print Area"]
+- keys: "P B"
+  label: "Page breaks (opens menu)"
+  ribbon: "Page Layout > Breaks"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Breaks", menu: true }
+- keys: "P G"
+  label: "Sheet background"
+  ribbon: "Page Layout > Background"
+  run:
+    - menu: ["Format", "Sheet", "Background..."]
+    - ribbon: { tab: "Page Layout", control: "Background" }
+- keys: "P I"
+  label: "Print titles"
+  ribbon: "Page Layout > Print Titles"
+  run:
+    - ribbon: { tab: "Page Layout", control: "Print Titles" }
+- keys: "M F"
+  label: "Insert function"
+  ribbon: "Formulas > Insert Function"
+  run:
+    - menu: ["Insert", "Function..."]
+    - ribbon: { tab: "Formulas", control: "Insert Function" }
+- keys: "M U"
+  label: "AutoSum (opens menu)"
+  ribbon: "Formulas > AutoSum"
+  run:
+    - ribbon: { tab: "Formulas", control: "AutoSum", menu: true }
+- keys: "M N"
+  label: "Name Manager"
+  ribbon: "Formulas > Name Manager"
+  run:
+    - menu: ["Insert", "Name", "Name Manager"]
+    - ribbon: { tab: "Formulas", control: "Name Manager" }
+- keys: "M M D"
+  label: "Define name"
+  ribbon: "Formulas > Define Name > Define Name"
+  run:
+    - menu: ["Insert", "Name", "Define Name"]
+- keys: "M C"
+  label: "Create names from selection"
+  ribbon: "Formulas > Create from Selection"
+  run:
+    - menu: ["Insert", "Name", "Create..."]
+    - ribbon: { tab: "Formulas", control: "Create from Selection" }
+- keys: "M W"
+  label: "Watch window"
+  ribbon: "Formulas > Watch Window"
+  run:
+    - ribbon: { tab: "Formulas", control: "Watch Window" }
+- keys: "M X"
+  label: "Calculation options (opens menu)"
+  ribbon: "Formulas > Calculation Options"
+  run:
+    - ribbon: { tab: "Formulas", control: "Calculation Options", menu: true }
+- keys: "M B"
+  label: "Calculate now"
+  ribbon: "Formulas > Calculate Now"
+  run:
+    - ribbon: { tab: "Formulas", control: "Calculate Now" }
+- keys: "M J"
+  label: "Calculate sheet"
+  ribbon: "Formulas > Calculate Sheet"
+  run:
+    - ribbon: { tab: "Formulas", control: "Calculate Sheet" }
+- keys: "A R A"
+  label: "Refresh all"
+  ribbon: "Data > Refresh > Refresh All"
+  run:
+    - ribbon: { tab: "Data", control: "Refresh All" }
+- keys: "A O"
+  label: "Queries & Connections"
+  ribbon: "Data > Queries & Connections"
+  run:
+    - ribbon: { tab: "Data", control: "Queries & Connections" }
+- keys: "A Q"
+  label: "Advanced filter"
+  ribbon: "Data > Advanced"
+  run:
+    - menu: ["Data", "Advanced Filter..."]
+    - ribbon: { tab: "Data", control: "Advanced" }
+- keys: "A B"
+  label: "Subtotal"
+  ribbon: "Data > Subtotal"
+  run:
+    - menu: ["Data", "Subtotals..."]
+    - ribbon: { tab: "Data", control: "Subtotal" }
+- keys: "A N"
+  label: "Consolidate"
+  ribbon: "Data > Consolidate"
+  run:
+    - menu: ["Data", "Consolidate..."]
+    - ribbon: { tab: "Data", control: "Consolidate" }
+- keys: "A W S"
+  label: "Scenario Manager"
+  ribbon: "Data > What-If Analysis > Scenario Manager"
+  run:
+    - menu: ["Tools", "Scenarios..."]
+- keys: "A H"
+  label: "Show detail"
+  ribbon: "Data > Show Detail"
+  run:
+    - ribbon: { tab: "Data", control: "Show Detail" }
+- keys: "A J"
+  label: "Hide detail"
+  ribbon: "Data > Hide Detail"
+  run:
+    - ribbon: { tab: "Data", control: "Hide Detail" }
+- keys: "R S"
+  label: "Spelling"
+  ribbon: "Review > Spelling"
+  run:
+    - menu: ["Tools", "Spelling..."]
+    - ribbon: { tab: "Review", control: "Spelling" }
+- keys: "R C"
+  label: "New comment"
+  ribbon: "Review > New Comment"
+  run:
+    - menu: ["Insert", "New Comment"]
+    - ribbon: { tab: "Review", control: "New Comment" }
+- keys: "R D"
+  label: "Delete comment"
+  ribbon: "Review > Delete"
+  run:
+    - ribbon: { tab: "Review", control: "Delete" }
+- keys: "R N"
+  label: "Next comment"
+  ribbon: "Review > Next Comment"
+  run:
+    - ribbon: { tab: "Review", control: "Next Comment" }
+- keys: "R V"
+  label: "Previous comment"
+  ribbon: "Review > Previous Comment"
+  run:
+    - ribbon: { tab: "Review", control: "Previous Comment" }
+- keys: "R A"
+  label: "Check accessibility"
+  ribbon: "Review > Check Accessibility"
+  run:
+    - menu: ["Tools", "Check Accessibility"]
+    - ribbon: { tab: "Review", control: "Check Accessibility" }
+- keys: "W Q"
+  label: "Zoom"
+  ribbon: "View > Zoom"
+  run:
+    - menu: ["View", "Zoom..."]
+- keys: "W J"
+  label: "Zoom to 100%"
+  ribbon: "View > Zoom to 100%"
+  run:
+    - ribbon: { tab: "View", control: "Zoom to 100%" }
+- keys: "W N"
+  label: "New window"
+  ribbon: "View > New Window"
+  run:
+    - ribbon: { tab: "View", control: "New Window" }
+- keys: "W A"
+  label: "Arrange all"
+  ribbon: "View > Arrange All"
+  run:
+    - ribbon: { tab: "View", control: "Arrange All" }
+- keys: "W S"
+  label: "Split"
+  ribbon: "View > Split"
+  run:
+    - ribbon: { tab: "View", control: "Split" }
+- keys: "W H"
+  label: "Hide window"
+  ribbon: "View > Hide"
+  run:
+    - ribbon: { tab: "View", control: "Hide" }
+- keys: "W U"
+  label: "Unhide window"
+  ribbon: "View > Unhide"
+  run:
+    - ribbon: { tab: "View", control: "Unhide" }
+- keys: "W B"
+  label: "View side by side"
+  ribbon: "View > View Side by Side"
+  run:
+    - ribbon: { tab: "View", control: "View Side by Side" }
+- keys: "W W"
+  label: "Switch windows (opens menu)"
+  ribbon: "View > Switch Windows"
+  run:
+    - ribbon: { tab: "View", control: "Switch Windows", menu: true }
+- keys: "W M"
+  label: "Macros"
+  ribbon: "View > View Macros"
+  run:
+    - menu: ["Tools", "Macro", "Macros..."]
+    - ribbon: { tab: "View", control: "View Macros" }
+- keys: "F S"
+  label: "Save"
+  ribbon: "File > Save"
+  run:
+    - menu: ["File", "Save"]
+- keys: "F A"
+  label: "Save as"
+  ribbon: "File > Save As"
+  run:
+    - menu: ["File", "Save As..."]
+- keys: "F O"
+  label: "Open"
+  ribbon: "File > Open"
+  run:
+    - menu: ["File", "Open..."]
+- keys: "F N"
+  label: "New workbook"
+  ribbon: "File > New"
+  run:
+    - menu: ["File", "New"]
+- keys: "F P"
+  label: "Print"
+  ribbon: "File > Print"
+  run:
+    - menu: ["File", "Print..."]
+- keys: "F C"
+  label: "Close workbook"
+  ribbon: "File > Close"
+  run:
+    - menu: ["File", "Close"]

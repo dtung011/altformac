@@ -1,0 +1,474 @@
+# Windows Alt sequences -> how to run them in PowerPoint for Mac. See excel.yaml for the conventions.
+# ALWAYS quote `keys`. Sequences are the Windows KeyTips for PowerPoint; only commands that exist in
+# PowerPoint for Mac 16.104 are listed. Every step was verified with `swift run mapping-check mappings/powerpoint.yaml`.
+# Executor order = fastest and most stable first: shortcut -> menu -> applescript -> ribbon.
+# `menu: true` opens a dropdown (AXShowMenu): it never presses the control.
+
+- keys: "H"
+  label: "Home tab"
+  ribbon: "Home"
+  run:
+    - ribbon: { tab: "Home", control: "" }
+
+- keys: "N"
+  label: "Insert tab"
+  ribbon: "Insert"
+  run:
+    - ribbon: { tab: "Insert", control: "" }
+
+- keys: "G"
+  label: "Design tab"
+  ribbon: "Design"
+  run:
+    - ribbon: { tab: "Design", control: "" }
+
+- keys: "K"
+  label: "Transitions tab"
+  ribbon: "Transitions"
+  run:
+    - ribbon: { tab: "Transitions", control: "" }
+
+- keys: "A"
+  label: "Animations tab"
+  ribbon: "Animations"
+  run:
+    - ribbon: { tab: "Animations", control: "" }
+
+- keys: "S"
+  label: "Slide Show tab"
+  ribbon: "Slide Show"
+  run:
+    - ribbon: { tab: "Slide Show", control: "" }
+
+- keys: "R"
+  label: "Review tab"
+  ribbon: "Review"
+  run:
+    - ribbon: { tab: "Review", control: "" }
+
+- keys: "W"
+  label: "View tab"
+  ribbon: "View"
+  run:
+    - ribbon: { tab: "View", control: "" }
+
+- keys: "H V S"
+  label: "Paste Special"
+  ribbon: "Home > Paste > Paste Special"
+  run:
+    - menu: ["Edit", "Paste Special..."]
+
+- keys: "H X"
+  label: "Cut"
+  ribbon: "Home > Cut"
+  run:
+    - menu: ["Edit", "Cut"]
+    - ribbon: { tab: "Home", control: "Cut" }
+
+- keys: "H C"
+  label: "Copy"
+  ribbon: "Home > Copy"
+  run:
+    - menu: ["Edit", "Copy"]
+    - ribbon: { tab: "Home", control: "Copy" }
+
+- keys: "H F P"
+  label: "Format Painter"
+  ribbon: "Home > Clipboard > Format Painter"
+  run:
+    - ribbon: { tab: "Home", control: "Format" }
+
+- keys: "H I"
+  label: "New slide"
+  ribbon: "Home > New Slide"
+  run:
+    - menu: ["Insert", "New Slide"]
+    - ribbon: { tab: "Home", control: "New Slide" }
+
+- keys: "H L"
+  label: "Slide layout (opens menu)"
+  ribbon: "Home > Layout"
+  run:
+    - ribbon: { tab: "Home", control: "Layout", menu: true }
+
+- keys: "H R"
+  label: "Reset slide"
+  ribbon: "Home > Reset"
+  run:
+    - ribbon: { tab: "Home", control: "Reset" }
+
+- keys: "H 1"
+  label: "Bold"
+  ribbon: "Home > Bold"
+  run:
+    - ribbon: { tab: "Home", control: "Bold" }
+
+- keys: "H 2"
+  label: "Italic"
+  ribbon: "Home > Italic"
+  run:
+    - ribbon: { tab: "Home", control: "Italic" }
+
+- keys: "H 3"
+  label: "Underline"
+  ribbon: "Home > Underline"
+  run:
+    - ribbon: { tab: "Home", control: "Underline" }
+
+- keys: "H 4"
+  label: "Strikethrough"
+  ribbon: "Home > Strikethrough"
+  run:
+    - ribbon: { tab: "Home", control: "Strikethrough" }
+
+- keys: "H F G"
+  label: "Increase font size"
+  ribbon: "Home > Font > Increase Font Size"
+  run:
+    - ribbon: { tab: "Home", control: "Increase Font Size" }
+
+- keys: "H F K"
+  label: "Decrease font size"
+  ribbon: "Home > Font > Decrease Font Size"
+  run:
+    - ribbon: { tab: "Home", control: "Decrease Font Size" }
+
+- keys: "H F C"
+  label: "Font color (opens palette)"
+  ribbon: "Home > Font > Font Color"
+  run:
+    - ribbon: { tab: "Home", control: "Font Color", menu: true }
+
+- keys: "H U"
+  label: "Bullets (opens menu)"
+  ribbon: "Home > Bullets"
+  run:
+    - ribbon: { tab: "Home", control: "Bullets", menu: true }
+
+- keys: "H N"
+  label: "Numbering (opens menu)"
+  ribbon: "Home > Numbering"
+  run:
+    - ribbon: { tab: "Home", control: "Numbering", menu: true }
+
+- keys: "H A L"
+  label: "Align left"
+  ribbon: "Home > Paragraph > Align Left"
+  run:
+    - ribbon: { tab: "Home", control: "Align Left" }
+
+- keys: "H A C"
+  label: "Center"
+  ribbon: "Home > Paragraph > Center"
+  run:
+    - ribbon: { tab: "Home", control: "Center" }
+
+- keys: "H A R"
+  label: "Align right"
+  ribbon: "Home > Paragraph > Align Right"
+  run:
+    - ribbon: { tab: "Home", control: "Align Right" }
+
+- keys: "H J"
+  label: "Justify"
+  ribbon: "Home > Justify"
+  run:
+    - ribbon: { tab: "Home", control: "Justify" }
+
+- keys: "H K"
+  label: "Line spacing (opens menu)"
+  ribbon: "Home > Line Spacing"
+  run:
+    - ribbon: { tab: "Home", control: "Line Spacing", menu: true }
+
+- keys: "H S H"
+  label: "Shapes (opens menu)"
+  ribbon: "Home > Drawing > Shapes"
+  run:
+    - ribbon: { tab: "Home", control: "Shapes", menu: true }
+
+- keys: "H G"
+  label: "Arrange (opens menu)"
+  ribbon: "Home > Arrange"
+  run:
+    - ribbon: { tab: "Home", control: "Arrange", menu: true }
+
+- keys: "H Q"
+  label: "Quick styles (opens menu)"
+  ribbon: "Home > Quick Styles"
+  run:
+    - ribbon: { tab: "Home", control: "Quick Styles", menu: true }
+
+- keys: "H S F"
+  label: "Shape fill (opens menu)"
+  ribbon: "Home > Drawing > Shape Fill"
+  run:
+    - ribbon: { tab: "Home", control: "Shape Fill", menu: true }
+
+- keys: "H S O"
+  label: "Shape outline (opens menu)"
+  ribbon: "Home > Drawing > Shape Outline"
+  run:
+    - ribbon: { tab: "Home", control: "Shape Outline", menu: true }
+
+- keys: "H F D"
+  label: "Find"
+  ribbon: "Home > Find"
+  run:
+    - menu: ["Edit", "Find", "Find..."]
+
+- keys: "N P"
+  label: "Pictures (opens menu)"
+  ribbon: "Insert > Pictures"
+  run:
+    - ribbon: { tab: "Insert", control: "Pictures", menu: true }
+
+- keys: "N S H"
+  label: "Shapes (opens menu)"
+  ribbon: "Insert > Illustrations > Shapes"
+  run:
+    - ribbon: { tab: "Insert", control: "Shapes", menu: true }
+
+- keys: "N T"
+  label: "Insert table"
+  ribbon: "Insert > Table"
+  run:
+    - menu: ["Insert", "Table..."]
+    - ribbon: { tab: "Insert", control: "Table", menu: true }
+
+- keys: "N C"
+  label: "Chart (opens menu)"
+  ribbon: "Insert > Chart"
+  run:
+    - ribbon: { tab: "Insert", control: "Chart", menu: true }
+
+- keys: "N M"
+  label: "SmartArt (opens menu)"
+  ribbon: "Insert > SmartArt"
+  run:
+    - ribbon: { tab: "Insert", control: "SmartArt", menu: true }
+
+- keys: "N K"
+  label: "Insert link"
+  ribbon: "Insert > Link"
+  run:
+    - menu: ["Insert", "Hyperlink..."]
+    - ribbon: { tab: "Insert", control: "Link" }
+
+- keys: "N X"
+  label: "Text box"
+  ribbon: "Insert > Text Box"
+  run:
+    - menu: ["Insert", "Text Box"]
+    - ribbon: { tab: "Insert", control: "Text Box" }
+
+- keys: "N H"
+  label: "Header & Footer"
+  ribbon: "Insert > Header & Footer"
+  run:
+    - menu: ["Insert", "Header and Footer..."]
+    - ribbon: { tab: "Insert", control: "Header & Footer" }
+
+- keys: "N W"
+  label: "WordArt (opens menu)"
+  ribbon: "Insert > WordArt"
+  run:
+    - ribbon: { tab: "Insert", control: "WordArt", menu: true }
+
+- keys: "N D"
+  label: "Date & Time"
+  ribbon: "Insert > Date & Time"
+  run:
+    - menu: ["Insert", "Date and Time..."]
+    - ribbon: { tab: "Insert", control: "Date & Time" }
+
+- keys: "N U"
+  label: "Slide number"
+  ribbon: "Insert > Slide Number"
+  run:
+    - menu: ["Insert", "Slide Number"]
+    - ribbon: { tab: "Insert", control: "Slide Number" }
+
+- keys: "N J"
+  label: "Insert object"
+  ribbon: "Insert > Object"
+  run:
+    - menu: ["Insert", "Object..."]
+    - ribbon: { tab: "Insert", control: "Object" }
+
+- keys: "N V"
+  label: "Video (opens menu)"
+  ribbon: "Insert > Video"
+  run:
+    - ribbon: { tab: "Insert", control: "Video", menu: true }
+
+- keys: "G S"
+  label: "Slide size (opens menu)"
+  ribbon: "Design > Slide Size"
+  run:
+    - ribbon: { tab: "Design", control: "Slide Size", menu: true }
+
+- keys: "G B"
+  label: "Format background"
+  ribbon: "Design > Format Background"
+  run:
+    - menu: ["Format", "Slide Background..."]
+    - ribbon: { tab: "Design", control: "Format Background" }
+
+- keys: "A C"
+  label: "Animation pane"
+  ribbon: "Animations > Animation Pane"
+  run:
+    - ribbon: { tab: "Animations", control: "Animation Pane" }
+
+- keys: "S B"
+  label: "Play from start"
+  ribbon: "Slide Show > Play from Start"
+  run:
+    - menu: ["Slide Show", "Play from Start"]
+    - ribbon: { tab: "Slide Show", control: "Play from Start" }
+
+- keys: "S C"
+  label: "Play from current slide"
+  ribbon: "Slide Show > Play from Current Slide"
+  run:
+    - menu: ["Slide Show", "Play from Current Slide"]
+    - ribbon: { tab: "Slide Show", control: "Play from Current Slide" }
+
+- keys: "S S"
+  label: "Set up slide show"
+  ribbon: "Slide Show > Set Up Slide Show"
+  run:
+    - menu: ["Slide Show", "Set Up Show..."]
+    - ribbon: { tab: "Slide Show", control: "Set Up Slide Show" }
+
+- keys: "S H"
+  label: "Hide slide"
+  ribbon: "Slide Show > Hide Slide"
+  run:
+    - menu: ["Slide Show", "Hide Slide"]
+    - ribbon: { tab: "Slide Show", control: "Hide Slide" }
+
+- keys: "S R"
+  label: "Rehearse timings"
+  ribbon: "Slide Show > Rehearse Timings"
+  run:
+    - menu: ["Slide Show", "Rehearse Timings"]
+    - ribbon: { tab: "Slide Show", control: "Rehearse Timings" }
+
+- keys: "R S"
+  label: "Spelling"
+  ribbon: "Review > Spelling"
+  run:
+    - menu: ["Tools", "Spelling..."]
+
+- keys: "R E"
+  label: "Thesaurus"
+  ribbon: "Review > Thesaurus"
+  run:
+    - menu: ["Tools", "Thesaurus..."]
+
+- keys: "R C"
+  label: "New comment"
+  ribbon: "Review > New Comment"
+  run:
+    - menu: ["Insert", "Comment"]
+    - ribbon: { tab: "Review", control: "New Comment" }
+
+- keys: "R A"
+  label: "Check accessibility"
+  ribbon: "Review > Check Accessibility"
+  run:
+    - menu: ["Tools", "Check Accessibility"]
+
+- keys: "W L"
+  label: "Normal view"
+  ribbon: "View > Normal"
+  run:
+    - menu: ["View", "Normal"]
+    - ribbon: { tab: "View", control: "Normal" }
+
+- keys: "W I"
+  label: "Slide sorter"
+  ribbon: "View > Slide Sorter"
+  run:
+    - menu: ["View", "Slide Sorter"]
+    - ribbon: { tab: "View", control: "Slide Sorter" }
+
+- keys: "W D"
+  label: "Reading view"
+  ribbon: "View > Reading View"
+  run:
+    - menu: ["View", "Reading View"]
+    - ribbon: { tab: "View", control: "Reading View" }
+
+- keys: "W T"
+  label: "Notes page"
+  ribbon: "View > Notes Page"
+  run:
+    - menu: ["View", "Notes Page"]
+    - ribbon: { tab: "View", control: "Notes Page" }
+
+- keys: "W U"
+  label: "Outline view"
+  ribbon: "View > Outline View"
+  run:
+    - menu: ["View", "Outline View"]
+    - ribbon: { tab: "View", control: "Outline View" }
+
+- keys: "W M"
+  label: "Slide master"
+  ribbon: "View > Slide Master"
+  run:
+    - menu: ["View", "Master", "Slide Master"]
+    - ribbon: { tab: "View", control: "Slide Master" }
+
+- keys: "W Q"
+  label: "Zoom"
+  ribbon: "View > Zoom"
+  run:
+    - menu: ["View", "Zoom", "Zoom..."]
+    - ribbon: { tab: "View", control: "Zoom" }
+
+- keys: "W F"
+  label: "Fit to window"
+  ribbon: "View > Fit to Window"
+  run:
+    - menu: ["View", "Zoom", "Fit to Window"]
+    - ribbon: { tab: "View", control: "Fit to Window" }
+
+- keys: "F S"
+  label: "Save"
+  ribbon: "File > Save"
+  run:
+    - menu: ["File", "Save"]
+
+- keys: "F A"
+  label: "Save as"
+  ribbon: "File > Save As"
+  run:
+    - menu: ["File", "Save As..."]
+
+- keys: "F O"
+  label: "Open"
+  ribbon: "File > Open"
+  run:
+    - menu: ["File", "Open..."]
+
+- keys: "F N"
+  label: "New"
+  ribbon: "File > New"
+  run:
+    - menu: ["File", "New Presentation"]
+
+- keys: "F P"
+  label: "Print"
+  ribbon: "File > Print"
+  run:
+    - menu: ["File", "Print..."]
+
+- keys: "F C"
+  label: "Close"
+  ribbon: "File > Close"
+  run:
+    - menu: ["File", "Close"]
