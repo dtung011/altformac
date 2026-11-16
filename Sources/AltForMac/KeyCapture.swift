@@ -23,6 +23,9 @@ final class KeyCapture {
     var handler: ((RawInput) -> Bool)?
 
     private var tap: CFMachPort?
+    /// What `setActive` last asked for. A tap that macOS disabled for being slow is re-enabled only if
+    /// this is still true, so a timeout that races an app switch cannot turn the tap on for another app.
+    private var wantsActive = false
     private var runLoop: CFRunLoop?
     private var optionDownAt: UInt64?
     private var otherInputDuringOption = false
@@ -59,6 +62,7 @@ final class KeyCapture {
 
     /// Enabled only while Excel is frontmost: no other app's keys are ever inspected.
     func setActive(_ active: Bool) {
+        wantsActive = active
         guard let tap else { return }
         CGEvent.tapEnable(tap: tap, enable: active)
         if !active { perform { [self] in resetTracking() } }
@@ -94,8 +98,10 @@ final class KeyCapture {
         let passThrough = Unmanaged.passUnretained(event)
 
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
-            if let tap { CGEvent.tapEnable(tap: tap, enable: true) }
-            FileHandle.standardError.write(Data("[altformac] WARNING: event tap was disabled by macOS, re-enabled\n".utf8))
+            if let tap, wantsActive && OfficeApp.frontmost != nil {
+                CGEvent.tapEnable(tap: tap, enable: true)
+                FileHandle.standardError.write(Data("[altformac] WARNING: event tap was disabled by macOS, re-enabled\n".utf8))
+            }
             return passThrough
         }
         // Our own synthetic key events (shortcut executor) must reach Excel untouched.

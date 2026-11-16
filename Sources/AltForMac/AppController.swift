@@ -1,4 +1,5 @@
 import AppKit
+import Security
 import AltForMacCore
 import AltForMacKit
 
@@ -38,8 +39,11 @@ final class AppController {
     private var commitTimer: Timer?
     private var optionReleasedAt: DispatchTime?
 
+    /// Set when the installed app no longer matches its signature; the tap is then never installed.
+    private var bundleModified = false
+
     var onStatus: ((Status) -> Void)?
-    enum Status { case ready, needsPermission, appSlow }
+    enum Status { case ready, needsPermission, appSlow, bundleModified }
 
     func start() {
         loadMappings()
@@ -58,6 +62,11 @@ final class AppController {
     // MARK: setup
 
     private func loadMappings() {
+        guard Self.bundleMatchesSignature() else {
+            bundleModified = true
+            log("app bundle does not match its signature: mappings not loaded, keyboard tap stays off")
+            return
+        }
         for office in OfficeApp.all {
             do {
                 let url = try Self.findMappingsFile(stem: office.stem)
@@ -74,14 +83,18 @@ final class AppController {
         }
     }
 
-    /// Release: the .app carries its mappings in Contents/Resources. Dev: ALTFORMAC_MAPPINGS_DIR, then
-    /// walk up from the working directory and the binary to find `mappings/<stem>.yaml`.
+    /// Release: the .app carries its mappings in Contents/Resources and reads them from nowhere else.
+    /// Mappings can contain AppleScript, so loading them from an environment variable or a nearby folder
+    /// would let another program run scripts with AltForMac's Accessibility and Automation permissions.
+    /// Dev only (`swift run`, not inside an .app): ALTFORMAC_MAPPINGS_DIR, then walk up from the working
+    /// directory and the binary to find `mappings/<stem>.yaml`.
     static func findMappingsFile(stem: String = "excel") throws -> URL {
+        if let bundled = Bundle.main.url(forResource: stem, withExtension: "yaml"),
+           FileManager.default.fileExists(atPath: bundled.path) { return bundled }
+        guard !isPackagedApp else { throw CocoaError(.fileNoSuchFile) }
         if let dir = ProcessInfo.processInfo.environment["ALTFORMAC_MAPPINGS_DIR"] {
             return URL(fileURLWithPath: dir).appendingPathComponent("\(stem).yaml")
         }
-        if let bundled = Bundle.main.url(forResource: stem, withExtension: "yaml"),
-           FileManager.default.fileExists(atPath: bundled.path) { return bundled }
         var starts = [URL(fileURLWithPath: FileManager.default.currentDirectoryPath)]
         if let exe = Bundle.main.executableURL { starts.append(exe.deletingLastPathComponent()) }
         for start in starts {
@@ -95,9 +108,26 @@ final class AppController {
         throw CocoaError(.fileNoSuchFile)
     }
 
+    static var isPackagedApp: Bool { Bundle.main.bundleURL.pathExtension == "app" }
+
+    /// True when the app bundle still matches its code signature, resources (the mappings) included.
+    /// If someone edits a mappings file in the installed app, this fails and nothing is loaded. Re-signing
+    /// the edited copy gives it a new identity, which macOS does not match to AltForMac's permissions.
+    static func bundleMatchesSignature() -> Bool {
+        guard isPackagedApp else { return true }
+        var code: SecStaticCode?
+        guard SecStaticCodeCreateWithPath(Bundle.main.bundleURL as CFURL, [], &code) == errSecSuccess,
+              let code else { return false }
+        return SecStaticCodeCheckValidity(code, [], nil) == errSecSuccess
+    }
+
     /// Creating an event tap can succeed without Accessibility permission (macOS then keeps disabling it),
     /// so trust is checked explicitly first. The system prompt is shown once; after that we poll silently.
     private func installTapWhenPermitted(prompt: Bool = true) {
+        if bundleModified {
+            onStatus?(.bundleModified)
+            return
+        }
         if AXPermission.isTrusted, capture.install() {
             onStatus?(.ready)
             frontAppChanged(OfficeApp.frontmost)

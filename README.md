@@ -6,11 +6,11 @@ Mac's built-in KeyTips leave out.
 
 Free and open source (MIT). Microsoft's code is never modified or shipped.
 
-**Current version: 0.1.2** | [Download](https://github.com/dtung011/altformac/releases/latest) | [Changelog](CHANGELOG.md)
+**Current version: 0.1.3** | [Download](https://github.com/dtung011/altformac/releases/latest) | [Changelog](CHANGELOG.md)
 
 ## Download and install
 
-Requires macOS 13 (Ventura) or later. The 0.1.2 build is for Apple Silicon; Intel Macs can build from source.
+Requires macOS 13 (Ventura) or later. The 0.1.3 build is for Apple Silicon; Intel Macs can build from source.
 
 ### Option 1: Homebrew
 
@@ -77,17 +77,21 @@ Sequences live in [mappings/](mappings/): `excel.yaml` (206), `word.yaml` (107),
 
 ## Uninstall
 
-1. **Quit AltForMac** from its menu-bar icon.
-2. **Remove the app.**
-   - Installed with Homebrew: `brew uninstall --cask altformac` (add `--zap` to also remove its support files).
-     Remove the tap with `brew untap dtung011/altformac` if you no longer want it.
-   - Installed from the DMG or built from source: drag **AltForMac** from Applications to the Trash.
-3. **Remove its permissions** (optional, they are inert once the app is gone). In System Settings >
-   Privacy & Security, open Accessibility and Automation, select AltForMac and click the minus button.
-   Or reset them from Terminal: `tccutil reset Accessibility dev.altformac.app` and
-   `tccutil reset AppleEvents dev.altformac.app`.
-4. **Turn Office's own KeyTips back on** if you want them: Preferences > Accessibility in Excel, Word and
-   PowerPoint.
+Pick the way that matches how you installed it:
+
+1. **From the app (DMG installs, 0.1.3 and later).** Click the `⌥` menu-bar icon and choose
+   **Uninstall AltForMac…**. It removes AltForMac's Accessibility and Automation permissions, moves the app
+   to the Trash and quits.
+2. **Homebrew.** `brew uninstall --cask altformac` quits the app, deletes it and removes its permissions
+   (add `--zap` to also remove its support files). Remove the tap with `brew untap dtung011/altformac` if you
+   no longer want it.
+3. **Dragged to the Trash yourself.** macOS keeps every deleted app's privacy permissions, and a deleted app
+   cannot remove them. They do nothing once the app is gone, but to clear them run
+   `tccutil reset All dev.altformac.app`, or in System Settings > Privacy & Security open Accessibility and
+   Automation, select AltForMac and click the minus button.
+
+Afterwards, **turn Office's own KeyTips back on** if you want them: Preferences > Accessibility in Excel,
+Word and PowerPoint.
 
 AltForMac installs no background services and writes nothing outside its own app bundle, so there is
 nothing else to clean up. If you added it to Login Items, remove it there too (System Settings > General >

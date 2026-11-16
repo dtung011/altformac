@@ -220,7 +220,7 @@
       </div>
 
       <div class="getit">
-        <a class="btn-big" href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg"><span aria-hidden="true">▼</span> Download for Mac<small>AltForMac.dmg · free · version 0.1.2</small></a>
+        <a class="btn-big" href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg"><span aria-hidden="true">▼</span> Download for Mac<small>AltForMac.dmg · free · version 0.1.3</small></a>
         <p class="getit-note">macOS 13 or later, Apple Silicon. <a href="#install">Homebrew, Intel and source installs</a></p>
       </div>
 
@@ -327,18 +327,18 @@ cd altformac && scripts/package.sh</pre>
     <fieldset id="uninstall">
       <legend>Uninstall</legend>
       <ol>
-        <li><b>Quit AltForMac</b> from its menu-bar icon.</li>
-        <li><b>Remove the app.</b> Installed with Homebrew: run <code>brew uninstall --cask altformac</code> (add <code>--zap</code> to also remove its support files). Installed from the DMG or source: drag AltForMac from Applications to the Trash.</li>
-        <li><b>Remove its permissions</b> (optional). In System Settings &gt; Privacy &amp; Security, open Accessibility and Automation, select AltForMac and click the minus button.</li>
-        <li><b>Turn Office's KeyTips back on</b> if you want them: Preferences &gt; Accessibility in Excel, Word and PowerPoint.</li>
+        <li><b>From the app</b> (DMG installs, 0.1.3 and later): click the <code>⌥</code> menu-bar icon and choose <b>Uninstall AltForMac…</b>. It removes its Accessibility and Automation permissions, moves the app to the Trash and quits.</li>
+        <li><b>Homebrew:</b> run <code>brew uninstall --cask altformac</code>. It quits, deletes and removes the permissions too.</li>
+        <li><b>Dragged to the Trash yourself?</b> macOS keeps a deleted app's permissions and the app cannot remove them. Run <code>tccutil reset All dev.altformac.app</code>, or in System Settings &gt; Privacy &amp; Security open Accessibility and Automation, select AltForMac and click the minus button.</li>
       </ol>
+      <p class="more">Afterwards, turn Office's KeyTips back on if you want them: Preferences &gt; Accessibility in Excel, Word and PowerPoint.</p>
       <p class="more">AltForMac installs no background services and writes nothing outside its app bundle, so there is nothing else to clean up. If you added it to Login Items, remove it there too.</p>
     </fieldset>
   </main>
 
   <div class="statusbar">
     <span class="sunken">Ready</span>
-    <span class="sunken">Version 0.1.2</span>
+    <span class="sunken">Version 0.1.3</span>
     <span class="sunken">macOS 13+</span>
     <span class="sunken">MIT license</span>
   </div>

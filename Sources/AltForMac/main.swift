@@ -4,6 +4,10 @@ import AltForMacKit
 
 // `AltForMac --self-test`: loads the mappings and exits, so a packaged build can be verified without UI.
 if CommandLine.arguments.contains("--self-test") {
+    guard AppController.bundleMatchesSignature() else {
+        print("FAILED: app bundle does not match its signature")
+        exit(1)
+    }
     do {
         for office in OfficeApp.all {
             let url = try AppController.findMappingsFile(stem: office.stem)
@@ -32,6 +36,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusLine.isEnabled = false
         menu.addItem(statusLine)
         menu.addItem(.separator())
+        let uninstallItem = NSMenuItem(title: "Uninstall AltForMac\u{2026}", action: #selector(uninstall), keyEquivalent: "")
+        uninstallItem.target = self
+        menu.addItem(uninstallItem)
         menu.addItem(NSMenuItem(title: "Quit AltForMac", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         item.menu = menu
         statusItem = item
@@ -47,9 +54,42 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             case .appSlow:
                 self?.statusItem?.button?.title = "\u{2325}!"
                 self?.statusLine.title = "An Office app was slow to respond"
+            case .bundleModified:
+                self?.statusItem?.button?.title = "\u{2325}!"
+                self?.statusLine.title = "AltForMac's files were changed. Reinstall it."
             }
         }
         controller.start()
+    }
+
+    /// macOS keeps an app's privacy permissions after the app is deleted, and a deleted app cannot clean up.
+    /// So uninstalling from here removes AltForMac's own permissions first (Accessibility, Automation, ...),
+    /// then moves the app to the Trash and quits. Nothing else is installed, so nothing else is left.
+    @objc private func uninstall() {
+        NSApp.activate(ignoringOtherApps: true)
+        let alert = NSAlert()
+        alert.messageText = "Uninstall AltForMac?"
+        var info = "This removes AltForMac's Accessibility and Automation permissions, moves the app to the Trash and quits."
+        if ["/opt/homebrew/Caskroom/altformac", "/usr/local/Caskroom/altformac"].contains(where: FileManager.default.fileExists) {
+            info += "\n\nInstalled with Homebrew? Run \u{201C}brew uninstall --cask altformac\u{201D} instead, so Homebrew knows it is gone."
+        }
+        info += "\n\nOffice's own KeyTips stay off until you turn them back on (Preferences > Accessibility in each app)."
+        alert.informativeText = info
+        alert.addButton(withTitle: "Uninstall")
+        alert.addButton(withTitle: "Cancel")
+        guard alert.runModal() == .alertFirstButtonReturn else { return }
+
+        let reset = Process()
+        reset.executableURL = URL(fileURLWithPath: "/usr/bin/tccutil")
+        reset.arguments = ["reset", "All", Bundle.main.bundleIdentifier ?? "dev.altformac.app"]
+        try? reset.run()
+        reset.waitUntilExit()
+
+        let bundle = Bundle.main.bundleURL
+        if bundle.pathExtension == "app" {   // not when run with `swift run` during development
+            try? FileManager.default.trashItem(at: bundle, resultingItemURL: nil)
+        }
+        NSApp.terminate(nil)
     }
 }
 

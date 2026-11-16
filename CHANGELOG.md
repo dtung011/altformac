@@ -11,6 +11,26 @@ Each release also has user-facing notes in [docs/release-notes/](docs/release-no
 
 Nothing yet.
 
+## [0.1.3] - 2026-11-16
+
+### Security
+- A packaged app now loads mappings only from its own bundle. The `ALTFORMAC_MAPPINGS_DIR` variable and the
+  folder search are for development builds only, so another program cannot point AltForMac at mapping files
+  with its own AppleScript and run them with AltForMac's permissions.
+- The app checks that its bundle still matches its code signature before loading mappings. If the installed
+  app was modified, it loads nothing, keeps the keyboard tap off and says so in the menu-bar menu.
+- The keyboard tap is re-enabled after a macOS timeout only while an Office app is still in front.
+- The website's deploy workflow pins its GitHub Actions to exact commits.
+
+### Added
+- **Uninstall AltForMac…** in the menu-bar menu: removes AltForMac's privacy permissions (Accessibility,
+  Automation), moves the app to the Trash and quits. macOS keeps a deleted app's permissions otherwise.
+- `brew uninstall --cask altformac` now quits the app and removes its permissions as well.
+
+### Changed
+- The DMG hint now points to System Settings > Privacy & Security > Open Anyway (right-click > Open no longer
+  bypasses Gatekeeper on macOS 15 and later).
+
 ## [0.1.2] - 2026-11-16
 
 ### Fixed
@@ -56,7 +76,8 @@ Nothing yet.
 - Option is not skipped while you are editing a cell.
 - No user overrides file and no kill switch yet.
 
-[Unreleased]: https://github.com/dtung011/altformac/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/dtung011/altformac/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/dtung011/altformac/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/dtung011/altformac/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/dtung011/altformac/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/dtung011/altformac/releases/tag/v0.1.0
