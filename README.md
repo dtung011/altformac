@@ -56,7 +56,11 @@ and turn off the Option-key KeyTips. Do the same in Word and PowerPoint if you u
 AltForMac both react to Option.
 
 **9. Try it.** In Excel, tap Option (press and let go), then type `W V G`. The gridlines switch off. The
-first time a command needs it, macOS asks whether AltForMac may control Excel: click **OK**.
+first time, macOS asks whether AltForMac may control Microsoft Excel: click **Allow**. macOS uses the same
+wording for every app; AltForMac only sends commands such as "toggle gridlines" and never reads your
+documents. Word and PowerPoint ask once too.
+
+<img src="site/guide/7-automation.png" width="259" alt="macOS asks: AltForMac wants access to control Microsoft Excel. Buttons: Don't Allow and Allow.">
 
 ### After an update
 
