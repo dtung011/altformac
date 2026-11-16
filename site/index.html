@@ -146,6 +146,17 @@
   .more { margin: 8px 0 0; font-size: 13px; }
 
   /* Install */
+  /* Install guide: number, text, screenshot per step */
+  .guide { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 14px; }
+  .step { display: grid; grid-template-columns: 30px minmax(0, 1fr) minmax(0, 450px); gap: 14px; align-items: start;
+          padding-bottom: 14px; border-bottom: 1px solid var(--shadow); box-shadow: 0 1px 0 var(--hi); }
+  .step:last-child { border-bottom: 0; box-shadow: none; padding-bottom: 0; }
+  .step.nofig .text { grid-column: 2 / 4; }
+  .step .num { display: grid; place-items: center; width: 28px; height: 28px; font-weight: 700; }
+  .step h3 { font-size: 16px; margin: 3px 0 4px; }
+  .step p { margin: 0; max-width: 60ch; }
+  .step figure { margin: 0; padding: 2px; background: var(--paper); justify-self: start; }
+  .step figure img { display: block; width: 100%; height: auto; }
   .install { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
   .install > div { min-width: 0; }
   .install h3 { font-size: 15px; margin: 0 0 6px; }
@@ -175,6 +186,8 @@
     .intro > img { width: 56px; height: 56px; }
     h1 { font-size: 22px; }
     .controls { display: none; }
+    .step { grid-template-columns: 30px minmax(0, 1fr); }
+    .step figure, .step.nofig .text { grid-column: 2; }
     .cols.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 480px) {
@@ -221,7 +234,7 @@
 
       <div class="getit">
         <a class="btn-big" href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg"><span aria-hidden="true">▼</span> Download for Mac<small>AltForMac.dmg · free · version 0.1.3</small></a>
-        <p class="getit-note">macOS 13 or later, Apple Silicon. <a href="#install">Homebrew, Intel and source installs</a></p>
+        <p class="getit-note">macOS 13 or later, Apple Silicon. New to installing Mac apps? <a href="#download">Follow the step-by-step guide</a>.</p>
       </div>
 
       <p class="caption" style="margin-top:14px">Real Excel for Mac, fake sales data. It pauses a moment on each HUD so you can read it: <kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd> AutoFit columns, <kbd>H</kbd> <kbd>O</kbd> <kbd>A</kbd> AutoFit rows, <kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd> gridlines, <kbd>N</kbd> <kbd>V</kbd> PivotTable.</p>
@@ -295,32 +308,70 @@
     </fieldset>
 
     <fieldset id="download">
-      <legend>Download</legend>
-      <p style="margin:0 0 14px">Needs macOS 13 (Ventura) or later. The download is built for Apple Silicon; Intel Macs can build from source.</p>
+      <legend>Install step by step</legend>
+      <p style="margin:0 0 14px">About two minutes, no Terminal needed. Needs macOS 13 (Ventura) or later on an Apple Silicon Mac.</p>
+      <ol class="guide">
+        <li class="step nofig">
+          <span class="num raised" aria-hidden="true">1</span>
+          <div class="text"><h3>Download AltForMac</h3><p>Click <a href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg">Download for Mac</a>. The file <b>AltForMac.dmg</b> goes to your Downloads folder. Its icon there looks plain; that is normal.</p></div>
+          
+        </li>
+        <li class="step">
+          <span class="num raised" aria-hidden="true">2</span>
+          <div class="text"><h3>Drag it into Applications</h3><p>Double-click <b>AltForMac.dmg</b>. In the window that opens, drag the green AltForMac icon onto the blue <b>Applications</b> folder.</p></div>
+          <figure class="shot sunken"><img src="guide/1-drag.png" width="900" height="600" style="max-width:450px" loading="lazy" alt="The AltForMac install window: drag the AltForMac icon onto the Applications folder."></figure>
+        </li>
+        <li class="step">
+          <span class="num raised" aria-hidden="true">3</span>
+          <div class="text"><h3>Open AltForMac</h3><p>Open your <b>Applications</b> folder (in Finder, press <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>A</kbd>) and double-click <b>AltForMac</b>.</p></div>
+          <figure class="shot sunken"><img src="guide/2-app.png" width="172" height="196" style="max-width:86px" loading="lazy" alt="The AltForMac app icon in the Applications folder."></figure>
+        </li>
+        <li class="step">
+          <span class="num raised" aria-hidden="true">4</span>
+          <div class="text"><h3>macOS warns you: click Done</h3><p>macOS says <b>“AltForMac” Not Opened</b>. Click <b>Done</b>, not Move to Trash. This warning appears for apps that are not registered with Apple's paid verification yet. AltForMac is free and its code is public.</p></div>
+          <figure class="shot sunken"><img src="guide/3-blocked.png" width="514" height="566" style="max-width:257px" loading="lazy" alt="macOS warning: AltForMac Not Opened. Apple could not verify it. Buttons: Move to Trash and Done."></figure>
+        </li>
+        <li class="step">
+          <span class="num raised" aria-hidden="true">5</span>
+          <div class="text"><h3>Click Open Anyway</h3><p>Open <b>System Settings</b> (Apple menu &gt; System Settings), click <b>Privacy &amp; Security</b> and scroll down to <b>Security</b>. Next to “AltForMac was blocked”, click <b>Open Anyway</b>. Enter your Mac password or use Touch ID, then click <b>Open</b>. You only do this once.</p></div>
+          <figure class="shot sunken"><img src="guide/4-open-anyway.png" width="900" height="334" style="max-width:450px" loading="lazy" alt="Privacy and Security settings: AltForMac was blocked to protect your Mac, with an Open Anyway button."></figure>
+        </li>
+        <li class="step">
+          <span class="num raised" aria-hidden="true">6</span>
+          <div class="text"><h3>Allow it to use the keyboard</h3><p>AltForMac asks for <b>Accessibility</b> access. It needs this to see your keys in Office and press menu items for you. Click <b>Open System Settings</b>.</p></div>
+          <figure class="shot sunken"><img src="guide/5-prompt.png" width="900" height="344" style="max-width:450px" loading="lazy" alt="AltForMac would like to control this computer using accessibility features. Buttons: Open System Settings and Deny."></figure>
+        </li>
+        <li class="step">
+          <span class="num raised" aria-hidden="true">7</span>
+          <div class="text"><h3>Switch AltForMac on</h3><p>In the Accessibility list, turn on the switch next to <b>AltForMac</b> and confirm with your password or Touch ID. The <code>⌥</code> icon in the menu bar (top right of the screen) shows <code>⌥</code> when it is ready, or <code>⌥!</code> if it still needs permission.</p></div>
+          <figure class="shot sunken"><img src="guide/6-switch.png" width="900" height="220" style="max-width:450px" loading="lazy" alt="Accessibility settings list with AltForMac and its switch."></figure>
+        </li>
+        <li class="step nofig">
+          <span class="num raised" aria-hidden="true">8</span>
+          <div class="text"><h3>Turn off Office's own KeyTips</h3><p>In Excel, open the <b>Excel</b> menu &gt; <b>Preferences</b> &gt; <b>Accessibility</b> and turn off the Option-key KeyTips. Do the same in Word and PowerPoint if you use them. Otherwise Office and AltForMac both react to Option.</p></div>
+          
+        </li>
+        <li class="step nofig">
+          <span class="num raised" aria-hidden="true">9</span>
+          <div class="text"><h3>Try it</h3><p>In Excel, tap <kbd>⌥</kbd> Option (press and let go), then type <kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd>. The gridlines switch off. The first time a command needs it, macOS asks whether AltForMac may control Excel: click <b>OK</b>.</p></div>
+          
+        </li>
+      </ol>
+
       <div class="install" id="install">
         <div>
-          <h3>DMG</h3>
-          <p><a href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg">Download AltForMac.dmg</a>, open it and drag AltForMac to Applications.</p>
-          <p>It is not notarized yet, so macOS says it cannot verify it. Click <b>Done</b>, then in System Settings &gt; Privacy &amp; Security click <b>Open Anyway</b> next to AltForMac. Homebrew installs skip this.</p>
-        </div>
-        <div>
-          <h3>Homebrew</h3>
+          <h3>Homebrew (skips steps 4 and 5)</h3>
           <pre class="sunken">brew install --cask dtung011/altformac/altformac</pre>
         </div>
         <div>
-          <h3>From source</h3>
+          <h3>From source (Intel Macs too)</h3>
           <pre class="sunken">git clone https://github.com/dtung011/altformac.git
 cd altformac && scripts/package.sh</pre>
         </div>
-      </div>
-      <div class="after">
-        <h3>After installing</h3>
-        <ol>
-          <li>In Excel, Word and PowerPoint, open Preferences &gt; Accessibility and turn off the Option-key KeyTips.</li>
-          <li>Start AltForMac and allow it in System Settings &gt; Privacy &amp; Security &gt; Accessibility.</li>
-          <li>Allow Automation for each Office app when macOS asks.</li>
-        </ol>
-        <p class="more"><b>After every update, allow Accessibility again.</b> macOS treats each new version as a different app, so the menu-bar icon shows <code>⌥!</code>. In the Accessibility list, select AltForMac, click the minus button, open AltForMac again and switch on the new entry.</p>
+        <div>
+          <h3>After an update</h3>
+          <p>macOS treats each new version as a different app, so the menu-bar icon shows <code>⌥!</code>. In the Accessibility list, select AltForMac, click the minus button, open AltForMac again and switch on the new entry.</p>
+        </div>
       </div>
     </fieldset>
 

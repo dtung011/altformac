@@ -6,13 +6,68 @@ Mac's built-in KeyTips leave out.
 
 Free and open source (MIT). Microsoft's code is never modified or shipped.
 
-**Current version: 0.1.3** | [Download](https://github.com/dtung011/altformac/releases/latest) | [Changelog](CHANGELOG.md)
+**Current version: 0.1.3** | [Download](https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg) | [Website](https://dtung011.github.io/altformac/) | [Changelog](CHANGELOG.md)
 
-## Download and install
+## Install step by step
 
-Requires macOS 13 (Ventura) or later. The 0.1.3 build is for Apple Silicon; Intel Macs can build from source.
+About two minutes, no Terminal needed. Requires macOS 13 (Ventura) or later on an Apple Silicon Mac
+(Intel Macs can [build from source](#other-ways-to-install)). Website with the same guide:
+https://dtung011.github.io/altformac/
 
-### Option 1: Homebrew
+**1. Download.** Get [AltForMac.dmg](https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg) (always the latest version). It goes to your Downloads
+folder. Its icon there looks plain; that is normal.
+
+**2. Drag it into Applications.** Double-click `AltForMac.dmg`. In the window that opens, drag the green
+AltForMac icon onto the blue **Applications** folder.
+
+<img src="site/guide/1-drag.png" width="450" alt="The AltForMac install window: drag the AltForMac icon onto the Applications folder.">
+
+**3. Open AltForMac.** Open your **Applications** folder (in Finder, press ⇧⌘A) and double-click
+**AltForMac**.
+
+<img src="site/guide/2-app.png" width="86" alt="The AltForMac app icon in the Applications folder.">
+
+**4. macOS warns you: click Done.** macOS says **"AltForMac" Not Opened**. Click **Done**, not Move to
+Trash. This warning appears for apps that are not registered with Apple's paid verification yet. AltForMac
+is free and its code is public.
+
+<img src="site/guide/3-blocked.png" width="257" alt="macOS warning: AltForMac Not Opened. Buttons: Move to Trash and Done.">
+
+**5. Click Open Anyway.** Open **System Settings** (Apple menu > System Settings), click
+**Privacy & Security** and scroll down to **Security**. Next to "AltForMac was blocked", click
+**Open Anyway**. Enter your Mac password or use Touch ID, then click **Open**. You only do this once.
+(On macOS 13 and 14 you can instead right-click the app and choose **Open**.)
+
+<img src="site/guide/4-open-anyway.png" width="450" alt="Privacy and Security settings: AltForMac was blocked to protect your Mac, with an Open Anyway button.">
+
+**6. Allow it to use the keyboard.** AltForMac asks for **Accessibility** access. It needs this to see your
+keys in Office and press menu items for you. Click **Open System Settings**.
+
+<img src="site/guide/5-prompt.png" width="450" alt="AltForMac would like to control this computer using accessibility features. Buttons: Open System Settings and Deny.">
+
+**7. Switch AltForMac on.** In the Accessibility list, turn on the switch next to **AltForMac** and confirm
+with your password or Touch ID. The menu-bar icon (top right of the screen) shows `⌥` when it is ready, or
+`⌥!` if it still needs permission.
+
+<img src="site/guide/6-switch.png" width="450" alt="Accessibility settings list with AltForMac and its switch.">
+
+**8. Turn off Office's own KeyTips.** In Excel, open the **Excel** menu > **Preferences** > **Accessibility**
+and turn off the Option-key KeyTips. Do the same in Word and PowerPoint if you use them. Otherwise Office and
+AltForMac both react to Option.
+
+**9. Try it.** In Excel, tap Option (press and let go), then type `W V G`. The gridlines switch off. The
+first time a command needs it, macOS asks whether AltForMac may control Excel: click **OK**.
+
+### After an update
+
+Until AltForMac is signed with a Developer ID, macOS treats each new version as a different app, so the old
+Accessibility switch no longer applies and the menu-bar icon shows `⌥!`. Select AltForMac in the
+Accessibility list, click the minus button, open AltForMac again and switch on the new entry. Or run
+`tccutil reset Accessibility dev.altformac.app`, reopen AltForMac and switch it on.
+
+### Other ways to install
+
+**Homebrew** (skips steps 4 and 5):
 
 ```sh
 brew install --cask dtung011/altformac/altformac
@@ -20,22 +75,7 @@ brew install --cask dtung011/altformac/altformac
 
 Update later with `brew upgrade --cask altformac`.
 
-### Option 2: Direct download
-
-1. Open the [latest release](https://github.com/dtung011/altformac/releases/latest) and download
-   `AltForMac-<version>.dmg`.
-2. Open the DMG and drag **AltForMac** to **Applications**.
-3. The app is not notarized yet, so macOS warns that it cannot verify it is free of malware. Click **Done**,
-   open System Settings > Privacy & Security, scroll to Security and click **Open Anyway** next to
-   AltForMac, then confirm. (On macOS 13 and 14 you can instead right-click the app and choose **Open**.)
-   Homebrew installs skip this step.
-
-You can check the download against the SHA-256 printed in the release notes:
-`shasum -a 256 AltForMac-<version>.dmg`.
-
-### Option 3: Build from source
-
-Needs Xcode or the Command Line Tools (`xcode-select --install`).
+**Build from source** (Intel Macs too). Needs Xcode or the Command Line Tools (`xcode-select --install`):
 
 ```sh
 git clone https://github.com/dtung011/altformac.git
@@ -43,20 +83,8 @@ cd altformac
 scripts/package.sh        # builds dist/AltForMac.app and the DMG
 ```
 
-## Set up
-
-1. **Turn off Office's own KeyTips.** In Excel, Word and PowerPoint open Preferences > Accessibility and
-   switch off the Option-key KeyTips. Otherwise both react.
-2. **Allow Accessibility.** Start AltForMac, then in System Settings > Privacy & Security > Accessibility
-   switch it on. Without this it cannot see or drive the menus.
-
-   **After every update, allow it again.** Until AltForMac is signed with a Developer ID, macOS treats each
-   new version as a different app, so the old switch no longer applies (the menu-bar icon shows `⌥!`).
-   Select AltForMac in the Accessibility list, click the minus button, open AltForMac again and switch on the
-   new entry. Or run `tccutil reset Accessibility dev.altformac.app`, reopen AltForMac and switch it on.
-3. **Allow Automation** for each Office app when macOS asks (needed for commands that use AppleScript).
-
-The menu-bar icon shows `⌥` when ready and `⌥!` when it needs permission or an app was slow to respond.
+To check a download, compare `shasum -a 256 AltForMac-<version>.dmg` with the SHA-256 in the
+[release notes](https://github.com/dtung011/altformac/releases/latest).
 
 ## Use
 
