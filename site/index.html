@@ -206,9 +206,9 @@
   </div>
 
   <nav class="menubar" aria-label="Page">
+    <a href="#video"><u>V</u>ideo</a>
     <a href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg"><u>D</u>ownload</a>
     <a href="#guide"><u>I</u>nstall guide</a>
-    <a href="#video"><u>V</u>ideo</a>
     <a href="#why"><u>W</u>hy</a>
     <a href="#features"><u>F</u>eatures</a>
     <a href="#shortcuts"><u>S</u>hortcuts</a>
@@ -240,73 +240,6 @@
 
       <p class="caption" style="margin-top:14px">Real Excel for Mac, fake sales data. It pauses a moment on each HUD so you can read it: <kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd> AutoFit columns, <kbd>H</kbd> <kbd>O</kbd> <kbd>A</kbd> AutoFit rows, <kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd> gridlines, <kbd>N</kbd> <kbd>V</kbd> PivotTable.</p>
     </div>
-
-    <fieldset id="why">
-      <legend>Why you need it</legend>
-      <div class="cols">
-        <div class="item">
-          <h3>Alt sequences do nothing on Mac</h3>
-          <p>Years of Windows muscle memory, and on a Mac the same keys type odd characters instead.</p>
-        </div>
-        <div class="item">
-          <h3>Office's own KeyTips stop short</h3>
-          <p>They can open a dropdown but not choose the item inside it, so you reach for the mouse anyway.</p>
-        </div>
-        <div class="item">
-          <h3>The mouse slows down real work</h3>
-          <p>A model or a data clean-up is hundreds of small commands. Every trip to the ribbon breaks your flow.</p>
-        </div>
-      </div>
-    </fieldset>
-
-    <fieldset id="features">
-      <legend>What you get</legend>
-      <div class="cols four">
-        <div class="item">
-          <h3>387 sequences</h3>
-          <p>Excel 206, Word 107, PowerPoint 74, including the final letters inside dropdowns.</p>
-        </div>
-        <div class="item">
-          <h3>A guide as you type</h3>
-          <p>The HUD lists the valid next letters. Escape goes back a level, Backspace removes a letter.</p>
-        </div>
-        <div class="item">
-          <h3>Private</h3>
-          <p>No networking code at all. It never reads cells, formulas, file names or document text.</p>
-        </div>
-        <div class="item">
-          <h3>Safe</h3>
-          <p>Office's confirmation dialogs stay. Option with other keys works as normal. It never blocks typing.</p>
-        </div>
-      </div>
-      <figure class="hudfig">
-        <div class="shot sunken"><img src="promo-hud.png" width="820" height="600" alt="The AltForMac HUD in Excel after typing Option, H, O. It lists A AutoFit row height, D Default column width, H Row height, I AutoFit column width, M Move or copy sheet, R Rename sheet, U Hide and Unhide, W Column width."></div>
-        <figcaption class="caption">The HUD in Excel after <kbd>⌥</kbd> <kbd>H</kbd> <kbd>O</kbd>: what you typed, and every letter that can come next.</figcaption>
-      </figure>
-    </fieldset>
-
-    <fieldset id="shortcuts">
-      <legend>Excel sequences you already know</legend>
-      <div class="sheet sunken" role="region" aria-label="Example Excel sequences" tabindex="0">
-        <table>
-          <thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead>
-          <tbody>
-            <tr class="hdr"><th>1</th><td>Keys after ⌥</td><td>Command</td><td>Ribbon tab</td></tr>
-            <tr><th>2</th><td><kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd></td><td>AutoFit column width</td><td>Home</td></tr>
-            <tr><th>3</th><td><kbd>H</kbd> <kbd>V</kbd> <kbd>S</kbd></td><td>Paste Special</td><td>Home</td></tr>
-            <tr><th>4</th><td><kbd>H</kbd> <kbd>K</kbd></td><td>Comma style</td><td>Home</td></tr>
-            <tr><th>5</th><td><kbd>H</kbd> <kbd>B</kbd> <kbd>A</kbd></td><td>All borders</td><td>Home</td></tr>
-            <tr><th>6</th><td><kbd>N</kbd> <kbd>V</kbd></td><td>Insert PivotTable</td><td>Insert</td></tr>
-            <tr><th>7</th><td><kbd>A</kbd> <kbd>T</kbd></td><td>Toggle filter</td><td>Data</td></tr>
-            <tr><th>8</th><td><kbd>A</kbd> <kbd>W</kbd> <kbd>G</kbd></td><td>Goal Seek</td><td>Data</td></tr>
-            <tr><th>9</th><td><kbd>M</kbd> <kbd>P</kbd></td><td>Trace precedents</td><td>Formulas</td></tr>
-            <tr><th>10</th><td><kbd>W</kbd> <kbd>F</kbd> <kbd>F</kbd></td><td>Freeze panes</td><td>View</td></tr>
-            <tr><th>11</th><td><kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd></td><td>Toggle gridlines</td><td>View</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="more">Full lists for Excel, Word and PowerPoint: <a href="https://github.com/dtung011/altformac/tree/main/mappings">mappings folder</a>.</p>
-    </fieldset>
 
     <fieldset id="guide">
       <legend>Install step by step</legend>
@@ -374,6 +307,73 @@ cd altformac && scripts/package.sh</pre>
           <p>macOS treats each new version as a different app, so the menu-bar icon shows <code>⌥!</code>. In the Accessibility list, select AltForMac, click the minus button, open AltForMac again and switch on the new entry.</p>
         </div>
       </div>
+    </fieldset>
+
+    <fieldset id="why">
+      <legend>Why you need it</legend>
+      <div class="cols">
+        <div class="item">
+          <h3>Alt sequences do nothing on Mac</h3>
+          <p>Years of Windows muscle memory, and on a Mac the same keys type odd characters instead.</p>
+        </div>
+        <div class="item">
+          <h3>Office's own KeyTips stop short</h3>
+          <p>They can open a dropdown but not choose the item inside it, so you reach for the mouse anyway.</p>
+        </div>
+        <div class="item">
+          <h3>The mouse slows down real work</h3>
+          <p>A model or a data clean-up is hundreds of small commands. Every trip to the ribbon breaks your flow.</p>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset id="features">
+      <legend>What you get</legend>
+      <div class="cols four">
+        <div class="item">
+          <h3>387 sequences</h3>
+          <p>Excel 206, Word 107, PowerPoint 74, including the final letters inside dropdowns.</p>
+        </div>
+        <div class="item">
+          <h3>A guide as you type</h3>
+          <p>The HUD lists the valid next letters. Escape goes back a level, Backspace removes a letter.</p>
+        </div>
+        <div class="item">
+          <h3>Private</h3>
+          <p>No networking code at all. It never reads cells, formulas, file names or document text.</p>
+        </div>
+        <div class="item">
+          <h3>Safe</h3>
+          <p>Office's confirmation dialogs stay. Option with other keys works as normal. It never blocks typing.</p>
+        </div>
+      </div>
+      <figure class="hudfig">
+        <div class="shot sunken"><img src="promo-hud.png" width="820" height="600" alt="The AltForMac HUD in Excel after typing Option, H, O. It lists A AutoFit row height, D Default column width, H Row height, I AutoFit column width, M Move or copy sheet, R Rename sheet, U Hide and Unhide, W Column width."></div>
+        <figcaption class="caption">The HUD in Excel after <kbd>⌥</kbd> <kbd>H</kbd> <kbd>O</kbd>: what you typed, and every letter that can come next.</figcaption>
+      </figure>
+    </fieldset>
+
+    <fieldset id="shortcuts">
+      <legend>Excel sequences you already know</legend>
+      <div class="sheet sunken" role="region" aria-label="Example Excel sequences" tabindex="0">
+        <table>
+          <thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead>
+          <tbody>
+            <tr class="hdr"><th>1</th><td>Keys after ⌥</td><td>Command</td><td>Ribbon tab</td></tr>
+            <tr><th>2</th><td><kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd></td><td>AutoFit column width</td><td>Home</td></tr>
+            <tr><th>3</th><td><kbd>H</kbd> <kbd>V</kbd> <kbd>S</kbd></td><td>Paste Special</td><td>Home</td></tr>
+            <tr><th>4</th><td><kbd>H</kbd> <kbd>K</kbd></td><td>Comma style</td><td>Home</td></tr>
+            <tr><th>5</th><td><kbd>H</kbd> <kbd>B</kbd> <kbd>A</kbd></td><td>All borders</td><td>Home</td></tr>
+            <tr><th>6</th><td><kbd>N</kbd> <kbd>V</kbd></td><td>Insert PivotTable</td><td>Insert</td></tr>
+            <tr><th>7</th><td><kbd>A</kbd> <kbd>T</kbd></td><td>Toggle filter</td><td>Data</td></tr>
+            <tr><th>8</th><td><kbd>A</kbd> <kbd>W</kbd> <kbd>G</kbd></td><td>Goal Seek</td><td>Data</td></tr>
+            <tr><th>9</th><td><kbd>M</kbd> <kbd>P</kbd></td><td>Trace precedents</td><td>Formulas</td></tr>
+            <tr><th>10</th><td><kbd>W</kbd> <kbd>F</kbd> <kbd>F</kbd></td><td>Freeze panes</td><td>View</td></tr>
+            <tr><th>11</th><td><kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd></td><td>Toggle gridlines</td><td>View</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="more">Full lists for Excel, Word and PowerPoint: <a href="https://github.com/dtung011/altformac/tree/main/mappings">mappings folder</a>.</p>
     </fieldset>
 
     <fieldset id="uninstall">
