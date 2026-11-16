@@ -93,6 +93,9 @@ if [ -n "$NOTARY_PROFILE" ] && [ "$SIGN_IDENTITY" != "-" ]; then
   xcrun stapler staple "$DMG"
 fi
 
+# Same bytes under a fixed name, so releases/latest/download/AltForMac.dmg always serves the newest DMG.
+cp "$DMG" dist/AltForMac.dmg
+
 echo "==> done"
 shasum -a 256 "$DMG"
 ls -lh "$DMG"

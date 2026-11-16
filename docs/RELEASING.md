@@ -23,10 +23,13 @@ into the app's Info.plist and the DMG file name.
    ```sh
    git tag -a vX.Y.Z -m "AltForMac X.Y.Z"
    git push origin vX.Y.Z
-   gh release create vX.Y.Z dist/AltForMac-X.Y.Z.dmg \
+   gh release create vX.Y.Z dist/AltForMac-X.Y.Z.dmg dist/AltForMac.dmg \
      --title "AltForMac X.Y.Z" --notes-file docs/release-notes/vX.Y.Z.md
    ```
    Add `--prerelease` for betas such as `v0.2.0-beta.1`.
+   Always upload both files. `AltForMac.dmg` (same bytes, fixed name) is what the website's Download
+   button links to, via `releases/latest/download/AltForMac.dmg`. Pre-releases are skipped by
+   `latest`, so betas do not replace the website download.
 7. **Homebrew.** In the `homebrew-altformac` tap, update `version` and `sha256` in `Casks/altformac.rb`,
    run `brew audit --cask --online dtung011/altformac/altformac`, and push.
    Keep `packaging/homebrew/altformac.rb` in this repo in sync.

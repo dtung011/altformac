@@ -6,6 +6,8 @@
 <title>AltForMac: Windows Alt shortcuts for Office on Mac</title>
 <meta name="description" content="Use the Windows Alt key sequences you already know (H O I, W V G, N V) in Excel, Word and PowerPoint for Mac. Free and open source.">
 <meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
 <style>
   :root {
     --bg: #ffffff;
@@ -46,7 +48,11 @@
   /* Title bar */
   .bar { background: var(--green); color: var(--on-green); }
   .bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 48px; }
-  .bar .name { font-weight: 600; font-size: 17px; }
+  .bar .name { font-weight: 600; font-size: 17px; display: flex; align-items: center; gap: 8px; }
+  .bar .name img { width: 32px; height: 32px; }
+  .hero .wrap { display: flex; gap: 40px; align-items: center; justify-content: space-between; }
+  .hero-logo { width: 200px; height: 200px; flex: none; }
+  @media (max-width: 760px) { .hero-logo { display: none; } }
   .bar nav a { color: var(--on-green); text-decoration: none; font-size: 14px; margin-left: 20px; opacity: .9; }
   .bar nav a:hover { opacity: 1; text-decoration: underline; }
 
@@ -109,7 +115,7 @@
 
 <header class="bar">
   <div class="wrap">
-    <span class="name">AltForMac</span>
+    <span class="name"><img src="icon.png" alt="">AltForMac</span>
     <nav aria-label="Page">
       <a href="#why">Why</a>
       <a href="#features">Features</a>
@@ -122,11 +128,14 @@
 <main>
   <div class="hero">
     <div class="wrap">
+      <div>
       <h1>Your Windows Alt shortcuts,<br>now on Mac.</h1>
       <p class="lead">Tap Option, type <kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd> or <kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd>, and Excel, Word or PowerPoint does what you expect, all the way to the last letter.</p>
-      <a class="btn primary" href="https://github.com/dtung011/altformac/releases/latest">Download for Mac</a>
+      <a class="btn primary" href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg">Download for Mac</a>
       <a class="btn" href="https://github.com/dtung011/altformac">View source</a>
       <p class="note">Free and open source (MIT) · Version 0.1.0 · macOS 13 or later, Apple Silicon</p>
+      </div>
+      <img class="hero-logo" src="icon.png" alt="AltForMac icon: an alt ⌥ key on a green grid">
     </div>
   </div>
 
@@ -207,7 +216,8 @@
         </div>
         <div class="box">
           <h3>DMG</h3>
-          <p>Get <code>AltForMac-&lt;version&gt;.dmg</code> from the <a href="https://github.com/dtung011/altformac/releases/latest">latest release</a> and drag it to Applications. It is not notarized yet: on first launch, right-click it and choose <strong>Open</strong>.</p>
+          <p><a href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg">Download AltForMac.dmg</a> (latest version), open it and drag AltForMac to Applications. It is not notarized yet: on first launch, right-click it and choose <strong>Open</strong>.</p>
+          <p class="note" style="margin-top:8px">Release notes and checksums: <a href="https://github.com/dtung011/altformac/releases/latest">latest release</a>.</p>
         </div>
         <div class="box">
           <h3>From source</h3>
