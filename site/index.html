@@ -301,7 +301,7 @@
         <div>
           <h3>DMG</h3>
           <p><a href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg">Download AltForMac.dmg</a>, open it and drag AltForMac to Applications.</p>
-          <p>It is not notarized yet: the first time, right-click it in Applications and choose <b>Open</b>.</p>
+          <p>It is not notarized yet, so macOS says it cannot verify it. Click <b>Done</b>, then in System Settings &gt; Privacy &amp; Security click <b>Open Anyway</b> next to AltForMac. Homebrew installs skip this.</p>
         </div>
         <div>
           <h3>Homebrew</h3>
@@ -320,6 +320,7 @@ cd altformac && scripts/package.sh</pre>
           <li>Start AltForMac and allow it in System Settings &gt; Privacy &amp; Security &gt; Accessibility.</li>
           <li>Allow Automation for each Office app when macOS asks.</li>
         </ol>
+        <p class="more"><b>After every update, allow Accessibility again.</b> macOS treats each new version as a different app, so the menu-bar icon shows <code>⌥!</code>. In the Accessibility list, select AltForMac, click the minus button, open AltForMac again and switch on the new entry.</p>
       </div>
     </fieldset>
 

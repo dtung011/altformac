@@ -25,8 +25,10 @@ Update later with `brew upgrade --cask altformac`.
 1. Open the [latest release](https://github.com/dtung011/altformac/releases/latest) and download
    `AltForMac-<version>.dmg`.
 2. Open the DMG and drag **AltForMac** to **Applications**.
-3. The app is not notarized yet, so macOS blocks the first launch. Right-click AltForMac in Applications,
-   choose **Open**, then **Open** again.
+3. The app is not notarized yet, so macOS warns that it cannot verify it is free of malware. Click **Done**,
+   open System Settings > Privacy & Security, scroll to Security and click **Open Anyway** next to
+   AltForMac, then confirm. (On macOS 13 and 14 you can instead right-click the app and choose **Open**.)
+   Homebrew installs skip this step.
 
 You can check the download against the SHA-256 printed in the release notes:
 `shasum -a 256 AltForMac-<version>.dmg`.
@@ -47,6 +49,11 @@ scripts/package.sh        # builds dist/AltForMac.app and the DMG
    switch off the Option-key KeyTips. Otherwise both react.
 2. **Allow Accessibility.** Start AltForMac, then in System Settings > Privacy & Security > Accessibility
    switch it on. Without this it cannot see or drive the menus.
+
+   **After every update, allow it again.** Until AltForMac is signed with a Developer ID, macOS treats each
+   new version as a different app, so the old switch no longer applies (the menu-bar icon shows `⌥!`).
+   Select AltForMac in the Accessibility list, click the minus button, open AltForMac again and switch on the
+   new entry. Or run `tccutil reset Accessibility dev.altformac.app`, reopen AltForMac and switch it on.
 3. **Allow Automation** for each Office app when macOS asks (needed for commands that use AppleScript).
 
 The menu-bar icon shows `⌥` when ready and `⌥!` when it needs permission or an app was slow to respond.

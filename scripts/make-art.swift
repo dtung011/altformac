@@ -113,7 +113,7 @@ func drawBackground() {
     head.close()
     head.fill()
 
-    let hint = text("First launch: right-click AltForMac in Applications and choose Open.",
+    let hint = text("Blocked on first launch? System Settings > Privacy & Security > Open Anyway.",
                     size: 12.5, weight: .regular, color: hex(0x605E5C))
     hint.draw(at: NSPoint(x: (size.width - hint.size().width) / 2, y: 40))
 }
