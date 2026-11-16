@@ -6,11 +6,11 @@ Mac's built-in KeyTips leave out.
 
 Free and open source (MIT). Microsoft's code is never modified or shipped.
 
-**Current version: 0.1.1** | [Download](https://github.com/dtung011/altformac/releases/latest) | [Changelog](CHANGELOG.md)
+**Current version: 0.1.2** | [Download](https://github.com/dtung011/altformac/releases/latest) | [Changelog](CHANGELOG.md)
 
 ## Download and install
 
-Requires macOS 13 (Ventura) or later. The 0.1.1 build is for Apple Silicon; Intel Macs can build from source.
+Requires macOS 13 (Ventura) or later. The 0.1.2 build is for Apple Silicon; Intel Macs can build from source.
 
 ### Option 1: Homebrew
 

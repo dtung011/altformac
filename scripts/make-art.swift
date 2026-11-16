@@ -2,7 +2,7 @@
 //
 //   swift scripts/make-art.swift
 //
-// Writes packaging/AppIcon.icns, packaging/dmg-background.tiff (1x + 2x) and site/icon.png.
+// Writes packaging/AppIcon.icns, packaging/dmg-background.png and site/icon.png.
 // The outputs are committed, so scripts/package.sh does not need to run this.
 import AppKit
 
@@ -144,15 +144,8 @@ writePNG(render(NSSize(width: 256, height: 256), scale: 1) {
     NSGraphicsContext.current!.cgContext.scaleBy(x: 0.25, y: 0.25); drawIcon()
 }, "site/icon.png")
 
-let bg = NSSize(width: 660, height: 400)
-let tmp = NSTemporaryDirectory()
-writePNG(render(bg, scale: 1, drawBackground), tmp + "bg.png")
-writePNG(render(bg, scale: 2, drawBackground), tmp + "bg@2x.png")
-let tiff = Process()
-tiff.executableURL = URL(fileURLWithPath: "/usr/bin/tiffutil")
-tiff.arguments = ["-cathidpicheck", tmp + "bg.png", tmp + "bg@2x.png", "-out", "packaging/dmg-background.tiff"]
-tiff.standardOutput = FileHandle.nullDevice
-try! tiff.run(); tiff.waitUntilExit()
-precondition(tiff.terminationStatus == 0, "tiffutil failed")
+// A single 1x image (660 x 400 px at 72 dpi). Finder on macOS 26 drew the 2x image of a multi-resolution
+// TIFF at double size, pushing the heading and arrow out of the window, so only 1x is shipped.
+writePNG(render(NSSize(width: 660, height: 400), scale: 1, drawBackground), "packaging/dmg-background.png")
 
-print("wrote packaging/AppIcon.icns, packaging/dmg-background.tiff, site/icon.png")
+print("wrote packaging/AppIcon.icns, packaging/dmg-background.png, site/icon.png")

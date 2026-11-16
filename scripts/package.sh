@@ -54,7 +54,7 @@ RW="$(mktemp -d)/rw.dmg"
 cp -R "$APP" "$STAGE/"
 ln -s /Applications "$STAGE/Applications"
 mkdir "$STAGE/.background"
-cp packaging/dmg-background.tiff "$STAGE/.background/background.tiff"
+cp packaging/dmg-background.png "$STAGE/.background/background.png"
 hdiutil create -volname "$VOL" -srcfolder "$STAGE" -ov -format UDRW -fs HFS+ "$RW" >/dev/null
 rm -rf "$STAGE"
 DEV="$(hdiutil attach -readwrite -noverify -noautoopen -mountpoint "/Volumes/$VOL" "$RW" | awk '/Apple_HFS/ {print $1}')"
@@ -65,12 +65,12 @@ tell application "Finder"
     set current view of container window to icon view
     set toolbar visible of container window to false
     set statusbar visible of container window to false
-    set the bounds of container window to {200, 120, 860, 520}
+    set the bounds of container window to {200, 120, 860, 552}   -- 400 pt of content + 32 pt title bar
     set opts to the icon view options of container window
     set arrangement of opts to not arranged
     set icon size of opts to 128
     set text size of opts to 13
-    set background picture of opts to file ".background:background.tiff"
+    set background picture of opts to file ".background:background.png"
     set position of item "AltForMac.app" of container window to {170, 200}
     set position of item "Applications" of container window to {490, 200}
     close

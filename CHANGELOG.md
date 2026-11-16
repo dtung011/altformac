@@ -11,6 +11,12 @@ Each release also has user-facing notes in [docs/release-notes/](docs/release-no
 
 Nothing yet.
 
+## [0.1.2] - 2026-11-16
+
+### Fixed
+- The DMG window was drawn at double size on macOS 26, hiding the heading and arrow. The background is now a
+  single 660 x 400 image and the window is sized to fit it below the title bar.
+
 ## [0.1.1] - 2026-11-16
 
 ### Added
@@ -50,6 +56,7 @@ Nothing yet.
 - Option is not skipped while you are editing a cell.
 - No user overrides file and no kill switch yet.
 
-[Unreleased]: https://github.com/dtung011/altformac/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/dtung011/altformac/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/dtung011/altformac/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/dtung011/altformac/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/dtung011/altformac/releases/tag/v0.1.0
