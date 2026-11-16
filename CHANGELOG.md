@@ -11,6 +11,18 @@ Each release also has user-facing notes in [docs/release-notes/](docs/release-no
 
 Nothing yet.
 
+## [0.1.1] - 2026-11-16
+
+### Added
+- App icon (an alt key on a green grid), also used as the disk icon of the DMG.
+- Website at https://dtung011.github.io/altformac/ with a demo video.
+
+### Changed
+- The DMG now opens as a drag-to-Applications window (background, arrow and positioned icons) instead of a
+  plain folder.
+- Each release also carries `AltForMac.dmg` (same file, fixed name) so the website's Download button
+  always serves the latest version.
+
 ## [0.1.0] - 2026-11-15
 
 ### Added
@@ -38,5 +50,6 @@ Nothing yet.
 - Option is not skipped while you are editing a cell.
 - No user overrides file and no kill switch yet.
 
-[Unreleased]: https://github.com/dtung011/altformac/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/dtung011/altformac/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/dtung011/altformac/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/dtung011/altformac/releases/tag/v0.1.0

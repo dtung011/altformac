@@ -57,7 +57,7 @@ mkdir "$STAGE/.background"
 cp packaging/dmg-background.tiff "$STAGE/.background/background.tiff"
 hdiutil create -volname "$VOL" -srcfolder "$STAGE" -ov -format UDRW -fs HFS+ "$RW" >/dev/null
 rm -rf "$STAGE"
-DEV="$(hdiutil attach -readwrite -noverify -noautoopen "$RW" | awk '/Apple_HFS/ {print $1}')"
+DEV="$(hdiutil attach -readwrite -noverify -noautoopen -mountpoint "/Volumes/$VOL" "$RW" | awk '/Apple_HFS/ {print $1}')"
 osascript <<EOF
 tell application "Finder"
   tell disk "$VOL"
@@ -81,6 +81,9 @@ tell application "Finder"
   end tell
 end tell
 EOF
+# Set after the Finder step: Finder rewrites the volume root and drops the icon if it is added earlier.
+cp packaging/AppIcon.icns "/Volumes/$VOL/.VolumeIcon.icns"
+SetFile -a C "/Volumes/$VOL"
 sync
 hdiutil detach "$DEV" >/dev/null
 hdiutil convert "$RW" -format UDZO -imagekey zlib-level=9 -ov -o "$DMG" >/dev/null
