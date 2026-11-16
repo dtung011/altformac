@@ -346,10 +346,10 @@
           <div class="text"><h3>Switch AltForMac on</h3><p>In the Accessibility list, turn on the switch next to <b>AltForMac</b> and confirm with your password or Touch ID. The <code>⌥</code> icon in the menu bar (top right of the screen) shows <code>⌥</code> when it is ready, or <code>⌥!</code> if it still needs permission.</p></div>
           <figure class="shot sunken"><img src="guide/6-switch.png" width="900" height="220" style="max-width:450px" loading="lazy" alt="Accessibility settings list with AltForMac and its switch."></figure>
         </li>
-        <li class="step nofig">
+        <li class="step">
           <span class="num raised" aria-hidden="true">8</span>
-          <div class="text"><h3>Turn off Office's own KeyTips</h3><p>In Excel, open the <b>Excel</b> menu &gt; <b>Preferences</b> &gt; <b>Accessibility</b> and turn off the Option-key KeyTips. Do the same in Word and PowerPoint if you use them. Otherwise Office and AltForMac both react to Option.</p></div>
-          
+          <div class="text"><h3>Turn off Office's own KeyTips</h3><p>In Excel, open the <b>Excel</b> menu &gt; <b>Preferences</b> &gt; <b>Accessibility</b>. Under <b>KeyTips</b>, set <b>Activation keystroke</b> to <b>Disabled</b>. Do the same in Word and PowerPoint if you use them. Otherwise Office and AltForMac both react when you tap Option.</p></div>
+          <figure class="shot sunken"><img src="guide/8-keytips.png" width="900" height="228" style="max-width:450px" loading="lazy" alt="Excel Preferences, Accessibility, KeyTips: Activation keystroke menu with Disabled selected."></figure>
         </li>
         <li class="step">
           <span class="num raised" aria-hidden="true">9</span>
@@ -382,7 +382,7 @@ cd altformac && scripts/package.sh</pre>
         <li><b>Homebrew:</b> run <code>brew uninstall --cask altformac</code>. It quits, deletes and removes the permissions too.</li>
         <li><b>Dragged to the Trash yourself?</b> macOS keeps a deleted app's permissions and the app cannot remove them. Run <code>tccutil reset All dev.altformac.app</code>, or in System Settings &gt; Privacy &amp; Security open Accessibility and Automation, select AltForMac and click the minus button.</li>
       </ol>
-      <p class="more">Afterwards, turn Office's KeyTips back on if you want them: Preferences &gt; Accessibility in Excel, Word and PowerPoint.</p>
+      <p class="more">Afterwards, turn Office's KeyTips back on if you want them: in Excel, Word and PowerPoint open Preferences &gt; Accessibility and set KeyTips <b>Activation keystroke</b> back to <b>⌥</b>.</p>
       <p class="more">AltForMac installs no background services and writes nothing outside its app bundle, so there is nothing else to clean up. If you added it to Login Items, remove it there too.</p>
     </fieldset>
   </main>

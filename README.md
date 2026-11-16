@@ -51,9 +51,11 @@ with your password or Touch ID. The menu-bar icon (top right of the screen) show
 
 <img src="site/guide/6-switch.png" width="450" alt="Accessibility settings list with AltForMac and its switch.">
 
-**8. Turn off Office's own KeyTips.** In Excel, open the **Excel** menu > **Preferences** > **Accessibility**
-and turn off the Option-key KeyTips. Do the same in Word and PowerPoint if you use them. Otherwise Office and
-AltForMac both react to Option.
+**8. Turn off Office's own KeyTips.** In Excel, open the **Excel** menu > **Preferences** > **Accessibility**.
+Under **KeyTips**, set **Activation keystroke** to **Disabled**. Do the same in Word and PowerPoint if you use
+them. Otherwise Office and AltForMac both react when you tap Option.
+
+<img src="site/guide/8-keytips.png" width="450" alt="Excel Preferences, Accessibility, KeyTips: Activation keystroke menu with Disabled selected.">
 
 **9. Try it.** In Excel, tap Option (press and let go), then type `W V G`. The gridlines switch off. The
 first time, macOS asks whether AltForMac may control Microsoft Excel: click **Allow**. macOS uses the same
@@ -122,8 +124,8 @@ Pick the way that matches how you installed it:
    `tccutil reset All dev.altformac.app`, or in System Settings > Privacy & Security open Accessibility and
    Automation, select AltForMac and click the minus button.
 
-Afterwards, **turn Office's own KeyTips back on** if you want them: Preferences > Accessibility in Excel,
-Word and PowerPoint.
+Afterwards, **turn Office's own KeyTips back on** if you want them: in Excel, Word and PowerPoint open
+Preferences > Accessibility and set KeyTips **Activation keystroke** back to **⌥**.
 
 AltForMac installs no background services and writes nothing outside its own app bundle, so there is
 nothing else to clean up. If you added it to Login Items, remove it there too (System Settings > General >
