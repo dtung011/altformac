@@ -2,192 +2,269 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AltForMac: Windows Alt shortcuts for Office on Mac</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AltForMac</title>
 <meta name="description" content="Use the Windows Alt key sequences you already know (H O I, W V G, N V) in Excel, Word and PowerPoint for Mac. Free and open source.">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <style>
+  /* Layout: one Windows 98 / Office 97 style window on a teal desktop. Single deliberate theme.
+     Group boxes hold each section; the status bar carries version facts; the menu bar is the nav. */
   :root {
-    --bg: #ffffff;
-    --bg-alt: #f3f3f3;
-    --text: #252423;
-    --muted: #605e5c;
-    --border: #d2d0ce;
-    --green: #1e6e42;
-    --green-dark: #155232;
-    --green-soft: #e6f2ea;
-    --on-green: #ffffff;
-    --head: #f3f3f3;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #1f1f1f;
-      --bg-alt: #262626;
-      --text: #f3f2f1;
-      --muted: #b3b0ad;
-      --border: #3b3a39;
-      --green: #2f8f5b;
-      --green-dark: #24774a;
-      --green-soft: #22332a;
-      --on-green: #ffffff;
-      --head: #2b2b2b;
-    }
+    --desktop: #008080;
+    --face: #c0c0c0;
+    --face-light: #dfdfdf;
+    --hi: #ffffff;
+    --shadow: #808080;
+    --dark: #000000;
+    --paper: #ffffff;
+    --ink: #000000;
+    --muted: #404040;
+    --title: #000080;
+    --title-end: #1084d0;
+    --link: #000080;
+    --select: #000080;
+    --font-ui: Tahoma, Verdana, "Segoe UI", Geneva, sans-serif;
+    --font-mono: "Lucida Console", "Courier New", Menlo, monospace;
   }
   * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.55 "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--desktop);
+    color: var(--ink);
+    font: 15px/1.5 var(--font-ui);
+    padding-block: 28px 40px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
-  a { color: var(--green); }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+  a { color: var(--link); }
+  a:focus-visible, button:focus-visible, .btn:focus-visible { outline: 1px dotted var(--ink); outline-offset: -5px; }
 
-  /* Title bar */
-  .bar { background: var(--green); color: var(--on-green); }
-  .bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 48px; }
-  .bar .name { font-weight: 600; font-size: 17px; display: flex; align-items: center; gap: 8px; }
-  .bar .name img { width: 32px; height: 32px; }
-  .hero .wrap { display: flex; gap: 40px; align-items: center; justify-content: space-between; }
-  .hero-logo { width: 200px; height: 200px; flex: none; }
-  @media (max-width: 760px) { .hero-logo { display: none; } }
-  .bar nav a { color: var(--on-green); text-decoration: none; font-size: 14px; margin-left: 20px; opacity: .9; }
-  .bar nav a:hover { opacity: 1; text-decoration: underline; }
-
-  /* Hero */
-  .hero { padding: 56px 0 48px; border-bottom: 1px solid var(--border); }
-  h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 600; line-height: 1.15; margin: 0 0 14px; }
-  .lead { font-size: 18px; color: var(--muted); max-width: 640px; margin: 0 0 26px; }
-  .btn {
-    display: inline-block; padding: 10px 20px; border-radius: 3px; font-weight: 600;
-    text-decoration: none; border: 1px solid var(--border); color: var(--text); background: var(--bg);
+  /* Bevels */
+  .raised {
+    background: var(--face);
+    border: 1px solid; border-color: var(--hi) var(--dark) var(--dark) var(--hi);
+    box-shadow: inset -1px -1px var(--shadow), inset 1px 1px var(--face-light);
   }
-  .btn.primary { background: var(--green); border-color: var(--green); color: var(--on-green); }
-  .btn.primary:hover { background: var(--green-dark); }
-  .btn + .btn { margin-left: 8px; }
-  .note { font-size: 14px; color: var(--muted); margin-top: 14px; }
+  .sunken {
+    border: 1px solid; border-color: var(--shadow) var(--hi) var(--hi) var(--shadow);
+    box-shadow: inset 1px 1px var(--dark), inset -1px -1px var(--face-light);
+  }
+
+  /* Window */
+  .window { max-width: 940px; margin: 0 auto; padding: 3px; }
+  .titlebar {
+    display: flex; align-items: center; gap: 6px; padding: 3px 4px 3px 6px;
+    background: linear-gradient(90deg, var(--title), var(--title-end));
+    color: var(--hi); font-weight: 700; font-size: 14px;
+  }
+  .titlebar img { width: 18px; height: 18px; }
+  .titlebar span { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .controls { display: flex; gap: 2px; }
+  .controls i {
+    display: grid; place-items: center; width: 18px; height: 16px; font: 700 11px/1 var(--font-ui);
+    font-style: normal; color: var(--ink);
+  }
+  .controls i:last-child { margin-left: 2px; }
+
+  .menubar { display: flex; flex-wrap: wrap; gap: 2px; padding: 3px 2px; font-size: 14px; }
+  .menubar a { color: var(--ink); text-decoration: none; padding: 2px 9px; }
+  .menubar a:hover, .menubar a:focus-visible { background: var(--select); color: var(--hi); outline: none; }
+  .menubar u { text-underline-offset: 2px; }
+
+  .body { padding: 14px; display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); }
+  .body > * { min-width: 0; }
+  .window { min-width: 0; }
+
+  /* Intro */
+  .intro { display: grid; grid-template-columns: 64px minmax(0, 1fr) 220px; gap: 18px; align-items: start; }
+  .intro > img { width: 64px; height: 64px; }
+  .intro .actions { flex-direction: column; }
+  .intro .btn { min-width: 0; }
+  .hudfig { margin: 18px 0 0; max-width: 460px; display: grid; gap: 6px; }
+  h1 { font-size: 26px; line-height: 1.2; margin: 0 0 8px; text-wrap: balance; }
+  .lead { margin: 0; max-width: 58ch; }
   kbd {
-    display: inline-block; min-width: 24px; padding: 1px 6px; text-align: center;
-    font: 600 13px/1.5 Consolas, ui-monospace, Menlo, monospace;
-    border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 3px; background: var(--bg);
+    display: inline-block; min-width: 22px; padding: 0 5px; text-align: center;
+    font: 700 13px/1.6 var(--font-mono); color: var(--ink); background: var(--face);
+    border: 1px solid; border-color: var(--hi) var(--dark) var(--dark) var(--hi);
+    box-shadow: inset -1px -1px var(--shadow);
   }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 7px 18px; min-width: 120px; text-align: center;
+    color: var(--ink); text-decoration: none; font: 14px/1.3 var(--font-ui);
+  }
+  .btn:active { border-color: var(--dark) var(--hi) var(--hi) var(--dark); box-shadow: inset 1px 1px var(--shadow); }
+  .btn.default { outline: 1px solid var(--dark); outline-offset: 0; font-weight: 700; }
+  .btn small { display: block; font-weight: 400; font-size: 12px; color: var(--muted); }
 
-  /* Sections */
-  section { padding: 48px 0; border-bottom: 1px solid var(--border); }
-  section.alt { background: var(--bg-alt); }
-  h2 { font-size: 26px; font-weight: 600; margin: 0 0 6px; }
-  .sub { color: var(--muted); margin: 0 0 24px; }
-  .cols { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-  .box { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 18px; }
-  .box h3 { font-size: 17px; font-weight: 600; margin: 0 0 6px; }
-  .box p { margin: 0; color: var(--muted); font-size: 15px; }
-  .box.pain { border-left: 4px solid #a4262c; }
-  .box.feat { border-top: 3px solid var(--green); }
+  /* HUD still and video, both from the real screen recording */
+  .preview { display: grid; gap: 6px; }
+  .shot { display: block; padding: 2px; background: var(--paper); }
+  .shot img, .shot video { display: block; width: 100%; height: auto; }
+  .caption { font-size: 12px; color: var(--muted); margin: 0; }
 
-  /* Spreadsheet-style table */
-  .sheet { overflow-x: auto; border: 1px solid var(--border); margin-top: 28px; }
-  .sheet table { border-collapse: collapse; width: 100%; font-size: 14px; background: var(--bg); }
-  .sheet th, .sheet td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; white-space: nowrap; }
-  .sheet thead th { background: var(--head); color: var(--muted); font-weight: 400; text-align: center; }
-  .sheet tbody th { background: var(--head); color: var(--muted); font-weight: 400; width: 36px; text-align: center; }
-  .sheet tr.hdr td { font-weight: 600; background: var(--green-soft); }
+  /* Group boxes */
+  fieldset {
+    margin: 0; padding: 14px 14px 16px; min-width: 0;
+    border: 1px solid var(--shadow); box-shadow: 1px 1px 0 var(--hi), inset 1px 1px 0 var(--hi);
+  }
+  /* The background hides the inset highlight line behind the label. */
+  legend { padding: 0 5px; font-weight: 700; background: var(--face); position: relative; }
+  .cols { display: grid; gap: 14px 24px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .cols.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .item { min-width: 0; }
+  .item h3 { font-size: 15px; margin: 0 0 3px; }
+  .item p { margin: 0; color: var(--muted); }
 
-  /* Download */
-  .steps { margin: 0; padding-left: 20px; }
-  .steps li { margin-bottom: 8px; }
-  pre { margin: 10px 0 0; padding: 10px 12px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 3px; overflow-x: auto; font: 13px/1.5 Consolas, ui-monospace, Menlo, monospace; }
-  code { font-family: Consolas, ui-monospace, Menlo, monospace; font-size: .92em; }
-  .setup { margin-top: 28px; }
+  /* Spreadsheet */
+  .sheet { overflow-x: auto; background: var(--paper); }
+  .sheet table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .sheet th, .sheet td { border: 1px solid #c8c8c8; padding: 3px 8px; text-align: left; white-space: nowrap; }
+  .sheet thead th, .sheet tbody th {
+    background: var(--face); color: var(--ink); font-weight: 400; text-align: center;
+    border-color: var(--hi) var(--shadow) var(--shadow) var(--hi);
+  }
+  .sheet tbody th { width: 34px; font-variant-numeric: tabular-nums; }
+  .sheet tr.hdr td { font-weight: 700; }
+  .sheet kbd { font-size: 12px; min-width: 20px; }
+  .more { margin: 8px 0 0; font-size: 13px; }
 
-  footer { padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
-  footer p { margin: 0 0 8px; }
+  /* Install */
+  .install { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .install > div { min-width: 0; }
+  .install h3 { font-size: 15px; margin: 0 0 6px; }
+  .install p { margin: 0 0 6px; }
+  pre {
+    margin: 0; padding: 6px 8px; background: var(--paper);
+    white-space: pre-wrap; overflow-wrap: anywhere;
+    font: 13px/1.5 var(--font-mono);
+  }
+  code { font-family: var(--font-mono); font-size: 0.92em; }
+  ol { margin: 0; padding-left: 22px; }
+  ol li + li { margin-top: 4px; }
+  .after { margin-top: 16px; }
+  .after h3 { font-size: 15px; margin: 0 0 6px; }
 
-  @media (max-width: 560px) {
-    .bar nav a:not(:last-child) { display: none; }
-    .btn { display: block; text-align: center; }
-    .btn + .btn { margin: 8px 0 0; }
+  /* Status bar */
+  .statusbar { display: flex; flex-wrap: wrap; gap: 2px; padding: 2px; font-size: 13px; }
+  .statusbar span { padding: 1px 8px; }
+  .statusbar span:first-child { flex: 1; }
+
+  footer { max-width: 940px; margin: 16px auto 0; color: var(--hi); font-size: 13px; }
+  footer p { margin: 0 0 6px; }
+  footer a { color: var(--hi); }
+
+  @media (max-width: 760px) {
+    .intro { grid-template-columns: minmax(0, 1fr); }
+    .intro > img { width: 56px; height: 56px; }
+    .intro .actions { flex-direction: row; }
+    h1 { font-size: 22px; }
+    .controls { display: none; }
+    .cols.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 480px) {
+    .cols, .cols.four { grid-template-columns: minmax(0, 1fr); }
+    .statusbar span:not(:first-child):last-child { display: none; }
   }
 </style>
 </head>
 <body>
 
-<header class="bar">
-  <div class="wrap">
-    <span class="name"><img src="icon.png" alt="">AltForMac</span>
-    <nav aria-label="Page">
-      <a href="#why">Why</a>
-      <a href="#features">Features</a>
-      <a href="#download">Download</a>
-      <a href="https://github.com/dtung011/altformac">GitHub</a>
-    </nav>
+<div class="window raised">
+  <div class="titlebar">
+    <img src="icon.png" alt="">
+    <span>AltForMac: Windows Alt shortcuts for Office on Mac</span>
+    <div class="controls" aria-hidden="true"><i class="raised">_</i><i class="raised">□</i><i class="raised">×</i></div>
   </div>
-</header>
 
-<main>
-  <div class="hero">
-    <div class="wrap">
+  <nav class="menubar" aria-label="Page">
+    <a href="#download"><u>D</u>ownload</a>
+    <a href="#video"><u>V</u>ideo</a>
+    <a href="#why"><u>W</u>hy</a>
+    <a href="#features"><u>F</u>eatures</a>
+    <a href="#shortcuts"><u>S</u>hortcuts</a>
+    <a href="#uninstall"><u>U</u>ninstall</a>
+    <a href="https://github.com/dtung011/altformac"><u>G</u>itHub</a>
+  </nav>
+
+  <main class="body">
+    <div class="intro">
+      <img src="icon.png" alt="AltForMac icon">
       <div>
-      <h1>Your Windows Alt shortcuts,<br>now on Mac.</h1>
-      <p class="lead">Tap Option, type <kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd> or <kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd>, and Excel, Word or PowerPoint does what you expect, all the way to the last letter.</p>
-      <a class="btn primary" href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg">Download for Mac</a>
-      <a class="btn" href="https://github.com/dtung011/altformac">View source</a>
-      <p class="note">Free and open source (MIT) · Version 0.1.0 · macOS 13 or later, Apple Silicon</p>
+        <h1>Your Windows Alt shortcuts, working in Office for Mac.</h1>
+        <p class="lead">Tap Option, then type <kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd> or <kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd> the way you did on Windows. Excel, Word and PowerPoint run the command, right down to the last letter inside a dropdown.</p>
       </div>
-      <img class="hero-logo" src="icon.png" alt="AltForMac icon: an alt ⌥ key on a green grid">
-    </div>
-  </div>
-
-  <section id="why" class="alt">
-    <div class="wrap">
-      <h2>Switched to Mac? Your shortcuts didn't come with you.</h2>
-      <p class="sub">Years of Windows muscle memory, and Office for Mac only meets you halfway.</p>
-      <div class="cols">
-        <div class="box pain">
-          <h3>Alt sequences don't work</h3>
-          <p>On Windows you autofit a column without thinking. On Mac the same keys type odd characters or do nothing.</p>
-        </div>
-        <div class="box pain">
-          <h3>Built-in KeyTips stop short</h3>
-          <p>Office for Mac's KeyTips can open a dropdown, but not the final letter inside it. You end up reaching for the mouse.</p>
-        </div>
-        <div class="box pain">
-          <h3>The mouse slows you down</h3>
-          <p>Building a model or cleaning data means hundreds of small commands. Each trip to the ribbon breaks your flow.</p>
-        </div>
+      <div class="actions">
+        <a class="btn raised default" href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg">Download for Mac<small>AltForMac.dmg, latest version</small></a>
+        <a class="btn raised" href="#install">Other ways to install<small>Homebrew or source</small></a>
       </div>
     </div>
-  </section>
 
-  <section id="features">
-    <div class="wrap">
-      <h2>What AltForMac does</h2>
-      <p class="sub">A small menu-bar app that turns Windows Alt sequences into real Office for Mac commands.</p>
+    <div id="video">
+      <div class="shot sunken">
+        <video id="promo" controls muted autoplay loop playsinline preload="auto" poster="promo-poster.jpg" width="1600" height="1004" aria-label="Screen recording of Excel for Mac with AltForMac: H O I autofits the columns, H O A autofits the rows, W V G turns gridlines off, N V opens Insert PivotTable.">
+          <source src="promo.mp4" type="video/mp4">
+          <source src="promo.webm" type="video/webm">
+        </video>
+      </div>
+      <p class="caption" style="margin-top:6px">Real Excel for Mac, fake sales data. It pauses a moment on each HUD so you can read it: <kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd> AutoFit columns, <kbd>H</kbd> <kbd>O</kbd> <kbd>A</kbd> AutoFit rows, <kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd> gridlines, <kbd>N</kbd> <kbd>V</kbd> PivotTable.</p>
+    </div>
+
+    <fieldset id="why">
+      <legend>Why you need it</legend>
       <div class="cols">
-        <div class="box feat">
+        <div class="item">
+          <h3>Alt sequences do nothing on Mac</h3>
+          <p>Years of Windows muscle memory, and on a Mac the same keys type odd characters instead.</p>
+        </div>
+        <div class="item">
+          <h3>Office's own KeyTips stop short</h3>
+          <p>They can open a dropdown but not choose the item inside it, so you reach for the mouse anyway.</p>
+        </div>
+        <div class="item">
+          <h3>The mouse slows down real work</h3>
+          <p>A model or a data clean-up is hundreds of small commands. Every trip to the ribbon breaks your flow.</p>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset id="features">
+      <legend>What you get</legend>
+      <div class="cols four">
+        <div class="item">
           <h3>387 sequences</h3>
-          <p>Excel (206), Word (107) and PowerPoint (74), including the final letters inside dropdowns.</p>
+          <p>Excel 206, Word 107, PowerPoint 74, including the final letters inside dropdowns.</p>
         </div>
-        <div class="box feat">
-          <h3>Learn as you type</h3>
-          <p>A small HUD shows the keys you typed and the valid next letters. Escape goes back one level.</p>
+        <div class="item">
+          <h3>A guide as you type</h3>
+          <p>The HUD lists the valid next letters. Escape goes back a level, Backspace removes a letter.</p>
         </div>
-        <div class="box feat">
-          <h3>Private by design</h3>
-          <p>No networking code. It never reads cells, formulas, file names or document content.</p>
+        <div class="item">
+          <h3>Private</h3>
+          <p>No networking code at all. It never reads cells, formulas, file names or document text.</p>
         </div>
-        <div class="box feat">
-          <h3>Stays out of your way</h3>
-          <p>Option with other keys works as normal. Office's confirmation dialogs stay. It never blocks typing.</p>
+        <div class="item">
+          <h3>Safe</h3>
+          <p>Office's confirmation dialogs stay. Option with other keys works as normal. It never blocks typing.</p>
         </div>
       </div>
+      <figure class="hudfig">
+        <div class="shot sunken"><img src="promo-hud.png" width="820" height="600" alt="The AltForMac HUD in Excel after typing Option, H, O. It lists A AutoFit row height, D Default column width, H Row height, I AutoFit column width, M Move or copy sheet, R Rename sheet, U Hide and Unhide, W Column width."></div>
+        <figcaption class="caption">The HUD in Excel after <kbd>⌥</kbd> <kbd>H</kbd> <kbd>O</kbd>: what you typed, and every letter that can come next.</figcaption>
+      </figure>
+    </fieldset>
 
-      <div class="sheet" role="region" aria-label="Example Excel sequences" tabindex="0">
+    <fieldset id="shortcuts">
+      <legend>Excel sequences you already know</legend>
+      <div class="sheet sunken" role="region" aria-label="Example Excel sequences" tabindex="0">
         <table>
           <thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead>
           <tbody>
-            <tr class="hdr"><th>1</th><td>Keys (after Option)</td><td>Command</td><td>Tab</td></tr>
+            <tr class="hdr"><th>1</th><td>Keys after ⌥</td><td>Command</td><td>Ribbon tab</td></tr>
             <tr><th>2</th><td><kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd></td><td>AutoFit column width</td><td>Home</td></tr>
             <tr><th>3</th><td><kbd>H</kbd> <kbd>V</kbd> <kbd>S</kbd></td><td>Paste Special</td><td>Home</td></tr>
             <tr><th>4</th><td><kbd>H</kbd> <kbd>K</kbd></td><td>Comma style</td><td>Home</td></tr>
@@ -201,49 +278,77 @@
           </tbody>
         </table>
       </div>
-      <p class="note">Full list in the <a href="https://github.com/dtung011/altformac/tree/main/mappings">mappings folder</a>.</p>
-    </div>
-  </section>
+      <p class="more">Full lists for Excel, Word and PowerPoint: <a href="https://github.com/dtung011/altformac/tree/main/mappings">mappings folder</a>.</p>
+    </fieldset>
 
-  <section id="download" class="alt">
-    <div class="wrap">
-      <h2>Download</h2>
-      <p class="sub">Requires macOS 13 (Ventura) or later. The 0.1.0 build is for Apple Silicon; Intel Macs can build from source.</p>
-      <div class="cols">
-        <div class="box">
-          <h3>Homebrew</h3>
-          <pre>brew install --cask dtung011/altformac/altformac</pre>
-        </div>
-        <div class="box">
+    <fieldset id="download">
+      <legend>Download</legend>
+      <p style="margin:0 0 14px">Needs macOS 13 (Ventura) or later. The download is built for Apple Silicon; Intel Macs can build from source.</p>
+      <div class="install" id="install">
+        <div>
           <h3>DMG</h3>
-          <p><a href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg">Download AltForMac.dmg</a> (latest version), open it and drag AltForMac to Applications. It is not notarized yet: on first launch, right-click it and choose <strong>Open</strong>.</p>
-          <p class="note" style="margin-top:8px">Release notes and checksums: <a href="https://github.com/dtung011/altformac/releases/latest">latest release</a>.</p>
+          <p><a href="https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg">Download AltForMac.dmg</a>, open it and drag AltForMac to Applications.</p>
+          <p>It is not notarized yet: the first time, right-click it in Applications and choose <b>Open</b>.</p>
         </div>
-        <div class="box">
+        <div>
+          <h3>Homebrew</h3>
+          <pre class="sunken">brew install --cask dtung011/altformac/altformac</pre>
+        </div>
+        <div>
           <h3>From source</h3>
-          <pre>git clone https://github.com/dtung011/altformac.git
+          <pre class="sunken">git clone https://github.com/dtung011/altformac.git
 cd altformac && scripts/package.sh</pre>
         </div>
       </div>
-
-      <div class="setup">
+      <div class="after">
         <h3>After installing</h3>
-        <ol class="steps">
+        <ol>
           <li>In Excel, Word and PowerPoint, open Preferences &gt; Accessibility and turn off the Option-key KeyTips.</li>
           <li>Start AltForMac and allow it in System Settings &gt; Privacy &amp; Security &gt; Accessibility.</li>
           <li>Allow Automation for each Office app when macOS asks.</li>
         </ol>
       </div>
-    </div>
-  </section>
-</main>
+    </fieldset>
+
+    <fieldset id="uninstall">
+      <legend>Uninstall</legend>
+      <ol>
+        <li><b>Quit AltForMac</b> from its menu-bar icon.</li>
+        <li><b>Remove the app.</b> Installed with Homebrew: run <code>brew uninstall --cask altformac</code> (add <code>--zap</code> to also remove its support files). Installed from the DMG or source: drag AltForMac from Applications to the Trash.</li>
+        <li><b>Remove its permissions</b> (optional). In System Settings &gt; Privacy &amp; Security, open Accessibility and Automation, select AltForMac and click the minus button.</li>
+        <li><b>Turn Office's KeyTips back on</b> if you want them: Preferences &gt; Accessibility in Excel, Word and PowerPoint.</li>
+      </ol>
+      <p class="more">AltForMac installs no background services and writes nothing outside its app bundle, so there is nothing else to clean up. If you added it to Login Items, remove it there too.</p>
+    </fieldset>
+  </main>
+
+  <div class="statusbar">
+    <span class="sunken">Ready</span>
+    <span class="sunken">Version 0.1.0</span>
+    <span class="sunken">macOS 13+</span>
+    <span class="sunken">MIT license</span>
+  </div>
+</div>
 
 <footer>
-  <div class="wrap">
-    <p><strong>Not affiliated with Microsoft.</strong> AltForMac is an independent open-source project. Microsoft, Excel, Word and PowerPoint are trademarks of the Microsoft group of companies. Microsoft's code is never modified or shipped.</p>
-    <p>MIT licensed · <a href="https://github.com/dtung011/altformac">Source</a> · <a href="https://github.com/dtung011/altformac/blob/main/CHANGELOG.md">Changelog</a> · <a href="https://github.com/dtung011/altformac#uninstall">Uninstall</a></p>
-  </div>
+  <p><b>Not affiliated with Microsoft.</b> AltForMac is an independent open-source project. Microsoft, Excel, Word and PowerPoint are trademarks of the Microsoft group of companies. Microsoft's code is never modified or shipped.</p>
+  <p><a href="https://github.com/dtung011/altformac">Source</a> · <a href="https://github.com/dtung011/altformac/releases/latest">Release notes</a> · <a href="https://github.com/dtung011/altformac/blob/main/CHANGELOG.md">Changelog</a></p>
 </footer>
+
+<script>
+  // Autoplay needs the video muted (it is). Start it explicitly in case the browser ignored the attribute,
+  // and keep it still for visitors who ask for reduced motion (they can press play).
+  (function () {
+    var v = document.getElementById("promo");
+    if (!v) return;
+    v.muted = true;
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      v.removeAttribute("autoplay"); v.pause(); return;
+    }
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  })();
+</script>
 
 </body>
 </html>

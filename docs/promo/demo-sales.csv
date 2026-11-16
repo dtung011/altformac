@@ -1,0 +1,33 @@
+Region,Product Line,Sales Representative,Quarter,Revenue (USD),Cost of Sales (USD),Gross Margin %
+North America,Professional Services,Amelia Hartwell,Q1 2026,2506009,1490595,40.5
+North America,Enterprise Software,Priya Raghavan,Q1 2026,4294674,2391450,44.3
+Western Europe,Enterprise Software,Lucas Ferreira,Q1 2026,1750509,686853,60.8
+Western Europe,Professional Services,Amelia Hartwell,Q1 2026,2603941,1049524,59.7
+Asia Pacific,Hardware & Devices,Daniel Okafor,Q1 2026,4318069,2446616,43.3
+Asia Pacific,Enterprise Software,Amelia Hartwell,Q1 2026,3495036,2051771,41.3
+Latin America,Hardware & Devices,Daniel Okafor,Q1 2026,1777284,702688,60.5
+Latin America,Enterprise Software,Sofia Marchetti,Q1 2026,2064709,1070171,48.2
+North America,Enterprise Software,Kenji Watanabe,Q2 2026,2143866,1211037,43.5
+North America,Professional Services,Sofia Marchetti,Q2 2026,1608021,665734,58.6
+Western Europe,Cloud Infrastructure,Amelia Hartwell,Q2 2026,1258653,705796,43.9
+Western Europe,Hardware & Devices,Daniel Okafor,Q2 2026,3217132,1285785,60.0
+Asia Pacific,Hardware & Devices,Priya Raghavan,Q2 2026,3080196,1605106,47.9
+Asia Pacific,Professional Services,Lucas Ferreira,Q2 2026,2802875,1606707,42.7
+Latin America,Professional Services,Kenji Watanabe,Q2 2026,1891976,1214923,35.8
+Latin America,Cloud Infrastructure,Sofia Marchetti,Q2 2026,4120842,1897861,53.9
+North America,Professional Services,Kenji Watanabe,Q3 2026,2926668,1957342,33.1
+North America,Hardware & Devices,Amelia Hartwell,Q3 2026,2732547,1298013,52.5
+Western Europe,Enterprise Software,Priya Raghavan,Q3 2026,2603734,1131159,56.6
+Western Europe,Professional Services,Lucas Ferreira,Q3 2026,1487469,1023347,31.2
+Asia Pacific,Enterprise Software,Sofia Marchetti,Q3 2026,1175563,743318,36.8
+Asia Pacific,Professional Services,Priya Raghavan,Q3 2026,4159700,2782455,33.1
+Latin America,Professional Services,Sofia Marchetti,Q3 2026,2318754,1335931,42.4
+Latin America,Hardware & Devices,Amelia Hartwell,Q3 2026,4192407,2224272,46.9
+North America,Professional Services,Amelia Hartwell,Q4 2026,3773606,2261032,40.1
+North America,Cloud Infrastructure,Kenji Watanabe,Q4 2026,3916704,2395034,38.9
+Western Europe,Hardware & Devices,Kenji Watanabe,Q4 2026,3855754,1956067,49.3
+Western Europe,Cloud Infrastructure,Lucas Ferreira,Q4 2026,2305445,893234,61.3
+Asia Pacific,Professional Services,Amelia Hartwell,Q4 2026,3412382,1428565,58.1
+Asia Pacific,Enterprise Software,Daniel Okafor,Q4 2026,1765229,1118302,36.6
+Latin America,Cloud Infrastructure,Lucas Ferreira,Q4 2026,2489761,1699384,31.7
+Latin America,Hardware & Devices,Lucas Ferreira,Q4 2026,1187982,516654,56.5

@@ -1,0 +1,2 @@
+# Tools for scripts/make-promo.sh (video encoding). Installed into ./venv by scripts/setup-video-env.sh
+imageio-ffmpeg==0.8.1
