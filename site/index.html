@@ -3,283 +3,237 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AltForMac: Windows Alt key sequences for Office on Mac</title>
-<meta name="description" content="Tap Option and type W V G, H O I or N V in Excel, Word and PowerPoint for Mac. Free, open source, and it never touches your documents.">
+<title>AltForMac: Windows Alt shortcuts for Office on Mac</title>
+<meta name="description" content="Use the Windows Alt key sequences you already know (H O I, W V G, N V) in Excel, Word and PowerPoint for Mac. Free and open source.">
 <meta name="color-scheme" content="light dark">
 <style>
   :root {
     --bg: #ffffff;
-    --bg-soft: #f5f5f7;
-    --text: #1d1d1f;
-    --muted: #5f6368;
-    --border: #d9dadd;
-    --accent: #0a62d0;
-    --accent-text: #ffffff;
-    --code-bg: #f0f1f3;
-    --key-bg: #ffffff;
-    --key-shadow: #c4c6ca;
+    --bg-alt: #f3f3f3;
+    --text: #252423;
+    --muted: #605e5c;
+    --border: #d2d0ce;
+    --green: #1e6e42;
+    --green-dark: #155232;
+    --green-soft: #e6f2ea;
+    --on-green: #ffffff;
+    --head: #f3f3f3;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #101114;
-      --bg-soft: #181a1f;
-      --text: #ececee;
-      --muted: #a0a4ab;
-      --border: #2c2f36;
-      --accent: #5aa2ff;
-      --accent-text: #08111f;
-      --code-bg: #1e2127;
-      --key-bg: #23262d;
-      --key-shadow: #0a0b0d;
+      --bg: #1f1f1f;
+      --bg-alt: #262626;
+      --text: #f3f2f1;
+      --muted: #b3b0ad;
+      --border: #3b3a39;
+      --green: #2f8f5b;
+      --green-dark: #24774a;
+      --green-soft: #22332a;
+      --on-green: #ffffff;
+      --head: #2b2b2b;
     }
   }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font: 16px/1.55 "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
   }
-  a { color: var(--accent); }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
-  header.top { padding: 20px 0; }
-  header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-  .brand { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
-  nav a { margin-left: 18px; font-size: 14px; text-decoration: none; color: var(--muted); }
-  nav a:hover { color: var(--text); }
-  .hero { padding: 56px 0 48px; text-align: center; }
-  h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 18px; }
-  .lead { font-size: clamp(17px, 2.4vw, 20px); color: var(--muted); max-width: 640px; margin: 0 auto 28px; }
-  .keys { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 0 0 32px; }
-  .seq { display: inline-flex; gap: 6px; align-items: center; }
-  kbd {
-    display: inline-block; min-width: 34px; padding: 4px 9px; text-align: center;
-    font: 600 15px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
-    background: var(--key-bg); border: 1px solid var(--border); border-radius: 7px;
-    box-shadow: 0 2px 0 var(--key-shadow);
-  }
-  .cta { display: inline-flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  a { color: var(--green); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  /* Title bar */
+  .bar { background: var(--green); color: var(--on-green); }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 48px; }
+  .bar .name { font-weight: 600; font-size: 17px; }
+  .bar nav a { color: var(--on-green); text-decoration: none; font-size: 14px; margin-left: 20px; opacity: .9; }
+  .bar nav a:hover { opacity: 1; text-decoration: underline; }
+
+  /* Hero */
+  .hero { padding: 56px 0 48px; border-bottom: 1px solid var(--border); }
+  h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 600; line-height: 1.15; margin: 0 0 14px; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 640px; margin: 0 0 26px; }
   .btn {
-    display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 600;
+    display: inline-block; padding: 10px 20px; border-radius: 3px; font-weight: 600;
     text-decoration: none; border: 1px solid var(--border); color: var(--text); background: var(--bg);
   }
-  .btn.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
-  .btn:hover { filter: brightness(1.06); }
-  .btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-  .meta { margin-top: 14px; font-size: 14px; color: var(--muted); }
-  section { padding: 44px 0; border-top: 1px solid var(--border); }
-  section.soft { background: var(--bg-soft); }
-  h2 { font-size: 28px; letter-spacing: -0.02em; margin: 0 0 8px; }
-  h3 { font-size: 18px; margin: 28px 0 6px; }
-  .sub { color: var(--muted); margin: 0 0 24px; }
-  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
-  section.soft .card { background: var(--bg); }
-  .card h3 { margin-top: 0; }
-  .card p { margin: 0; color: var(--muted); font-size: 15px; }
-  pre, code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-  code { background: var(--code-bg); padding: 1px 6px; border-radius: 5px; font-size: 0.92em; }
-  .codebox { position: relative; background: var(--code-bg); border-radius: 10px; margin: 10px 0 0; }
-  .codebox pre { margin: 0; padding: 14px 76px 14px 16px; overflow-x: auto; font-size: 14px; }
-  .codebox button {
-    position: absolute; top: 8px; right: 8px; font: 600 12px/1 inherit; padding: 6px 10px;
-    border-radius: 7px; border: 1px solid var(--border); background: var(--bg); color: var(--text); cursor: pointer;
+  .btn.primary { background: var(--green); border-color: var(--green); color: var(--on-green); }
+  .btn.primary:hover { background: var(--green-dark); }
+  .btn + .btn { margin-left: 8px; }
+  .note { font-size: 14px; color: var(--muted); margin-top: 14px; }
+  kbd {
+    display: inline-block; min-width: 24px; padding: 1px 6px; text-align: center;
+    font: 600 13px/1.5 Consolas, ui-monospace, Menlo, monospace;
+    border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 3px; background: var(--bg);
   }
-  ol.steps { padding-left: 22px; margin: 0; }
-  ol.steps li { margin-bottom: 14px; }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  th { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
-  .table-scroll { overflow-x: auto; }
-  details { border-bottom: 1px solid var(--border); padding: 14px 0; }
-  summary { cursor: pointer; font-weight: 600; }
-  details p { margin: 10px 0 0; color: var(--muted); }
-  ul.plain { padding-left: 20px; margin: 0; }
-  ul.plain li { margin-bottom: 8px; }
-  footer { padding: 36px 0 56px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
-  footer p { margin: 0 0 10px; }
+
+  /* Sections */
+  section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+  section.alt { background: var(--bg-alt); }
+  h2 { font-size: 26px; font-weight: 600; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .cols { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .box { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 18px; }
+  .box h3 { font-size: 17px; font-weight: 600; margin: 0 0 6px; }
+  .box p { margin: 0; color: var(--muted); font-size: 15px; }
+  .box.pain { border-left: 4px solid #a4262c; }
+  .box.feat { border-top: 3px solid var(--green); }
+
+  /* Spreadsheet-style table */
+  .sheet { overflow-x: auto; border: 1px solid var(--border); margin-top: 28px; }
+  .sheet table { border-collapse: collapse; width: 100%; font-size: 14px; background: var(--bg); }
+  .sheet th, .sheet td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; white-space: nowrap; }
+  .sheet thead th { background: var(--head); color: var(--muted); font-weight: 400; text-align: center; }
+  .sheet tbody th { background: var(--head); color: var(--muted); font-weight: 400; width: 36px; text-align: center; }
+  .sheet tr.hdr td { font-weight: 600; background: var(--green-soft); }
+
+  /* Download */
+  .steps { margin: 0; padding-left: 20px; }
+  .steps li { margin-bottom: 8px; }
+  pre { margin: 10px 0 0; padding: 10px 12px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 3px; overflow-x: auto; font: 13px/1.5 Consolas, ui-monospace, Menlo, monospace; }
+  code { font-family: Consolas, ui-monospace, Menlo, monospace; font-size: .92em; }
+  .setup { margin-top: 28px; }
+
+  footer { padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
+  footer p { margin: 0 0 8px; }
+
   @media (max-width: 560px) {
-    nav a:not(:last-child) { display: none; }
-    .hero { padding-top: 32px; }
+    .bar nav a:not(:last-child) { display: none; }
+    .btn { display: block; text-align: center; }
+    .btn + .btn { margin: 8px 0 0; }
   }
 </style>
 </head>
 <body>
 
-<header class="top">
+<header class="bar">
   <div class="wrap">
-    <div class="brand">AltForMac</div>
+    <span class="name">AltForMac</span>
     <nav aria-label="Page">
-      <a href="#install">Install</a>
-      <a href="#setup">Set up</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#faq">FAQ</a>
+      <a href="#why">Why</a>
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
       <a href="https://github.com/dtung011/altformac">GitHub</a>
     </nav>
   </div>
 </header>
 
 <main>
-<div class="wrap hero">
-  <h1>Windows Alt shortcuts,<br>on your Mac.</h1>
-  <p class="lead">Tap Option in Excel, Word or PowerPoint and type the sequence you already know. The command runs, including the final letters inside dropdowns that Office for Mac's built-in KeyTips leave out.</p>
-  <div class="keys" aria-label="Example sequences">
-    <span class="seq"><kbd>⌥</kbd><kbd>W</kbd><kbd>V</kbd><kbd>G</kbd></span>
-    <span class="seq"><kbd>⌥</kbd><kbd>H</kbd><kbd>O</kbd><kbd>I</kbd></span>
-    <span class="seq"><kbd>⌥</kbd><kbd>N</kbd><kbd>V</kbd></span>
-  </div>
-  <div class="cta">
-    <a class="btn primary" href="https://github.com/dtung011/altformac/releases/latest">Download for Mac</a>
-    <a class="btn" href="https://github.com/dtung011/altformac">View on GitHub</a>
-  </div>
-  <p class="meta">Version 0.1.0 · macOS 13 Ventura or later · Apple Silicon build · Free and open source (MIT)</p>
-</div>
-
-<section class="soft" aria-labelledby="what">
-  <div class="wrap">
-    <h2 id="what">What it does</h2>
-    <p class="sub">A small menu-bar app. Microsoft's code is never modified or shipped.</p>
-    <div class="grid">
-      <div class="card"><h3>Familiar sequences</h3><p><kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd> toggles gridlines, <kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd> autofits column width, <kbd>N</kbd> <kbd>V</kbd> inserts a PivotTable.</p></div>
-      <div class="card"><h3>Three Office apps</h3><p>Excel (206 sequences), Word (107) and PowerPoint (74). The mappings are plain YAML files you can read and improve.</p></div>
-      <div class="card"><h3>A guide on screen</h3><p>A small HUD shows the keys you typed and the valid next letters, so you can learn as you go.</p></div>
-      <div class="card"><h3>Stays out of the way</h3><p>Option with another key, such as Option+arrows, works as normal. Destructive commands keep Office's own confirmation dialogs.</p></div>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Your Windows Alt shortcuts,<br>now on Mac.</h1>
+      <p class="lead">Tap Option, type <kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd> or <kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd>, and Excel, Word or PowerPoint does what you expect, all the way to the last letter.</p>
+      <a class="btn primary" href="https://github.com/dtung011/altformac/releases/latest">Download for Mac</a>
+      <a class="btn" href="https://github.com/dtung011/altformac">View source</a>
+      <p class="note">Free and open source (MIT) · Version 0.1.0 · macOS 13 or later, Apple Silicon</p>
     </div>
   </div>
-</section>
 
-<section id="install" aria-labelledby="install-h">
-  <div class="wrap">
-    <h2 id="install-h">Download and install</h2>
-    <p class="sub">Requires macOS 13 (Ventura) or later. The 0.1.0 build is for Apple Silicon. Intel Macs can build from source.</p>
-
-    <h3>Option 1: Homebrew</h3>
-    <div class="codebox">
-      <pre><code id="brew">brew install --cask dtung011/altformac/altformac</code></pre>
-      <button type="button" data-copy="brew">Copy</button>
+  <section id="why" class="alt">
+    <div class="wrap">
+      <h2>Switched to Mac? Your shortcuts didn't come with you.</h2>
+      <p class="sub">Years of Windows muscle memory, and Office for Mac only meets you halfway.</p>
+      <div class="cols">
+        <div class="box pain">
+          <h3>Alt sequences don't work</h3>
+          <p>On Windows you autofit a column without thinking. On Mac the same keys type odd characters or do nothing.</p>
+        </div>
+        <div class="box pain">
+          <h3>Built-in KeyTips stop short</h3>
+          <p>Office for Mac's KeyTips can open a dropdown, but not the final letter inside it. You end up reaching for the mouse.</p>
+        </div>
+        <div class="box pain">
+          <h3>The mouse slows you down</h3>
+          <p>Building a model or cleaning data means hundreds of small commands. Each trip to the ribbon breaks your flow.</p>
+        </div>
+      </div>
     </div>
-    <p class="sub" style="margin-top:10px">Update later with <code>brew upgrade --cask altformac</code>.</p>
+  </section>
 
-    <h3>Option 2: Direct download</h3>
-    <ol class="steps">
-      <li>Open the <a href="https://github.com/dtung011/altformac/releases/latest">latest release</a> and download <code>AltForMac-&lt;version&gt;.dmg</code>.</li>
-      <li>Open the DMG and drag <strong>AltForMac</strong> to <strong>Applications</strong>.</li>
-      <li>The app is not notarized yet, so macOS blocks the first launch. Right-click AltForMac in Applications, choose <strong>Open</strong>, then <strong>Open</strong> again.</li>
-    </ol>
-    <p class="sub">You can check the download against the SHA-256 in the release notes: <code>shasum -a 256 AltForMac-&lt;version&gt;.dmg</code></p>
+  <section id="features">
+    <div class="wrap">
+      <h2>What AltForMac does</h2>
+      <p class="sub">A small menu-bar app that turns Windows Alt sequences into real Office for Mac commands.</p>
+      <div class="cols">
+        <div class="box feat">
+          <h3>387 sequences</h3>
+          <p>Excel (206), Word (107) and PowerPoint (74), including the final letters inside dropdowns.</p>
+        </div>
+        <div class="box feat">
+          <h3>Learn as you type</h3>
+          <p>A small HUD shows the keys you typed and the valid next letters. Escape goes back one level.</p>
+        </div>
+        <div class="box feat">
+          <h3>Private by design</h3>
+          <p>No networking code. It never reads cells, formulas, file names or document content.</p>
+        </div>
+        <div class="box feat">
+          <h3>Stays out of your way</h3>
+          <p>Option with other keys works as normal. Office's confirmation dialogs stay. It never blocks typing.</p>
+        </div>
+      </div>
 
-    <h3>Option 3: Build from source</h3>
-    <p class="sub" style="margin-bottom:0">Needs Xcode or the Command Line Tools (<code>xcode-select --install</code>).</p>
-    <div class="codebox">
-      <pre><code id="src">git clone https://github.com/dtung011/altformac.git
-cd altformac
-scripts/package.sh</code></pre>
-      <button type="button" data-copy="src">Copy</button>
+      <div class="sheet" role="region" aria-label="Example Excel sequences" tabindex="0">
+        <table>
+          <thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead>
+          <tbody>
+            <tr class="hdr"><th>1</th><td>Keys (after Option)</td><td>Command</td><td>Tab</td></tr>
+            <tr><th>2</th><td><kbd>H</kbd> <kbd>O</kbd> <kbd>I</kbd></td><td>AutoFit column width</td><td>Home</td></tr>
+            <tr><th>3</th><td><kbd>H</kbd> <kbd>V</kbd> <kbd>S</kbd></td><td>Paste Special</td><td>Home</td></tr>
+            <tr><th>4</th><td><kbd>H</kbd> <kbd>K</kbd></td><td>Comma style</td><td>Home</td></tr>
+            <tr><th>5</th><td><kbd>H</kbd> <kbd>B</kbd> <kbd>A</kbd></td><td>All borders</td><td>Home</td></tr>
+            <tr><th>6</th><td><kbd>N</kbd> <kbd>V</kbd></td><td>Insert PivotTable</td><td>Insert</td></tr>
+            <tr><th>7</th><td><kbd>A</kbd> <kbd>T</kbd></td><td>Toggle filter</td><td>Data</td></tr>
+            <tr><th>8</th><td><kbd>A</kbd> <kbd>W</kbd> <kbd>G</kbd></td><td>Goal Seek</td><td>Data</td></tr>
+            <tr><th>9</th><td><kbd>M</kbd> <kbd>P</kbd></td><td>Trace precedents</td><td>Formulas</td></tr>
+            <tr><th>10</th><td><kbd>W</kbd> <kbd>F</kbd> <kbd>F</kbd></td><td>Freeze panes</td><td>View</td></tr>
+            <tr><th>11</th><td><kbd>W</kbd> <kbd>V</kbd> <kbd>G</kbd></td><td>Toggle gridlines</td><td>View</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Full list in the <a href="https://github.com/dtung011/altformac/tree/main/mappings">mappings folder</a>.</p>
     </div>
-    <p class="sub" style="margin-top:10px"><code>scripts/package.sh</code> builds <code>dist/AltForMac.app</code> and the DMG.</p>
-  </div>
-</section>
+  </section>
 
-<section class="soft" id="setup" aria-labelledby="setup-h">
-  <div class="wrap">
-    <h2 id="setup-h">Set up</h2>
-    <p class="sub">Three one-time steps.</p>
-    <ol class="steps">
-      <li><strong>Turn off Office's own KeyTips.</strong> In Excel, Word and PowerPoint, open Preferences &gt; Accessibility and switch off the Option-key KeyTips. Otherwise both react.</li>
-      <li><strong>Allow Accessibility.</strong> Start AltForMac, then in System Settings &gt; Privacy &amp; Security &gt; Accessibility switch it on. Without this it cannot see or drive the menus.</li>
-      <li><strong>Allow Automation</strong> for each Office app when macOS asks. It is needed for commands that use AppleScript.</li>
-    </ol>
-    <p>The menu-bar icon shows <code>⌥</code> when ready and <code>⌥!</code> when it needs permission or an app was slow to respond.</p>
-  </div>
-</section>
+  <section id="download" class="alt">
+    <div class="wrap">
+      <h2>Download</h2>
+      <p class="sub">Requires macOS 13 (Ventura) or later. The 0.1.0 build is for Apple Silicon; Intel Macs can build from source.</p>
+      <div class="cols">
+        <div class="box">
+          <h3>Homebrew</h3>
+          <pre>brew install --cask dtung011/altformac/altformac</pre>
+        </div>
+        <div class="box">
+          <h3>DMG</h3>
+          <p>Get <code>AltForMac-&lt;version&gt;.dmg</code> from the <a href="https://github.com/dtung011/altformac/releases/latest">latest release</a> and drag it to Applications. It is not notarized yet: on first launch, right-click it and choose <strong>Open</strong>.</p>
+        </div>
+        <div class="box">
+          <h3>From source</h3>
+          <pre>git clone https://github.com/dtung011/altformac.git
+cd altformac && scripts/package.sh</pre>
+        </div>
+      </div>
 
-<section aria-labelledby="use-h">
-  <div class="wrap">
-    <h2 id="use-h">How to use it</h2>
-    <p class="sub">With Excel, Word or PowerPoint in front:</p>
-    <div class="table-scroll">
-      <table>
-        <thead><tr><th>Keys</th><th>What happens</th></tr></thead>
-        <tbody>
-          <tr><td>Tap Option</td><td>Starts a sequence. A small HUD shows the typed keys and the valid next letters.</td></tr>
-          <tr><td>Letters and digits</td><td>Follow the Windows sequence, for example <code>W V G</code> toggles gridlines.</td></tr>
-          <tr><td>Escape</td><td>Goes up one level (exits at the top).</td></tr>
-          <tr><td>Backspace</td><td>Removes the last letter.</td></tr>
-          <tr><td>Click, or 5 s idle</td><td>Cancels.</td></tr>
-        </tbody>
-      </table>
+      <div class="setup">
+        <h3>After installing</h3>
+        <ol class="steps">
+          <li>In Excel, Word and PowerPoint, open Preferences &gt; Accessibility and turn off the Option-key KeyTips.</li>
+          <li>Start AltForMac and allow it in System Settings &gt; Privacy &amp; Security &gt; Accessibility.</li>
+          <li>Allow Automation for each Office app when macOS asks.</li>
+        </ol>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="soft" id="privacy" aria-labelledby="privacy-h">
-  <div class="wrap">
-    <h2 id="privacy-h">Privacy</h2>
-    <p class="sub">The app is built so it can't phone home or read your work.</p>
-    <ul class="plain">
-      <li><strong>No networking code at all.</strong></li>
-      <li>Never reads cell values, formulas, file paths or document content. Accessibility is used only for menu, ribbon and focus elements.</li>
-      <li>Keys are inspected only while an Office app is frontmost, held in memory only while a sequence is in progress, and never written to disk.</li>
-      <li>If an app stops responding for 2 seconds, all keys pass straight through. It never blocks typing.</li>
-    </ul>
-    <p>The code is open, so you can check these claims in the <a href="https://github.com/dtung011/altformac">source</a>.</p>
-  </div>
-</section>
-
-<section id="faq" aria-labelledby="faq-h">
-  <div class="wrap">
-    <h2 id="faq-h">FAQ</h2>
-    <details>
-      <summary>Why do I need to turn off Office's KeyTips?</summary>
-      <p>Office for Mac has its own Option-key KeyTips. If both are on, both react to the same tap.</p>
-    </details>
-    <details>
-      <summary>Why does macOS block the first launch?</summary>
-      <p>The app is not notarized yet. Right-click AltForMac in Applications, choose Open, then Open again. You only do this once.</p>
-    </details>
-    <details>
-      <summary>Does it work on Intel Macs?</summary>
-      <p>The 0.1.0 download is built for Apple Silicon. On an Intel Mac you can build it from source (Option 3 above).</p>
-    </details>
-    <details>
-      <summary>Why does it need Accessibility permission?</summary>
-      <p>It finds and presses menu and ribbon items through the macOS Accessibility API. It only queries menu, ribbon and focus elements, never document content.</p>
-    </details>
-    <details>
-      <summary>Is it safe for destructive commands?</summary>
-      <p>Yes. Office's own confirmation dialogs still appear. AltForMac never auto-confirms.</p>
-    </details>
-    <details>
-      <summary>A sequence is missing or wrong. What can I do?</summary>
-      <p>Mappings are YAML files in the <a href="https://github.com/dtung011/altformac/tree/main/mappings">mappings folder</a>. Open an issue or a pull request on GitHub.</p>
-    </details>
-    <details>
-      <summary>How do I uninstall it?</summary>
-      <p>Quit it from the menu-bar icon, then run <code>brew uninstall --cask altformac</code> or drag it from Applications to the Trash. It installs no background services and writes nothing outside its app bundle. The <a href="https://github.com/dtung011/altformac#uninstall">README</a> lists the optional permission cleanup.</p>
-    </details>
-  </div>
-</section>
+  </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <p><strong>Not affiliated with Microsoft.</strong> AltForMac is an independent project. Microsoft, Excel, Word and PowerPoint are trademarks of the Microsoft group of companies. Microsoft's code is never modified or shipped.</p>
-    <p>MIT licensed · <a href="https://github.com/dtung011/altformac">Source</a> · <a href="https://github.com/dtung011/altformac/blob/main/CHANGELOG.md">Changelog</a> · <a href="https://github.com/dtung011/altformac/releases">Releases</a></p>
+    <p><strong>Not affiliated with Microsoft.</strong> AltForMac is an independent open-source project. Microsoft, Excel, Word and PowerPoint are trademarks of the Microsoft group of companies. Microsoft's code is never modified or shipped.</p>
+    <p>MIT licensed · <a href="https://github.com/dtung011/altformac">Source</a> · <a href="https://github.com/dtung011/altformac/blob/main/CHANGELOG.md">Changelog</a> · <a href="https://github.com/dtung011/altformac#uninstall">Uninstall</a></p>
   </div>
 </footer>
 
-<script>
-  document.querySelectorAll("button[data-copy]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var el = document.getElementById(btn.getAttribute("data-copy"));
-      if (!el || !navigator.clipboard) return;
-      navigator.clipboard.writeText(el.textContent).then(function () {
-        btn.textContent = "Copied";
-        setTimeout(function () { btn.textContent = "Copy"; }, 1500);
-      }, function () {});
-    });
-  });
-</script>
 </body>
 </html>
