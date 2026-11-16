@@ -12,6 +12,8 @@
     <string>13.0</string>
     <key>NSHumanReadableCopyright</key>
     <string>MIT License</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
     <key>CFBundleName</key>
     <string>AltForMac</string>
     <key>CFBundleVersion</key>
