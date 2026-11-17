@@ -36,6 +36,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusLine.isEnabled = false
         menu.addItem(statusLine)
         menu.addItem(.separator())
+        let badgeItem = NSMenuItem(title: "Show key badges on the ribbon", action: #selector(toggleBadges(_:)), keyEquivalent: "")
+        badgeItem.target = self
+        badgeItem.state = AppController.badgesEnabled ? .on : .off
+        menu.addItem(badgeItem)
+        menu.addItem(.separator())
         let uninstallItem = NSMenuItem(title: "Uninstall AltForMac\u{2026}", action: #selector(uninstall), keyEquivalent: "")
         uninstallItem.target = self
         menu.addItem(uninstallItem)
@@ -60,6 +65,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         controller.start()
+    }
+
+    /// Badges drawn on the ribbon, or the small HUD list instead. Only a display preference is stored.
+    @objc private func toggleBadges(_ sender: NSMenuItem) {
+        let enabled = !AppController.badgesEnabled
+        UserDefaults.standard.set(enabled, forKey: AppController.badgesKey)
+        sender.state = enabled ? .on : .off
     }
 
     /// macOS keeps an app's privacy permissions after the app is deleted, and a deleted app cannot clean up.
@@ -93,6 +105,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+UserDefaults.standard.register(defaults: [AppController.badgesKey: true])
 let app = NSApplication.shared
 app.setActivationPolicy(.accessory)
 let delegate = AppDelegate()

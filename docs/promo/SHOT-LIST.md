@@ -30,6 +30,11 @@ wrong, stop and redo it; short re-takes are cheaper than editing.
 
 ## After recording
 
+For the current video, GIF and dropdown picture (zoomed clips, holds on each badge screen, intro and outro
+cards), use `venv/bin/python scripts/make-promo-clips.py recording.mov` and edit the times at the top of it.
+Cards: `swift scripts/make-cards.swift`. The older one-take script below still works for a plain recording.
+
+
 ```sh
 scripts/setup-video-env.sh        # once: creates ./venv with ffmpeg (git-ignored)
 scripts/make-promo.sh ~/Desktop/"Screen Recording ....mov"

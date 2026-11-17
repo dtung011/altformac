@@ -6,7 +6,9 @@ Mac's built-in KeyTips leave out.
 
 Free and open source (MIT). Microsoft's code is never modified or shipped.
 
-**Current version: 0.1.3** | [Download](https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg) | [Website](https://dtung011.github.io/altformac/) | [Changelog](CHANGELOG.md)
+**Current version: 0.1.4** | [Download](https://github.com/dtung011/altformac/releases/latest/download/AltForMac.dmg) | [Website](https://dtung011.github.io/altformac/) | [Changelog](CHANGELOG.md)
+
+<img src="site/promo.gif" width="720" alt="AltForMac in Excel for Mac: tap Option, press H then O, the Format dropdown opens with a letter on each item, and I autofits the columns.">
 
 ## Install step by step
 
@@ -98,7 +100,7 @@ With Excel, Word or PowerPoint in front:
 
 | Keys | What happens |
 | --- | --- |
-| tap Option | start a sequence; a small HUD shows the typed keys and the valid next letters |
+| tap Option | start a sequence; key badges appear on the ribbon tabs, then on the controls of the tab you pick, like Windows Office (a small HUD list shows the letters inside dropdowns, or everywhere if you switch badges off in the menu-bar menu) |
 | letters / digits | follow the Windows sequence, for example `W V G` toggles gridlines |
 | Escape | go up one level (exits at the top) |
 | Backspace | remove the last letter |

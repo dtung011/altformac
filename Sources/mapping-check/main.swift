@@ -10,6 +10,46 @@ import AltForMacKit
 // Dropdown items (`item:`) cannot be checked offline and are counted separately.
 
 let args = Array(CommandLine.arguments.dropFirst())
+
+// Dev probe: `mapping-check mappings/excel.yaml --badges H` lists where the KeyTip badges for the keys
+// typed so far would go in the running app (current ribbon tab). Reads titles and geometry only,
+// presses nothing.
+if let flag = args.firstIndex(of: "--badges") {
+    let keys = args.indices.contains(flag + 1) ? args[flag + 1] : ""
+    let path = args.first { $0.hasSuffix(".yaml") } ?? "mappings/excel.yaml"
+    let probeStem = URL(fileURLWithPath: path).deletingPathExtension().lastPathComponent
+    guard let office = OfficeApp.named(probeStem), let pid = office.running?.processIdentifier,
+          let text = try? String(contentsOfFile: path, encoding: .utf8),
+          let list = try? MappingLoader.load(yaml: text) else { print("cannot probe \(probeStem)"); exit(2) }
+    if let dd = BadgePlanner.dropdown(mappings: list, buffer: keys) {
+        print("dropdown: \(dd.control) on \(dd.tab), \(dd.items.count) items planned")
+        let start = DispatchTime.now()
+        guard let opened = RibbonGeometry.openDropdown(dd, pid: pid, shouldContinue: { true }) else {
+            print("could not open the dropdown (is the \(dd.tab) tab showing?)"); exit(1)
+        }
+        print(String(format: "opened + located %.0f ms", CommandRunner.ms(since: start)))
+        for p in opened.placements {
+            print(String(format: "%-4@ %@  (%.0f, %.0f, %.0f x %.0f)", p.badge.text, p.badge.control,
+                         p.frame.minX, p.frame.minY, p.frame.width, p.frame.height))
+        }
+        print("popup on screen: \(opened.session.isOnScreen(pid: pid))")
+        opened.session.close(pid: pid)
+        Thread.sleep(forTimeInterval: 0.3)
+        print("after Escape, popup on screen: \(opened.session.isOnScreen(pid: pid))")
+        exit(0)
+    }
+    let plan = BadgePlanner.plan(mappings: list, buffer: keys)
+    print("\(plan.count) badges planned for \"\(keys)\"")
+    let start = DispatchTime.now()
+    let placed = RibbonGeometry.place(plan, pid: pid) { true }
+    print(String(format: "lookup %.0f ms", CommandRunner.ms(since: start)))
+    for p in placed ?? [] {
+        print(String(format: "%-4@ %@  (%.0f, %.0f, %.0f x %.0f)", p.badge.text, p.badge.control.isEmpty ? p.badge.tab : p.badge.control,
+                     p.frame.minX, p.frame.minY, p.frame.width, p.frame.height))
+    }
+    if placed == nil { print("ribbon not readable, or the tab is not showing") }
+    exit(0)
+}
 let yamlPath = args.first ?? "mappings/excel.yaml"
 let dumpDir = args.count > 1 ? args[1] : "docs/dumps"
 

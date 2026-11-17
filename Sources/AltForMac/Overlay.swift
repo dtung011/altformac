@@ -1,4 +1,5 @@
 import AppKit
+import AltForMacKit
 
 struct HUDItem {
     let key: Character
@@ -12,6 +13,8 @@ final class Overlay {
     private let effect = NSVisualEffectView()
     private let label = NSTextField(labelWithString: "")
     private var hideWork: DispatchWorkItem?
+    private let badgePanel: NSPanel
+    private let badgeView = BadgeView()
     /// Focused Excel window frame in screen coordinates (top-left origin). Geometry only.
     var anchor: CGRect?
 
@@ -40,6 +43,38 @@ final class Overlay {
         label.lineBreakMode = .byClipping
         effect.addSubview(label)
         panel.contentView = effect
+
+        badgePanel = NSPanel(contentRect: .zero, styleMask: [.borderless, .nonactivatingPanel],
+                             backing: .buffered, defer: false)
+        badgePanel.level = .popUpMenu
+        badgePanel.isOpaque = false
+        badgePanel.backgroundColor = .clear
+        badgePanel.hasShadow = false
+        badgePanel.ignoresMouseEvents = true
+        badgePanel.hidesOnDeactivate = false
+        badgePanel.isReleasedWhenClosed = false
+        badgePanel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary, .ignoresCycle]
+        badgePanel.contentView = badgeView
+    }
+
+    /// KeyTip badges drawn on the ribbon itself, like Windows Office. Replaces the HUD list.
+    func showBadges(_ placements: [BadgePlacement]) {
+        cancelHide()
+        panel.orderOut(nil)
+        guard let primary = NSScreen.screens.first, !placements.isEmpty else { badgePanel.orderOut(nil); return }
+        let margin: CGFloat = 40
+        let union = placements.dropFirst().reduce(placements[0].frame) { $0.union($1.frame) }
+            .insetBy(dx: -margin, dy: -margin)
+        // Screen coordinates here have a top-left origin; Cocoa's have bottom-left.
+        let cocoa = NSRect(x: union.minX, y: primary.frame.height - union.maxY, width: union.width, height: union.height)
+        badgeView.items = placements.map { ($0.badge.text, $0.frame.offsetBy(dx: -union.minX, dy: -union.minY), $0.leading) }
+        badgePanel.setFrame(cocoa, display: false)
+        badgeView.needsDisplay = true
+        badgePanel.orderFrontRegardless()
+    }
+
+    private func hideBadges() {
+        badgePanel.orderOut(nil)
     }
 
     /// Builds the window server resources once, invisibly, so the first real HUD appears instantly.
@@ -54,6 +89,7 @@ final class Overlay {
 
     func show(typed: String, items: [HUDItem]) {
         cancelHide()
+        hideBadges()
         let text = NSMutableAttributedString()
         let mono = NSFont.monospacedSystemFont(ofSize: 15, weight: .semibold)
         let body = NSFont.systemFont(ofSize: 14, weight: .medium)
@@ -72,6 +108,7 @@ final class Overlay {
 
     func flash(_ message: String, isError: Bool, duration: TimeInterval = 1.2) {
         cancelHide()
+        hideBadges()
         let color: NSColor = isError ? NSColor(calibratedRed: 1.0, green: 0.45, blue: 0.42, alpha: 1) : .white
         present(NSAttributedString(string: message,
                                    attributes: [.font: NSFont.systemFont(ofSize: 13, weight: .medium),
@@ -84,6 +121,7 @@ final class Overlay {
     func hide() {
         cancelHide()
         panel.orderOut(nil)
+        hideBadges()
     }
 
     private func cancelHide() {
@@ -111,5 +149,38 @@ final class Overlay {
         }
         let frame = (NSScreen.main ?? NSScreen.screens[0]).visibleFrame
         return NSPoint(x: frame.midX - size.width / 2, y: frame.maxY - 200 - size.height)
+    }
+}
+
+/// Draws the dark letter tags. Positions are relative to the panel, top-left origin.
+private final class BadgeView: NSView {
+    var items: [(text: String, frame: CGRect, leading: Bool)] = []
+    override var isFlipped: Bool { true }
+
+    override func draw(_ dirtyRect: NSRect) {
+        let font = NSFont.systemFont(ofSize: 11, weight: .bold)
+        let attributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: NSColor.white]
+        for item in items {
+            let size = (item.text as NSString).size(withAttributes: attributes)
+            let width = max(size.width + 9, 17)
+            let height: CGFloat = 16
+            // Under the control, overlapping its bottom edge, like Windows KeyTips. Items of an open
+            // dropdown get the badge on their left edge, centered vertically.
+            var rect = item.leading
+                ? NSRect(x: item.frame.minX + 3, y: item.frame.midY - height / 2, width: width, height: height)
+                : NSRect(x: item.frame.midX - width / 2, y: item.frame.maxY - height * 0.75, width: width, height: height)
+            rect.origin.x = min(max(rect.origin.x, 0), bounds.width - width)
+            rect.origin.y = min(max(rect.origin.y, 0), bounds.height - height)
+            // Windows Office KeyTip look: mid-grey tag (#626364, sampled from Windows Excel), white bold
+            // letters, small corners. A thin light edge keeps it visible on Excel's dark ribbon too.
+            let path = NSBezierPath(roundedRect: rect, xRadius: 2, yRadius: 2)
+            NSColor(srgbRed: 98 / 255, green: 99 / 255, blue: 100 / 255, alpha: 1).setFill()
+            path.fill()
+            NSColor(white: 1, alpha: 0.55).setStroke()
+            path.lineWidth = 0.5
+            path.stroke()
+            (item.text as NSString).draw(at: NSPoint(x: rect.midX - size.width / 2, y: rect.midY - size.height / 2),
+                                         withAttributes: attributes)
+        }
     }
 }

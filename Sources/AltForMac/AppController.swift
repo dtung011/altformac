@@ -25,6 +25,17 @@ final class AppController {
     /// Window-geometry lookups get their own queue so they can never delay a command.
     private let anchorQueue = DispatchQueue(label: "altformac.anchor", qos: .utility)
 
+    /// Badge lookups read the ribbon through Accessibility. Own queue, so they can never delay a command, and
+    /// a generation number so a lookup that a newer key made stale stops early and draws nothing.
+    private let badgeQueue = DispatchQueue(label: "altformac.badges", qos: .userInitiated)
+    private let badgeGeneration = Generation()
+    /// The ribbon dropdown AltForMac opened to badge its items (at most one), closed before a command runs.
+    private let dropdown = DropdownHolder()
+
+    /// Menu-bar switch: KeyTip badges on the ribbon (default) or the HUD list.
+    static let badgesKey = "showRibbonBadges"
+    static var badgesEnabled: Bool { UserDefaults.standard.bool(forKey: badgesKey) }
+
     /// Built once before the tap starts, read-only afterwards.
     private var contexts: [String: Context] = [:]
 
@@ -46,6 +57,7 @@ final class AppController {
     enum Status { case ready, needsPermission, appSlow, bundleModified }
 
     func start() {
+        UserDefaults.standard.register(defaults: [Self.badgesKey: true])
         loadMappings()
         overlay.prewarm()
         capture.handler = { [weak self] input in self?.handle(input) ?? false }
@@ -236,22 +248,94 @@ final class AppController {
             let released = optionReleasedAt
             optionReleasedAt = nil
             let office = app
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                self.overlay.show(typed: buffer, items: hud)
-                if let released {
-                    self.log(String(format: "latency: option release -> HUD %.1f ms", CommandRunner.ms(since: released)))
-                    if let office { self.refreshAnchor(office) }
+            let generation = badgeGeneration.bump()
+            let plan = Self.badgesEnabled ? BadgePlanner.plan(mappings: mappings, buffer: buffer) : []
+            let dropdownPlan = Self.badgesEnabled && plan.isEmpty
+                ? BadgePlanner.dropdown(mappings: mappings, buffer: buffer) : nil
+            closeDropdownLater(pid: office?.running?.processIdentifier)
+            if let dropdownPlan, let pid = office?.running?.processIdentifier {
+                showDropdown(dropdownPlan, typed: buffer, hud: hud, pid: pid, generation: generation, released: released)
+            } else if plan.isEmpty {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    self.overlay.show(typed: buffer, items: hud)
+                    if let released {
+                        self.log(String(format: "latency: option release -> HUD %.1f ms", CommandRunner.ms(since: released)))
+                        if let office { self.refreshAnchor(office) }
+                    }
                 }
+            } else if let pid = office?.running?.processIdentifier {
+                showBadges(plan, typed: buffer, hud: hud, pid: pid, generation: generation, released: released)
             }
             armTimers(buffer: buffer)
             switchTabIfTabKey(buffer)
         case .execute(let mapping, _):
+            badgeGeneration.bump()
             execute(mapping, lastKeyAt: .now())
         case .invalid:
+            badgeGeneration.bump()
+            closeDropdownLater(pid: app?.running?.processIdentifier)
             DispatchQueue.main.async { [weak self] in self?.overlay.flash("No command for that key", isError: true, duration: 2) }
         case .hide:
+            badgeGeneration.bump()
+            closeDropdownLater(pid: app?.running?.processIdentifier)
             DispatchQueue.main.async { [weak self] in self?.overlay.hide() }
+        }
+    }
+
+    /// Input thread. Takes down a dropdown opened for item badges, after any lookup already queued.
+    private func closeDropdownLater(pid: pid_t?) {
+        guard let pid else { return }
+        badgeQueue.async { [dropdown] in dropdown.closeNow(pid: pid) }
+    }
+
+    /// Input thread. Opens the dropdown the typed keys lead to (AXShowMenu) and puts a badge on each item.
+    /// Falls back to the HUD list when it cannot be opened.
+    private func showDropdown(_ plan: DropdownPlan, typed: String, hud: [HUDItem], pid: pid_t,
+                              generation: Int, released: DispatchTime?) {
+        let counter = badgeGeneration
+        badgeQueue.async { [weak self] in
+            guard let self, counter.value == generation else { return }
+            let opened = RibbonGeometry.openDropdown(plan, pid: pid) { counter.value == generation }
+            if let opened {
+                self.dropdown.set(opened.session)
+                if counter.value != generation { self.dropdown.closeNow(pid: pid); return }   // a newer key arrived meanwhile
+            }
+            DispatchQueue.main.async { [weak self] in
+                guard let self, counter.value == generation else { return }
+                if let opened, !opened.placements.isEmpty {
+                    self.overlay.showBadges(opened.placements)
+                    if let released {
+                        self.log(String(format: "latency: option release -> dropdown badges %.1f ms (%d)",
+                                        CommandRunner.ms(since: released), opened.placements.count))
+                    }
+                } else {
+                    self.overlay.show(typed: typed, items: hud)
+                }
+            }
+        }
+    }
+
+    /// Input thread. Looks the controls up on `badgeQueue` and draws the badges on the main thread. When the
+    /// ribbon cannot be read (or nothing is on screen for this level) it falls back to the HUD list.
+    private func showBadges(_ plan: [RibbonBadge], typed: String, hud: [HUDItem], pid: pid_t,
+                            generation: Int, released: DispatchTime?) {
+        let counter = badgeGeneration
+        badgeQueue.async { [weak self] in
+            guard counter.value == generation else { return }
+            let placed = RibbonGeometry.place(plan, pid: pid) { counter.value == generation }
+            DispatchQueue.main.async { [weak self] in
+                guard let self, counter.value == generation else { return }
+                if let placed, !placed.isEmpty {
+                    self.overlay.showBadges(placed)
+                    if let released {
+                        self.log(String(format: "latency: option release -> badges %.1f ms (%d)",
+                                        CommandRunner.ms(since: released), placed.count))
+                    }
+                } else {
+                    self.overlay.show(typed: typed, items: hud)
+                }
+            }
         }
     }
 
@@ -305,6 +389,7 @@ final class AppController {
 
         runQueue.async { [weak self] in
             guard let self else { return }
+            self.dropdown.closeNow(pid: pid)   // a dropdown opened for badges must be gone before the command runs
             let report = self.runner.run(mapping, pid: pid)
             self.capture.perform { [weak self] in
                 guard let self, self.runToken == token else { return }
@@ -386,5 +471,36 @@ final class AppController {
 
     private func log(_ message: String) {
         FileHandle.standardError.write(Data("[altformac] \(message)\n".utf8))
+    }
+}
+
+/// Counter shared between the input thread and the badge queue: bumping it makes older lookups stale.
+final class Generation: @unchecked Sendable {
+    private let lock = NSLock()
+    private var number = 0
+
+    var value: Int { lock.lock(); defer { lock.unlock() }; return number }
+
+    @discardableResult
+    func bump() -> Int { lock.lock(); defer { lock.unlock() }; number += 1; return number }
+}
+
+/// Holds the dropdown AltForMac has open, shared between the badge queue and the run queue.
+final class DropdownHolder: @unchecked Sendable {
+    private let lock = NSLock()
+    private var session: DropdownSession?
+
+    func set(_ new: DropdownSession) {
+        lock.lock(); defer { lock.unlock() }
+        session = new
+    }
+
+    /// Closes the open dropdown, if any. Safe to call when none is open.
+    func closeNow(pid: pid_t) {
+        lock.lock()
+        let current = session
+        session = nil
+        lock.unlock()
+        current?.close(pid: pid)
     }
 }

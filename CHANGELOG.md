@@ -11,6 +11,25 @@ Each release also has user-facing notes in [docs/release-notes/](docs/release-no
 
 Nothing yet.
 
+## [0.1.4] - 2026-11-17
+
+### Added
+- Key badges on the ribbon, like the KeyTips in Windows Office, in Excel, Word and PowerPoint. Tap Option and
+  every tab shows its letter; type a tab letter and each control of that tab shows the letters to type next
+  (for example `M` on Merge & Center, `AC` on Center). When the letters lead to a dropdown (`H O` for Format,
+  `H M` for Merge & Center), AltForMac opens Excel's real dropdown and puts a badge on each item, so `I` is on
+  "AutoFit Column Width". It opens the dropdown with the Accessibility "show menu" action, never a press, and
+  closes it (Escape, only while it is showing) before the chosen command runs. The small HUD list is still used
+  inside sub-menus and when the ribbon cannot be read. The menu-bar item
+  "Show key badges on the ribbon" switches between badges and the HUD list. Badges are placed from the ribbon's
+  titles and positions only; no document content is read.
+- `mapping-check <file> --badges <keys>` prints where the badges would go in the running app (dev tool,
+  presses nothing).
+
+### Changed
+- The promo video on the website is re-recorded with the badges, plus a GIF and a picture of the Format
+  dropdown. `scripts/make-promo-clips.py` and `scripts/make-cards.swift` build them.
+
 ## [0.1.3] - 2026-11-16
 
 ### Security
@@ -76,7 +95,8 @@ Nothing yet.
 - Option is not skipped while you are editing a cell.
 - No user overrides file and no kill switch yet.
 
-[Unreleased]: https://github.com/dtung011/altformac/compare/v0.1.3...HEAD
+[Unreleased]: https://github.com/dtung011/altformac/compare/v0.1.4...HEAD
+[0.1.4]: https://github.com/dtung011/altformac/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/dtung011/altformac/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/dtung011/altformac/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/dtung011/altformac/compare/v0.1.0...v0.1.1
