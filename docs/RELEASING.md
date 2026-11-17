@@ -33,5 +33,7 @@ into the app's Info.plist and the DMG file name.
 7. **Homebrew.** In the `homebrew-altformac` tap, update `version` and `sha256` in `Casks/altformac.rb`,
    run `brew audit --cask --online dtung011/altformac/altformac`, and push.
    Keep `packaging/homebrew/altformac.rb` in this repo in sync.
+   Browsers cache the site's video and pictures (GitHub Pages sends `max-age=600`), so when you replace a media
+   file, change the `?v=` number on its URL in `site/index.html` (the video, poster and pictures use the version).
 8. **Verify** by downloading the DMG from the release page on a clean Mac (or `brew install --cask`) and
    running `AltForMac.app/Contents/MacOS/AltForMac --self-test`.
